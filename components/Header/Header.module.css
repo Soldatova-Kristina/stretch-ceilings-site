@@ -1,0 +1,398 @@
+/* ========================================
+   HEADER CONTAINER
+   ======================================== */
+
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: var(--color-white);
+  box-shadow: var(--shadow-sm);
+  z-index: var(--z-sticky);
+  height: var(--header-height);
+}
+
+.container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-lg);
+}
+
+/* ========================================
+   LOGO
+   ======================================== */
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: opacity var(--transition-fast);
+  white-space: nowrap;
+}
+
+.logo:hover {
+  opacity: 0.8;
+}
+
+.logoText {
+  display: inline-block;
+}
+
+@media (min-width: 1024px) {
+  .logo {
+    font-size: 24px;
+  }
+}
+
+/* ========================================
+   DESKTOP NAVIGATION
+   ======================================== */
+
+.nav {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .nav {
+    display: block;
+    flex: 1;
+  }
+}
+
+.navList {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-lg);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navItem {
+  position: relative;
+}
+
+.navLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--font-size-nav);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+  cursor: pointer;
+  background: none;
+  border: none;
+  white-space: nowrap;
+}
+
+.navLink:hover {
+  color: var(--color-primary);
+}
+
+.navLink.active {
+  color: var(--color-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* ========================================
+   DROPDOWN MENU
+   ======================================== */
+
+.dropdown {
+  position: relative;
+}
+
+.dropdownToggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.dropdownIcon {
+  transition: transform var(--transition-fast);
+}
+
+.dropdownIcon.open {
+  transform: rotate(180deg);
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+  background: var(--color-white);
+  box-shadow: var(--shadow-md);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-sm);
+  list-style: none;
+  margin: var(--spacing-xs) 0 0 0;
+  animation: dropdownFadeIn var(--transition-fast);
+}
+
+@keyframes dropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdownLink {
+  display: block;
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-primary);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.dropdownLink:hover {
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+.dropdownLink.active {
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+  font-weight: var(--font-weight-medium);
+}
+
+/* ========================================
+   CTA BUTTON
+   ======================================== */
+
+.ctaButton {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .ctaButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    font-size: var(--font-size-button);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-white);
+    background: var(--color-primary);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: background-color var(--transition-fast);
+    white-space: nowrap;
+  }
+
+  .ctaButton:hover {
+    background: var(--color-primary-hover);
+  }
+}
+
+/* ========================================
+   MOBILE MENU TOGGLE
+   ======================================== */
+
+.mobileMenuToggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+@media (min-width: 1024px) {
+  .mobileMenuToggle {
+    display: none;
+  }
+}
+
+.hamburger {
+  position: relative;
+  width: 24px;
+  height: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--color-text-primary);
+  transition: all var(--transition-base);
+  border-radius: 2px;
+}
+
+.hamburger.open span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ========================================
+   MOBILE MENU
+   ======================================== */
+
+.mobileMenu {
+  position: fixed;
+  top: var(--header-height);
+  right: 0;
+  width: 100%;
+  max-width: 320px;
+  height: calc(100vh - var(--header-height));
+  background: var(--color-white);
+  box-shadow: var(--shadow-lg);
+  transform: translateX(100%);
+  transition: transform var(--transition-base);
+  overflow-y: auto;
+  z-index: var(--z-fixed);
+  padding: var(--spacing-lg);
+}
+
+.mobileMenu.open {
+  transform: translateX(0);
+}
+
+@media (min-width: 1024px) {
+  .mobileMenu {
+    display: none;
+  }
+}
+
+.mobileNavList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mobileNavItem {
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.mobileNavItem:last-child {
+  border-bottom: none;
+}
+
+.mobileNavLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: var(--spacing-md) 0;
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: color var(--transition-fast);
+}
+
+.mobileNavLink:hover,
+.mobileNavLink.active {
+  color: var(--color-primary);
+}
+
+.mobileNavLink.subLink {
+  padding-left: var(--spacing-lg);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-body-small);
+}
+
+.mobileDropdownMenu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  animation: mobileDropdownSlide var(--transition-base);
+}
+
+@keyframes mobileDropdownSlide {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 200px;
+  }
+}
+
+.mobileCtaButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: var(--spacing-md);
+  margin-top: var(--spacing-lg);
+  font-size: var(--font-size-button);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-white);
+  background: var(--color-primary);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: background-color var(--transition-fast);
+}
+
+.mobileCtaButton:hover {
+  background: var(--color-primary-hover);
+}
+
+/* ========================================
+   MOBILE MENU OVERLAY
+   ======================================== */
+
+.overlay {
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: calc(var(--z-fixed) - 1);
+  animation: overlayFadeIn var(--transition-base);
+}
+
+@keyframes overlayFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (min-width: 1024px) {
+  .overlay {
+    display: none;
+  }
+}
