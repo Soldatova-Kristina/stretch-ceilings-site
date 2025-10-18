@@ -156,7 +156,7 @@ export default function Header() {
 
         {/* CTA Button */}
         <a href="tel:+79001234567" className={styles.ctaButton}>
-          Позвонить
+          ЗАПИСАТЬСЯ НА ЗАМЕР
         </a>
 
         {/* Mobile Menu Toggle */}

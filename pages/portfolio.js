@@ -13,14 +13,7 @@ export async function getStaticProps() {
 export default function Portfolio() {
   return (
     <div className="container" style={{ padding: 'var(--spacing-section) 0' }}>
-      <h1>Портфолио</h1>
-      <p>
-        Здесь вы можете ознакомиться с примерами наших выполненных проектов.
-        Каждая работа выполнена с вниманием к деталям и в соответствии с пожеланиями клиентов.
-      </p>
-      <div style={{ marginTop: 'var(--spacing-xl)' }}>
-        <p><em>Раздел в разработке. Скоро здесь появится галерея наших лучших работ.</em></p>
-      </div>
+      <h1>Наши работы</h1>
     </div>
   );
 }
