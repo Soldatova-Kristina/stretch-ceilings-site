@@ -17,43 +17,31 @@ export default function Home() {
     <div className={styles.page}>
       <section className={styles.hero}>
         <div className="container">
-          <h1>Натяжные потолки и стены</h1>
-          <p className={styles.lead}>
-            Преобразите ваше пространство с помощью современных натяжных конструкций. 
-            Быстрая установка, долговечность и безупречный внешний вид.
-          </p>
-          <div className={styles.ctas}>
-            <a href="/contacts" className={styles.primaryButton}>
-              Бесплатный замер
-            </a>
-            <a href="/portfolio" className={styles.secondaryButton}>
-              Наши работы
-            </a>
-          </div>
+          <h1>Hero</h1>
         </div>
       </section>
 
       <section className={styles.features}>
         <div className="container">
-          <h2>Почему выбирают нас</h2>
-          <div className={styles.featureGrid}>
-            <div className={styles.feature}>
-              <h3>Опыт</h3>
-              <p>Более 10 лет на рынке натяжных потолков</p>
-            </div>
-            <div className={styles.feature}>
-              <h3>Качество</h3>
-              <p>Используем только сертифицированные материалы</p>
-            </div>
-            <div className={styles.feature}>
-              <h3>Гарантия</h3>
-              <p>Предоставляем гарантию на все виды работ</p>
-            </div>
-            <div className={styles.feature}>
-              <h3>Цены</h3>
-              <p>Доступные цены без скрытых платежей</p>
-            </div>
-          </div>
+          <h2>О Нас</h2>
+        </div>
+      </section>
+
+      <section className={styles.features}>
+        <div className="container">
+          <h2>Наши преимущества</h2>
+        </div>
+      </section>
+
+      <section className={styles.features}>
+        <div className="container">
+          <h2>Наши услуги</h2>
+        </div>
+      </section>
+
+      <section className={styles.features}>
+        <div className="container">
+          <h2>Этапы работы</h2>
         </div>
       </section>
     </div>
