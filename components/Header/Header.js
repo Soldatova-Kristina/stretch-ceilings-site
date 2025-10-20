@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 import styles from './Header.module.css';
 
@@ -10,6 +11,7 @@ export default function Header() {
   const router = useRouter();
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
   // Close mobile menu on route change
   useEffect(() => {
@@ -23,6 +25,23 @@ export default function Header() {
       router.events.off('routeChangeComplete', handleRouteChange);
     };
   }, [router.events]);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsServicesOpen(false);
+      }
+    };
+
+    if (isServicesOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isServicesOpen]);
 
   // Close mobile menu on escape key
   useEffect(() => {
@@ -46,32 +65,37 @@ export default function Header() {
     };
   }, [isMobileMenuOpen]);
 
-  // Check if link is active
-  const isActive = (path) => {
+  // Check if link is active (memoized)
+  const isActive = useCallback((path) => {
     if (path === '/') {
       return router.pathname === '/';
     }
     return router.pathname.startsWith(path);
-  };
+  }, [router.pathname]);
 
-  // Toggle services dropdown
-  const toggleServices = (e) => {
+  // Toggle services dropdown (memoized)
+  const toggleServices = useCallback((e) => {
     e.preventDefault();
-    setIsServicesOpen(!isServicesOpen);
-  };
+    setIsServicesOpen(prev => !prev);
+  }, []);
 
-  // Handle services dropdown keyboard navigation
-  const handleServicesKeyDown = (e) => {
+  // Handle services dropdown keyboard navigation (memoized)
+  const handleServicesKeyDown = useCallback((e) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
-      setIsServicesOpen(!isServicesOpen);
+      setIsServicesOpen(prev => !prev);
+    } else if (e.key === 'Escape') {
+      setIsServicesOpen(false);
     }
-  };
+  }, []);
 
-  // Navigation items
-  const navItems = [
+  // Determine current display mode based on route
+  const isHomepage = router.pathname === '/';
+  const isServicesPage = router.pathname.startsWith('/services/');
+
+  // Base navigation items
+  const allNavItems = [
     { href: '/', label: 'Главная' },
-    { href: '/about', label: 'О нас' },
     { 
       label: 'Услуги',
       dropdown: true,
@@ -80,18 +104,41 @@ export default function Header() {
         { href: '/services/walls', label: 'Стены' },
       ]
     },
-    { href: '/portfolio', label: 'Портфолио' },
-    { href: '/reviews', label: 'Отзывы' },
+    { href: '/portfolio', label: 'Наши работы' },
     { href: '/faq', label: 'FAQ' },
+    { href: '/reviews', label: 'Отзывы' },
     { href: '/contacts', label: 'Контакты' },
   ];
 
+  // Filter navigation items based on current page mode
+  const getNavItems = () => {
+    if (isServicesPage) {
+      // Services mode: Show only Главная, Потолки, Стены (no dropdown)
+      return [
+        { href: '/', label: 'Главная' },
+        { href: '/services/ceilings', label: 'Потолки' },
+        { href: '/services/walls', label: 'Стены' },
+      ];
+    }
+    // Homepage and Standard mode: Show all items with dropdown
+    return allNavItems;
+  };
+
+  const navItems = getNavItems();
+
   return (
-    <header className={styles.header}>
+    <header className={styles.header} data-mode={isHomepage ? 'homepage' : isServicesPage ? 'services' : 'standard'}>
       <div className={styles.container}>
         {/* Logo */}
-        <Link href="/" className={styles.logo}>
-          <span className={styles.logoText}>СтретчПотолки</span>
+        <Link href="/" className={styles.logo} aria-label="Перейти на главную страницу">
+          <Image
+            src="/icons/logotype.svg"
+            alt="Логотип Питер Потолок"
+            width={112}
+            height={90}
+            priority
+            className={styles.logoImg}
+          />
         </Link>
 
         {/* Desktop Navigation */}
@@ -100,7 +147,7 @@ export default function Header() {
             {navItems.map((item, index) => (
               <li key={index} className={styles.navItem}>
                 {item.dropdown ? (
-                  <div className={styles.dropdown}>
+                  <div className={styles.dropdown} ref={dropdownRef}>
                     <button
                       className={`${styles.navLink} ${styles.dropdownToggle} ${
                         isActive('/services') ? styles.active : ''
@@ -154,10 +201,21 @@ export default function Header() {
           </ul>
         </nav>
 
-        {/* CTA Button */}
-        <a href="tel:+79001234567" className={styles.ctaButton}>
-          ЗАПИСАТЬСЯ НА ЗАМЕР
-        </a>
+        {/* CTA Button - Hidden on homepage */}
+        {!isHomepage && (
+          <a 
+            href="https://t.me/piterpotolok" 
+            className={styles.ctaButton}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Записаться на замер в Telegram"
+          >
+            <span className={styles.ctaText}>ЗАПИСАТЬСЯ НА ЗАМЕР</span>
+            <svg className={styles.ctaArrow} width="38" height="12" viewBox="0 0 38 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M37.5303 6.53033C37.8232 6.23744 37.8232 5.76256 37.5303 5.46967L32.7574 0.696699C32.4645 0.403806 31.9896 0.403806 31.6967 0.696699C31.4038 0.989593 31.4038 1.46447 31.6967 1.75736L35.9393 6L31.6967 10.2426C31.4038 10.5355 31.4038 11.0104 31.6967 11.3033C31.9896 11.5962 32.4645 11.5962 32.7574 11.3033L37.5303 6.53033ZM0 6.75H37V5.25H0V6.75Z" fill="currentColor"/>
+            </svg>
+          </a>
+        )}
 
         {/* Mobile Menu Toggle */}
         <button
@@ -178,7 +236,7 @@ export default function Header() {
       <div className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.open : ''}`}>
         <nav aria-label="Мобильная навигация">
           <ul className={styles.mobileNavList}>
-            {navItems.map((item, index) => (
+            {allNavItems.map((item, index) => (
               <li key={index} className={styles.mobileNavItem}>
                 {item.dropdown ? (
                   <>
@@ -232,7 +290,13 @@ export default function Header() {
           </ul>
           
           {/* Mobile CTA */}
-          <a href="tel:+79001234567" className={styles.mobileCtaButton}>
+          <a 
+            href="https://t.me/piterpotolok" 
+            className={styles.mobileCtaButton}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Связаться через Telegram"
+          >
             Позвонить
           </a>
         </nav>

@@ -1,0 +1,97 @@
+.pageWrapper {
+  min-height: 100vh;
+  background: var(--color-background);
+  background-image: url('/images/texture/faq_background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.title {
+  font-family: var(--font-family-gilda);
+  font-size: var(--font-size-h1, 48px);
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 60px;
+  color: var(--color-text-secondary, #ffffff);
+  line-height: 1.2;
+}
+
+.faqList {
+  list-style: none;
+  padding: 0;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faqItem {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  margin-bottom: 1.2rem;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(4px);
+}
+
+.question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 28px;
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-family-medium);
+  font-size: var(--font-size-body-large, 20px);
+  color: var(--color-text-secondary, #ffffff);
+  text-align: left;
+  transition: all var(--transition-fast);
+}
+
+.question:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.number {
+  font-family: var(--font-family-medium);
+  font-weight: bold;
+  margin-right: 20px;
+  color: var(--color-text-secondary, #ffffff);
+  font-size: var(--font-size-body-large, 20px);
+}
+
+.text {
+  flex: 1;
+  padding-right: 1rem;
+}
+
+.icon {
+  font-size: 28px;
+  color: var(--color-text-secondary, #ffffff);
+  transition: transform var(--transition-fast);
+}
+
+.question:hover .icon {
+  transform: scale(1.1);
+}
+
+.answer {
+  padding: 0 28px 24px 28px;
+  font-family: var(--font-family-regular);
+  font-size: var(--font-size-body, 16px);
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  animation: slideDown var(--transition-base);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 200px;
+  }
+}

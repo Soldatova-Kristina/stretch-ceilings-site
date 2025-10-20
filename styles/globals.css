@@ -1,5 +1,4 @@
 /* GILROY FONT FAMILY DECLARATIONS */
-
 @font-face {
   font-family: 'Gilroy-Light';
   src: url('/fonts/Gilroy-Light.woff2') format('woff2'),
@@ -40,11 +39,12 @@
 
 :root {
   /* Color System */
-
   --color-text-primary: #000000;
   --color-text-secondary: #ffffff;
   --color-text-tertiary: #6F3D3D;
   --color-text-light-black: #1b1b1b;
+
+  --color-primary-hover: #d6d6d6;
 
   --color-background: #353535;
   --color-background-about-us: linear-gradient(180deg, #1B1B1B 0%, #353535 60.58%);
@@ -69,18 +69,6 @@
   --font-size-header: 16px;
   --font-size-footer: 20px;
   
-  /* Line Heights */
-
-  /* Font Weights */
-  --font-weight-light: 300;
-  --font-weight-regular: 400;
-  --font-weight-medium: 500;
-  --font-weight-semibold: 600;
-  --font-weight-bold: 700;
-  --font-weight-extrabold: 800;
-  
-  /* Spacing Scale (8px base unit) */
-
 
   /* Container and Layout */
   --container-max-width: 1200px;
@@ -243,7 +231,7 @@ p:last-child {
    ======================================== */
 
 a {
-  color: var(--color-primary);
+  color: var(--color-primary-hover);
   text-decoration: none;
   transition: color var(--transition-fast);
 }
@@ -273,7 +261,7 @@ button {
 }
 
 button:focus-visible {
-  outline: 2px solid var(--color-primary);
+  outline: 2px solid var(--color-primary-hover);
   outline-offset: 2px;
 }
 
