@@ -1,115 +1,102 @@
-/* ========================================
-   HEADER CONTAINER
-   ======================================== */
-
 .header {
   position: sticky;
   top: 0;
   left: 0;
   right: 0;
-  background: var(--color-white);
-  box-shadow: var(--shadow-sm);
+  background: url('/images/texture/white_texture.jpg');
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   z-index: var(--z-sticky);
-  height: var(--header-height);
+  height: 70px;
 }
 
 .container {
-  max-width: var(--container-max-width);
+  max-width: 1480px;
   margin: 0 auto;
-  padding: 0 var(--container-padding);
   height: 100%;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--spacing-lg);
 }
-
-/* ========================================
-   LOGO
-   ======================================== */
 
 .logo {
   display: flex;
   align-items: center;
-  font-size: 20px;
   font-weight: var(--font-weight-bold);
-  color: var(--color-primary);
+  color: var(--color-text-primary, #000000);
   text-decoration: none;
   transition: opacity var(--transition-fast);
   white-space: nowrap;
 }
 
-.logo:hover {
-  opacity: 0.8;
+.logoImg {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
 }
-
-.logoText {
-  display: inline-block;
-}
-
-@media (min-width: 1024px) {
-  .logo {
-    font-size: 24px;
-  }
-}
-
-/* ========================================
-   DESKTOP NAVIGATION
-   ======================================== */
 
 .nav {
   display: none;
 }
 
-@media (min-width: 1024px) {
-  .nav {
-    display: block;
-    flex: 1;
-  }
-}
-
 .navList {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: var(--spacing-lg);
+  justify-content: flex-start;
+  gap: 40px;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
+/* Homepage mode - full navigation width */
+.header[data-mode="homepage"] .navList {
+  width: 623px;
+  padding-left: 10px;
+  padding-right: 30px;
+}
+
+/* Services mode - limited navigation width */
+.header[data-mode="services"] .navList {
+  width: 315px;
+  padding-left: 10px;
+  margin-right: 534px;
+}
+
+/* Standard mode - full navigation width */
+.header[data-mode="standard"] .navList {
+  width: 623px;
+  padding-left: 10px;
+  margin-right: 226px;
+}
+
 .navItem {
+  margin-right: 6px;
   position: relative;
 }
 
 .navLink {
   display: inline-flex;
   align-items: center;
-  gap: var(--spacing-xs);
-  padding: var(--spacing-sm) var(--spacing-md);
-  font-size: var(--font-size-nav);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-text-primary);
+  gap: 8px;
+  font-family: var(--font-family-medium, 'Gilroy-Medium', sans-serif);
+  font-size: 16px;
+  color: #000000;
   text-decoration: none;
   transition: color var(--transition-fast);
   cursor: pointer;
   background: none;
   border: none;
   white-space: nowrap;
+  line-height: 1.2;
 }
 
 .navLink:hover {
-  color: var(--color-primary);
+  color: #6D4C49;
 }
 
 .navLink.active {
-  color: var(--color-primary);
-  font-weight: var(--font-weight-semibold);
+  color: #6D4C49;
+  font-weight: 600;
 }
-
-/* ========================================
-   DROPDOWN MENU
-   ======================================== */
 
 .dropdown {
   position: relative;
@@ -118,11 +105,13 @@
 .dropdownToggle {
   display: inline-flex;
   align-items: center;
-  gap: var(--spacing-xs);
+  gap: 8px;
 }
 
 .dropdownIcon {
   transition: transform var(--transition-fast);
+  width: 12px;
+  height: 8px;
 }
 
 .dropdownIcon.open {
@@ -134,13 +123,13 @@
   top: 100%;
   left: 0;
   min-width: 200px;
-  background: var(--color-white);
-  box-shadow: var(--shadow-md);
-  border-radius: var(--radius-md);
-  padding: var(--spacing-sm);
+  background: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  padding: 8px;
   list-style: none;
-  margin: var(--spacing-xs) 0 0 0;
-  animation: dropdownFadeIn var(--transition-fast);
+  margin: 8px 0 0 0;
+  animation: dropdownFadeIn 150ms ease-in-out;
 }
 
 @keyframes dropdownFadeIn {
@@ -156,58 +145,45 @@
 
 .dropdownLink {
   display: block;
-  padding: var(--spacing-sm) var(--spacing-md);
-  font-size: var(--font-size-body);
-  font-weight: var(--font-weight-regular);
-  color: var(--color-text-primary);
+  padding: 8px 16px;
+  font-family: var(--font-family-regular, 'Gilroy-Regular', sans-serif);
+  font-size: 16px;
+  font-weight: 400;
+  color: #000000;
   text-decoration: none;
-  border-radius: var(--radius-sm);
+  border-radius: 4px;
   transition: background-color var(--transition-fast), color var(--transition-fast);
 }
 
 .dropdownLink:hover {
-  background-color: var(--color-primary-light);
-  color: var(--color-primary);
+  background-color: #F5F5F5;
+  color: #6D4C49;
 }
 
 .dropdownLink.active {
-  background-color: var(--color-primary-light);
-  color: var(--color-primary);
-  font-weight: var(--font-weight-medium);
+  background-color: #F5F5F5;
+  color: #6D4C49;
+  font-weight: 500;
 }
-
-/* ========================================
-   CTA BUTTON
-   ======================================== */
 
 .ctaButton {
   display: none;
 }
 
-@media (min-width: 1024px) {
-  .ctaButton {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: var(--spacing-sm) var(--spacing-lg);
-    font-size: var(--font-size-button);
-    font-weight: var(--font-weight-medium);
-    color: var(--color-white);
-    background: var(--color-primary);
-    border-radius: var(--radius-md);
-    text-decoration: none;
-    transition: background-color var(--transition-fast);
-    white-space: nowrap;
-  }
-
-  .ctaButton:hover {
-    background: var(--color-primary-hover);
-  }
+.ctaText {
+  margin-right: 15px;
+  flex: 1;
+  text-align: center;
 }
 
-/* ========================================
-   MOBILE MENU TOGGLE
-   ======================================== */
+.ctaArrow {
+  width: 38px;
+  height: 12px;
+  margin-right: 18px;
+  flex-shrink: 0;
+  color: #000000;
+  transition: color var(--transition-fast);
+}
 
 .mobileMenuToggle {
   display: flex;
@@ -219,12 +195,6 @@
   border: none;
   cursor: pointer;
   padding: 0;
-}
-
-@media (min-width: 1024px) {
-  .mobileMenuToggle {
-    display: none;
-  }
 }
 
 .hamburger {
@@ -257,10 +227,6 @@
   transform: translateY(-8px) rotate(-45deg);
 }
 
-/* ========================================
-   MOBILE MENU
-   ======================================== */
-
 .mobileMenu {
   position: fixed;
   top: var(--header-height);
@@ -279,12 +245,6 @@
 
 .mobileMenu.open {
   transform: translateX(0);
-}
-
-@media (min-width: 1024px) {
-  .mobileMenu {
-    display: none;
-  }
 }
 
 .mobileNavList {
@@ -367,10 +327,6 @@
   background: var(--color-primary-hover);
 }
 
-/* ========================================
-   MOBILE MENU OVERLAY
-   ======================================== */
-
 .overlay {
   position: fixed;
   top: var(--header-height);
@@ -391,7 +347,71 @@
   }
 }
 
+/* MEDIA QUERIES — large to small */
+
 @media (min-width: 1024px) {
+  .header {
+    height: 90px;
+  }
+
+  .container {
+    padding: 0;
+    gap: 0;
+  }
+
+  .logo {
+    height: 79px;
+    margin-top: 4.5px;
+    margin-left: 113px;
+    margin-right: 18px;
+  }
+
+  .nav {
+    display: block;
+    flex: 0 0 auto;
+  }
+
+  .navLink {
+    padding-top: 35.5px;
+    padding-bottom: 35.5px;
+  }
+
+  .ctaButton {
+    margin-top: 23px;
+    display: inline-flex;
+    align-items: center;
+    width: 286px;
+        height: 44px;
+        font-family: var(--font-family-medium, 'Gilroy-Medium', sans-serif);
+        font-size: 16px;
+        font-weight: 500;
+        color: #000000;
+        background: transparent;
+        border: 1px solid #000000;
+        border-radius: 20px;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: all var(--transition-fast);
+        white-space: nowrap;
+  }
+
+  .ctaButton:hover {
+    background-color: var(--color-primary-hover);
+    color: var( --color-text-primary);
+  }
+
+  .ctaButton:hover .ctaArrow {
+    color: var( --color-text-primary);
+  }
+
+  .mobileMenuToggle {
+    display: none;
+  }
+
+  .mobileMenu {
+    display: none;
+  }
+
   .overlay {
     display: none;
   }

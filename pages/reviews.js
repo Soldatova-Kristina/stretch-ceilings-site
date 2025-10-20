@@ -1,3 +1,7 @@
+import Seo from '@/components/Seo';
+import styles from './reviews.module.css';
+import Image from 'next/image';
+
 export async function getStaticProps() {
   return {
     props: {
@@ -12,8 +16,57 @@ export async function getStaticProps() {
 
 export default function Reviews() {
   return (
-    <div className="container" style={{ padding: 'var(--spacing-section) 0' }}>
-      <h1>Отзывы клиентов</h1>
-    </div>
+    <main className={styles.main}>
+      <h2 className={styles.title}>Отзывы</h2>
+      <p className={styles.subtitle}>Что о нас говорят клиенты</p>
+
+      <div className={styles.grid}>
+        <div className={styles.card}>
+          <Image
+            src="/images/reviews/evgenia.png"
+            alt="Review by Evgenia"
+            width={300}
+            height={300}
+            className={styles.image}
+          />
+        </div>
+        <div className={styles.card}>
+          <Image
+            src="/images/reviews/anton.png"
+            alt="Review by Anton"
+            width={300}
+            height={300}
+            className={styles.image}
+          />
+        </div>
+        <div className={styles.card}>
+          <Image
+            src="/images/reviews/alexandra.png"
+            alt="Review by Alexandra"
+            width={300}
+            height={300}
+            className={styles.image}
+          />
+        </div>
+        <div className={styles.card}>
+          <Image
+            src="/images/reviews/ivan.png"
+            alt="Review by Ivan"
+            width={300}
+            height={300}
+            className={styles.image}
+          />
+        </div>
+        <div className={styles.cardWide}>
+          <Image
+            src="/images/reviews/telegram.png"
+            alt="Telegram review"
+            width={600}
+            height={600}
+            className={styles.image}
+          />
+        </div>
+      </div>
+    </main>
   );
 }

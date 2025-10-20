@@ -12,6 +12,7 @@ import { useRouter } from 'next/router';
  * @param {string} [props.ogType='website'] - Open Graph type (website/article)
  * @param {string} [props.canonicalUrl] - Canonical URL for duplicate content handling
  * @param {boolean} [props.noIndex=false] - If true, prevents search engine indexing
+ * @param {string} [props.structuredData] - JSON-LD structured data as stringified JSON
  */
 export default function Seo({
   title,
@@ -21,15 +22,16 @@ export default function Seo({
   ogType = 'website',
   canonicalUrl,
   noIndex = false,
+  structuredData, // 👈 добавлено
 }) {
   const router = useRouter();
-  const siteName = 'СтретчПотолки';
+  const siteName = 'Питер Потолок';
   
   // Construct full page title with site name suffix
   const fullTitle = title ? `${title} — ${siteName}` : siteName;
   
   // Get current URL for canonical and OG tags
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://stretchpotolki.ru';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://piterpotolok.ru';
   const currentUrl = canonicalUrl || `${baseUrl}${router.asPath}`;
   
   // Construct full OG image URL
@@ -71,11 +73,19 @@ export default function Seo({
       <meta name="twitter:image" content={fullOgImage} />
       
       {/* Favicon */}
-      <link rel="icon" href="/favicon.ico" />
+      <link rel="icon" href="/icons/logo.svg" />
       
       {/* Additional Meta Tags */}
       <meta name="format-detection" content="telephone=yes" />
       <meta name="theme-color" content="#3498db" />
+
+      {/* JSON-LD Structured Data */}
+      {structuredData && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: structuredData }}
+        />
+      )}
     </Head>
   );
 }
