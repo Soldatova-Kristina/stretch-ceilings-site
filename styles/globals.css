@@ -51,7 +51,7 @@
   --color-background-our-services: linear-gradient(180deg, #353535 30.29%, #1D1D1D 100%);
   --color-background-tecnology-and-material: linear-gradient(180deg, #1D1D1D 12%, #353535 59%);
   --color-background-comparison: linear-gradient(180deg, #353535 40%, #1D1D1D 88%);
-  --color-background-light: linear-gradient(180deg, #353535 48.08%, rgba(29, 29, 29, 0.50) 100%)
+  --color-background-light: linear-gradient(180deg, #353535 48.08%, rgba(29, 29, 29, 0.50) 100%);
 
   /* Typography Scale */
   --font-family-light: 'Gilroy-Light', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;

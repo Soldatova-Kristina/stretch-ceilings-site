@@ -22,7 +22,7 @@ export default function Seo({
   ogType = 'website',
   canonicalUrl,
   noIndex = false,
-  structuredData, // 👈 добавлено
+  structuredData, 
 }) {
   const router = useRouter();
   const siteName = 'Питер Потолок';
@@ -51,8 +51,10 @@ export default function Seo({
       {/* Viewport and mobile */}
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       
-      {/* Language */}
+      {/* Language and Geo */}
       <meta httpEquiv="content-language" content="ru" />
+      <meta name="geo.region" content="RU-SPE" />
+      <meta name="geo.placename" content="Санкт-Петербург" />
       
       {/* Canonical URL */}
       <link rel="canonical" href={currentUrl} />
@@ -78,6 +80,10 @@ export default function Seo({
       {/* Additional Meta Tags */}
       <meta name="format-detection" content="telephone=yes" />
       <meta name="theme-color" content="#3498db" />
+      
+      {/* Author and Publisher */}
+      <meta name="author" content="Питер Потолок" />
+      <link rel="publisher" href="https://piterpotolok.ru" />
 
       {/* JSON-LD Structured Data */}
       {structuredData && (
