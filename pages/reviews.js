@@ -1,9 +1,9 @@
 import Seo from '@/components/Seo';
 import styles from './reviews.module.css';
 import Image from 'next/image';
+import ReviewCard from '@/components/ReviewCard/ReviewCard';
 
 export async function getStaticProps() {
-
   const reviewsData = [
     {
       author: "Евгения",
@@ -25,6 +25,13 @@ export async function getStaticProps() {
       rating: 5,
       text: "Отличный сервис от консультации до установки. Результат превзошёл ожидания!"
     }
+  ];
+
+  const reviewImages = [
+    { src: '/images/reviews/evgenia.png', alt: 'Review by Evgenia' },
+    { src: '/images/reviews/anton.png', alt: 'Review by Anton' },
+    { src: '/images/reviews/alexandra.png', alt: 'Review by Alexandra' },
+    { src: '/images/reviews/ivan.png', alt: 'Review by Ivan' },
   ];
 
   const structuredData = JSON.stringify({
@@ -71,56 +78,39 @@ export async function getStaticProps() {
         ogImage: "/images/reviews/evgenia.png",
         structuredData,
       },
+      reviewImages,
     },
   };
 }
 
-export default function Reviews({ seo }) {
+export default function Reviews({ seo, reviewImages }) {
   return (
     <>
       <Seo {...seo} />
       <main className={styles.main} itemScope itemType="https://schema.org/LocalBusiness">
         <meta itemProp="name" content="Питер Потолок" />
-        <h2 className={styles.title}>Отзывы</h2>
-        <p className={styles.subtitle}>Что о нас говорят клиенты</p>
-
+        
         <div className={styles.grid} itemProp="review" itemScope itemType="https://schema.org/Review">
-        <div className={styles.card}>
-          <Image
-            src="/images/reviews/evgenia.png"
-            alt="Review by Evgenia"
-            width={300}
-            height={300}
-            className={styles.image}
+        {reviewImages.slice(0, 2).map((review, index) => (
+          <ReviewCard
+            key={index}
+            src={review.src}
+            alt={review.alt}
+            className={styles.card}
           />
+        ))}
+        <div className={styles.headerSection}>
+          <h2 className={styles.title}>ОТЗЫВЫ</h2>
+          <p className={styles.subtitle}>Что о нас говорят клиенты</p>
         </div>
-        <div className={styles.card}>
-          <Image
-            src="/images/reviews/anton.png"
-            alt="Review by Anton"
-            width={300}
-            height={300}
-            className={styles.image}
+        {reviewImages.slice(2).map((review, index) => (
+          <ReviewCard
+            key={index + 2}
+            src={review.src}
+            alt={review.alt}
+            className={styles.card}
           />
-        </div>
-        <div className={styles.card}>
-          <Image
-            src="/images/reviews/alexandra.png"
-            alt="Review by Alexandra"
-            width={300}
-            height={300}
-            className={styles.image}
-          />
-        </div>
-        <div className={styles.card}>
-          <Image
-            src="/images/reviews/ivan.png"
-            alt="Review by Ivan"
-            width={300}
-            height={300}
-            className={styles.image}
-          />
-        </div>
+        ))}
         <div className={styles.cardWide}>
           <Image
             src="/images/reviews/telegram.png"

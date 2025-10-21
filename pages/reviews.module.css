@@ -1,48 +1,66 @@
 .main {
-  min-height: 100vh;
-  padding: 60px 20px;
-  background: var(--color-background);
-  background-image: url('/images/texture/black_djins.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  color: white;
-  text-align: center;
+    background-image: url(/images/texture/black_djins.png);
+    background-size: cover;
+    background-position: center;
+    padding: 2rem;
 }
 
 .title {
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
   font-weight: bold;
+  text-align: left;
 }
 
 .subtitle {
   font-size: 1.25rem;
   color: #ccc;
-  margin-bottom: 3rem;
+  margin-bottom: 0;
+  text-align: left;
 }
 
 .grid {
   display: grid;
   gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  justify-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
-.card {
-  background: transparent;
-  border-radius: 12px;
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.05);
-  overflow: hidden;
-  transition: transform 0.3s ease;
+.headerSection {
+  grid-column: 3;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0;
 }
 
-.card:hover {
-  transform: scale(1.03);
+.card:nth-child(1) {
+  grid-column: 1;
+  grid-row: 1 / 3;
+}
+
+.card:nth-child(2) {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.card:nth-child(4) {
+  grid-column: 1;
+  grid-row: 3;
+}
+
+.card:nth-child(5) {
+  grid-column: 2;
+  grid-row: 2 / 4;
 }
 
 .cardWide {
-  grid-column: span 2;
+  grid-column: 3;
+  grid-row: 2 / 4;
   background: #1a1a1a;
   border-radius: 12px;
   box-shadow: 0 0 12px rgba(255, 255, 255, 0.05);
@@ -53,4 +71,47 @@
   width: 100%;
   height: auto;
   display: block;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .headerSection {
+    grid-column: span 2;
+    grid-row: auto;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .title,
+  .subtitle {
+    text-align: center;
+  }
+  
+  .card:nth-child(1),
+  .card:nth-child(2),
+  .card:nth-child(4),
+  .card:nth-child(5) {
+    grid-column: auto;
+    grid-row: auto;
+  }
+  
+  .cardWide {
+    grid-column: span 2;
+    grid-row: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .headerSection,
+  .cardWide {
+    grid-column: 1;
+  }
 }
