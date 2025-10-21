@@ -1,6 +1,5 @@
 
 import Seo from '@/components/Seo';
-import PageTitle from '@/components/PageTitle/PageTitle';
 import faqJson from '@/lib/seo/faq.json';
 import { useState } from 'react';
 import styles from './faq.module.css'; 
@@ -62,10 +61,10 @@ export default function FAQ({ seo }) {
     <>
       <Seo {...seo} />
       <div className={styles.pageWrapper}>
-        <main className="container" style={{ padding: 'var(--spacing-section) 0' }}>
-          <PageTitle>
+        <div className="container">
+          <h1 className={styles.title}>
             Мы подготовили для вас <br /> ответы на самые часто задаваемые вопросы
-          </PageTitle>
+          </h1>
 
           <ul className={styles.faqList}>
             {faqList.map((item, i) => (
@@ -81,7 +80,7 @@ export default function FAQ({ seo }) {
               </li>
             ))}
           </ul>
-        </main>
+        </div>
       </div>
     </>
   );

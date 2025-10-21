@@ -1,0 +1,128 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 18.5px;
+}
+
+.formGroup {
+  margin-bottom: 0;
+}
+
+.formGroup:first-of-type {
+  margin-bottom: 38px;
+}
+
+.label {
+  display: block;
+  font-size: 18px;
+  color: #FFF;
+  line-height: 1.2;
+}
+
+.input {
+  width: 372px;
+  height: 17px;
+  margin-top: 30px;
+  padding: 0 12px;
+  border: none;
+  border-bottom: 1px solid #FFF;
+  background: transparent;
+  color: #FFF;
+  font-size: 20px;
+  border-radius: 0;
+  box-sizing: border-box;
+}
+
+.input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.input:focus {
+  outline: none;
+  background: transparent;
+}
+
+/* Убираем белый фон при автозаполнении */
+.input:-webkit-autofill,
+.input:-webkit-autofill:hover,
+.input:-webkit-autofill:focus,
+.input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px transparent inset !important;
+  -webkit-text-fill-color: #FFF !important;
+  background-color: transparent !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.inputError {
+  border-bottom-color: #ff4444 !important;
+}
+
+.error {
+  display: block;
+  color: #ff4444;
+  font-size: 14px;
+  margin-top: 8px;
+  font-family: var(--font-family-regular);
+}
+
+.checkboxWrapper {
+  margin-top: 72px;
+  margin-bottom: 78px;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  line-height: 17px;
+  color: #FFF;
+  cursor: pointer;
+}
+
+.checkbox {
+  width: 15px;
+  height: 15px;
+  margin: 0;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.button {
+  margin-left: 28px;
+  padding: 0 18px;
+  width: 288px;
+  height: 45px;
+  border: 1px solid white;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  color: #FFF;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.button:hover {
+  background: white;
+  color: #111;
+}
+
+.button:hover .arrow {
+  color: #111;
+}
+
+.arrow {
+  color: #FFF;
+  transition: color 0.3s ease;
+}
+
+.status {
+  margin-top: 20px;
+  font-size: 16px;
+  color: #FFF;
+  text-align: center;
+}

@@ -1,10 +1,20 @@
 .pageWrapper {
-  min-height: 100vh;
-  background: var(--color-background);
+  position: relative;
+  background: var(--color-text-secondary);
+  z-index: 0;
+  overflow: hidden;
+}
+
+.pageWrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
   background-image: url('/images/texture/faq_background.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  opacity: 0.4; 
+  z-index: -1;
 }
 
 .title {
@@ -15,17 +25,16 @@
   margin-bottom: 60px;
   color: var(--color-text-secondary, #ffffff);
   line-height: 1.2;
+display: flex;
+padding: 6px 40px 44px 3px;
 }
 
 .faqList {
-  list-style: none;
-  padding: 0;
-  max-width: 800px;
-  margin: 0 auto;
+margin-top: 40px;
 }
 
 .faqItem {
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid var(--color-text-primary);
   border-radius: 20px;
   margin-bottom: 1.2rem;
   overflow: hidden;
@@ -44,7 +53,7 @@
   cursor: pointer;
   font-family: var(--font-family-medium);
   font-size: var(--font-size-body-large, 20px);
-  color: var(--color-text-secondary, #ffffff);
+  color: var(--color-text-primary);
   text-align: left;
   transition: all var(--transition-fast);
 }
@@ -57,7 +66,7 @@
   font-family: var(--font-family-medium);
   font-weight: bold;
   margin-right: 20px;
-  color: var(--color-text-secondary, #ffffff);
+  color: var(--color-text-primary);
   font-size: var(--font-size-body-large, 20px);
 }
 
@@ -68,7 +77,7 @@
 
 .icon {
   font-size: 28px;
-  color: var(--color-text-secondary, #ffffff);
+  color: var(--color-text-primary);
   transition: transform var(--transition-fast);
 }
 
@@ -80,7 +89,7 @@
   padding: 0 28px 24px 28px;
   font-family: var(--font-family-regular);
   font-size: var(--font-size-body, 16px);
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--color-text-primary);
   line-height: 1.6;
   animation: slideDown var(--transition-base);
 }

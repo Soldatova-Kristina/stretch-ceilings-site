@@ -1,7 +1,7 @@
 import Seo from '@/components/Seo';
-import PageTitle from '@/components/PageTitle/PageTitle';
 import styles from './contacts.module.css';
 import Image from 'next/image';
+import Submit from '@/components/Submit/Submit';
 
 export async function getStaticProps() {
   return {
@@ -22,33 +22,11 @@ export default function Contacts() {
       {/* Первый блок — форма + фото */}
       <section className={styles.section}>
         <div className={styles.leftColumn}>
-          <PageTitle>ГОТОВЫ<br />ОБСУДИТЬ ВАШ ПРОЕКТ?</PageTitle>
+          <h1 className={styles.title}>ГОТОВЫ<br />ОБСУДИТЬ ВАШ ПРОЕКТ?</h1>
           <p className={styles.subtext}>
             Оставьте заявку, и наш специалист<br />свяжется с вами для бесплатной<br />консультации
           </p>
-
-          <form className={styles.form}>
-            <div className={styles.formGroup}>
-              <label htmlFor="name" className={styles.label}>Имя:</label>
-              <input type="text" id="name" name="name" className={styles.input} required />
-            </div>
-
-            <div className={styles.formGroup}>
-              <label htmlFor="phone" className={styles.label}>Номер телефона:</label>
-              <input type="tel" id="phone" name="phone" className={styles.input} required />
-            </div>
-
-            <div className={styles.checkboxWrapper}>
-              <label className={styles.checkboxLabel}>
-                <input type="checkbox" className={styles.checkbox} required />
-                Я согласен с политикой конфиденциальности
-              </label>
-            </div>
-
-            <button type="submit" className={styles.button}>
-              ОТПРАВИТЬ <span className={styles.arrow}>→</span>
-            </button>
-          </form>
+          <Submit/>
         </div>
 
         <div className={styles.rightColumn}>

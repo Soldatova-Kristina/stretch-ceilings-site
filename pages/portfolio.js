@@ -1,7 +1,6 @@
 // pages/portfolio.js
 import Head from 'next/head';
 import Image from 'next/image';
-import PageTitle from '@/components/PageTitle/PageTitle';
 import { useState } from 'react';
 import styles from './portfolio.module.css';
 
@@ -26,8 +25,8 @@ const ImageSlider = ({ images, address }) => {
         <Image 
           src={images[currentIndex]} 
           alt={`${address} - фото ${currentIndex + 1}`}
-          width={474}
-          height={372}
+          width={481}
+          height={361}
           className={styles.image}
           quality={90}
           loading="lazy"
@@ -122,14 +121,15 @@ export async function getStaticProps() {
     {
       id: 4,
       images: [
-          '/images/portfolio/2/2.jpg',
-        '/images/portfolio/2/3.jpg',
-        '/images/portfolio/2/4.jpg',
-        '/images/portfolio/2/5.jpg',
-        '/images/portfolio/2/6.jpg',
-        '/images/portfolio/2/7.jpg',
-        '/images/portfolio/2/8.jpg',
-        '/images/portfolio/2/9.jpg',
+        '/images/portfolio/4/1.jpg',
+        '/images/portfolio/4/2.jpg',
+        '/images/portfolio/4/3.jpg',
+        '/images/portfolio/4/4.jpg',
+        '/images/portfolio/4/5.jpg',
+        '/images/portfolio/4/6.jpg',
+        '/images/portfolio/4/7.jpg',
+        '/images/portfolio/4/8.jpg',
+        '/images/portfolio/4/9.jpg',
 
       ],
       address: 'ЖК «Черная Речка», Ул. Белоостровская, 10к1',
@@ -164,53 +164,55 @@ export default function Portfolio({ seo, portfolioItems }) {
       </Head>
 
       <section className={styles.gallery}>
-        <div className={styles.header}>
-          <PageTitle>Примеры наших работ</PageTitle>
-          <a 
-            href="https://t.me/piterpotolok"
-            className={styles.moreButton}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            БОЛЬШЕ РАБОТ ТУТ
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <path 
-                d="M4 10H16M16 10L11 5M16 10L11 15" 
-                stroke="currentColor" 
-                strokeWidth="2" 
-                strokeLinecap="round" 
-                strokeLinejoin="round"
-              />
-            </svg>
-          </a>
-        </div>
+        <div className={styles.container}>
+          <div className={styles.header}>
+            <h1 className={styles.title}>Примеры наших работ</h1>
+            <a 
+              href="https://t.me/piterpotolok"
+              className={styles.moreButton}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              БОЛЬШЕ РАБОТ ТУТ
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path 
+                  d="M4 10H16M16 10L11 5M16 10L11 15" 
+                  stroke="currentColor" 
+                  strokeWidth="2" 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </a>
+          </div>
 
-        <div className={styles.grid}>
-          {portfolioItems.map((item) => (
-            <article key={item.id} className={styles.card}>
-              <div className={styles.cardContent}>
-                <div className={styles.textBlock}>
-                  <h2 className={styles.address}>{item.address}</h2>
-                  <p className={styles.description}>{item.description}</p>
-                  <a
-                    href="https://t.me/piterpotolok"
-                    className={styles.ctaButton}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Узнать подробнее в Telegram"
-                  >
-                    <span className={styles.ctaText}>УЗНАТЬ ПОДРОБНЕЕ</span>
-                    <svg className={styles.ctaArrow} width="38" height="12" viewBox="0 0 38 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                      <path d="M37.5303 6.53033C37.8232 6.23744 37.8232 5.76256 37.5303 5.46967L32.7574 0.696699C32.4645 0.403806 31.9896 0.403806 31.6967 0.696699C31.4038 0.989593 31.4038 1.46447 31.6967 1.75736L35.9393 6L31.6967 10.2426C31.4038 10.5355 31.4038 11.0104 31.6967 11.3033C31.9896 11.5962 32.4645 11.5962 32.7574 11.3033L37.5303 6.53033ZM0 6.75H37V5.25H0V6.75Z" fill="currentColor"/>
-                    </svg>
-                  </a>
+          <div className={styles.grid}>
+            {portfolioItems.map((item) => (
+              <article key={item.id} className={styles.card}>
+                <div className={styles.cardContent}>
+                  <div className={styles.textBlock}>
+                    <h2 className={styles.address}>{item.address}</h2>
+                    <p className={styles.description}>{item.description}</p>
+                    <a
+                      href="https://t.me/piterpotolok"
+                      className={styles.ctaButton}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Узнать подробнее в Telegram"
+                    >
+                      <span className={styles.ctaText}>УЗНАТЬ ПОДРОБНЕЕ</span>
+                      <svg className={styles.ctaArrow} width="38" height="12" viewBox="0 0 38 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path d="M37.5303 6.53033C37.8232 6.23744 37.8232 5.76256 37.5303 5.46967L32.7574 0.696699C32.4645 0.403806 31.9896 0.403806 31.6967 0.696699C31.4038 0.989593 31.4038 1.46447 31.6967 1.75736L35.9393 6L31.6967 10.2426C31.4038 10.5355 31.4038 11.0104 31.6967 11.3033C31.9896 11.5962 32.4645 11.5962 32.7574 11.3033L37.5303 6.53033ZM0 6.75H37V5.25H0V6.75Z" fill="currentColor"/>
+                      </svg>
+                    </a>
+                  </div>
+                  <div className={styles.imageBlock}>
+                    <ImageSlider images={item.images} address={item.address} />
+                  </div>
                 </div>
-                <div className={styles.imageBlock}>
-                  <ImageSlider images={item.images} address={item.address} />
-                </div>
-              </div>
-            </article>
-          ))}
+              </article>
+            ))}
+          </div>
         </div>
       </section>
     </>
