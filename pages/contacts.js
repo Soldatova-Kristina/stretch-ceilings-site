@@ -19,7 +19,7 @@ export async function getStaticProps() {
 export default function Contacts() {
   return (
     <div className={styles.page}>
-      {/* Первый блок — форма + фото */}
+
       <section className={styles.section}>
         <div className={styles.leftColumn}>
           <h1 className={styles.title}>ГОТОВЫ<br />ОБСУДИТЬ ВАШ ПРОЕКТ?</h1>
@@ -40,7 +40,6 @@ export default function Contacts() {
         </div>
       </section>
 
-      {/* Второй блок — фото + контакты (зеркально) */}
       <section className={styles.sectionTwo}>
         <div className={styles.leftColumn}>
           <Image
@@ -57,8 +56,8 @@ export default function Contacts() {
 
           <p className={styles.contactLine}>
             Позвоните по этому номеру<br />
-            <a href="tel:+79209063386" className={styles.phoneLink}>
-              <strong>+7 920 906 3386</strong>
+            <a href="tel:+79320076085" className={styles.phoneLink}>
+              <strong>+7-932-007-60-85</strong>
             </a>
           </p>
 
@@ -68,7 +67,7 @@ export default function Contacts() {
           </p>
 
           <div className={styles.contactLine}>
-            <p className={styles.contactsLabel}>Наши контакты</p>
+            <p className={styles.contactsLabel}>Наши социальные сети</p>
             <ul className={styles.socialList}>
               <li>
                 tg: <a href="https://t.me/piterpotolok" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>@piterpotolok</a>
@@ -77,19 +76,25 @@ export default function Contacts() {
                 vk: <a href="https://vk.com/piterpoto1ok" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>@piterpoto1ok</a>
               </li>
               <li>
-                ig: <a href="instagram.com/piterpotolok" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>+7-920-906-33-86</a>
+                ig: <a href="https://instagram.com/piterpotolok" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>@piterpotolok</a>
               </li>
             </ul>
 
             <div className={styles.socialIcons}>
+               <a href="https://t.me/piterpotolok" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+                <Image src="/icons/social/icon-telegram-white.svg" alt="Telegram" width={50} height={50} />
+              </a>
               <a href="https://vk.com/piterpoto1ok" target="_blank" rel="noopener noreferrer" aria-label="VK">
                 <Image src="/icons/social/icon-vk-white.svg" alt="VK" width={50} height={50} />
               </a>
-              <a href="https://t.me/piterpotolok" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
-                <Image src="/icons/social/icon-telegram-white.svg" alt="Telegram" width={50} height={50} />
-              </a>
               <a href="https://instagram.com/piterpotolok" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                 <Image src="/icons/social/icon-instagram-white.svg" alt="Instagram" width={50} height={50} />
+              </a>
+               <a href="tel:+79320076085" target="_blank" rel="noopener noreferrer" aria-label="Phone">
+                <Image src="/icons/social/icon-phone-white.svg" alt="Phone" width={50} height={50} />
+              </a>
+               <a href="https://wa.me/+79679786000" target="_blank" rel="noopener noreferrer" aria-label="Whatsapp">
+                <Image src="/icons/social/icon-whatsapp-white.svg" alt="Whatsapp" width={50} height={50} />
               </a>
             </div>
           </div>

@@ -89,11 +89,11 @@ export default function Footer() {
 
           <div className={styles.footer__contacts}>
             <a 
-              href="tel:+79209063386" 
+              href="tel:+79320076085" 
               className={styles['footer__contacts-phone']}
-              aria-label="Позвонить по номеру +7-920-906-33-86"
+              aria-label="Позвонить по номеру +7-932-007-60-85"
             >
-              +7-920-906-33-86
+              +7-932-007-60-85
             </a>
             <span className={styles['footer__contacts-hours']} aria-label="Время работы">ПН–ВС 08:00 – 20:00</span>
             <span className={styles['footer__contacts-address-label']}>Адрес</span>
