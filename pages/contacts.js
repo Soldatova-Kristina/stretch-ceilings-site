@@ -4,21 +4,72 @@ import Image from 'next/image';
 import Submit from '@/components/Submit/Submit';
 
 export async function getStaticProps() {
+  
+  const structuredData = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Питер Потолок",
+    "image": "https://piterpotolok.ru/og-default.jpg",
+    "@id": "https://piterpotolok.ru",
+    "url": "https://piterpotolok.ru/contacts",
+    "telephone": "+7-932-007-60-85",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "",
+      "addressLocality": "Санкт-Петербург",
+      "addressRegion": "Ленинградская область",
+      "postalCode": "",
+      "addressCountry": "RU"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 59.9311,
+      "longitude": 30.3609
+    },
+    "areaServed": [
+      {
+        "@type": "City",
+        "name": "Санкт-Петербург"
+      },
+      {
+        "@type": "State",
+        "name": "Ленинградская область"
+      }
+    ],
+    "sameAs": [
+      "https://t.me/piterpotolok",
+      "https://vk.com/piterpoto1ok",
+      "https://instagram.com/piterpotolok"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+7-932-007-60-85",
+      "contactType": "customer service",
+      "availableLanguage": ["Russian"],
+      "areaServed": "RU"
+    }
+  });
+
   return {
     props: {
       seo: {
         title: 'Контакты',
         description:
-          'Свяжитесь с нами для бесплатной консультации и замера. Телефон, адрес, время работы. Ответим на все ваши вопросы.',
-        keywords: 'контакты, телефон, адрес, связаться, консультация, замер',
+          'Свяжитесь с нами для бесплатной консультации по натяжным потолкам в Санкт-Петербурге и ЛО. Телефон +7-932-007-60-85, выезд замерщика бесплатно, работаем ежедневно.',
+        keywords: 'контакты натяжные потолки, телефон Питер Потолок, адрес СПб, связаться консультация, бесплатный замер, Санкт-Петербург ЛО',
+        ogImage: '/og-default.jpg',
+        structuredData,
       },
     },
   };
 }
 
-export default function Contacts() {
+export default function Contacts({ seo }) {
   return (
-    <div className={styles.page}>
+    <>
+      <Seo {...seo} />
+      <div className={styles.page} itemScope itemType="https://schema.org/ContactPage">
 
       <section className={styles.section}>
         <div className={styles.leftColumn}>
@@ -54,17 +105,22 @@ export default function Contacts() {
         <div className={styles.rightColumn}>
           <h2 className={styles.contactsHeading}>НАШИ<br />КОНТАКТЫ</h2>
 
-          <p className={styles.contactLine}>
+          <div className={styles.contactLine} itemProp="contactPoint" itemScope itemType="https://schema.org/ContactPoint">
             Позвоните по этому номеру<br />
-            <a href="tel:+79320076085" className={styles.phoneLink}>
+            <a href="tel:+79320076085" className={styles.phoneLink} itemProp="telephone">
               <strong>+7-932-007-60-85</strong>
             </a>
-          </p>
+            <meta itemProp="contactType" content="customer service" />
+            <meta itemProp="availableLanguage" content="Russian" />
+          </div>
 
-          <p className={styles.contactLine}>
+          <div className={styles.contactLine} itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
             Наш адрес<br />
-            <strong>г. Санкт-Петербург и ЛО</strong>
-          </p>
+            <strong>
+              <span itemProp="addressLocality">г. Санкт-Петербург</span> и <span itemProp="addressRegion">ЛО</span>
+            </strong>
+            <meta itemProp="addressCountry" content="RU" />
+          </div>
 
           <div className={styles.contactLine}>
             <p className={styles.contactsLabel}>Наши социальные сети</p>
@@ -101,5 +157,6 @@ export default function Contacts() {
         </div>
       </section>
     </div>
+    </>
   );
 }

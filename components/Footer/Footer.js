@@ -6,7 +6,6 @@ import styles from './Footer.module.css';
 export default function Footer() {
   const currentYear = useMemo(() => new Date().getFullYear(), []);
 
-  // Memoize navigation items
   const navItems = useMemo(() => [
     { href: '/', label: 'Главная' },
     { href: '/portfolio', label: 'Наши работы' },
