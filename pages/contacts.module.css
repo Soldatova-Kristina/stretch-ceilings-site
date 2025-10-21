@@ -177,15 +177,6 @@
   object-fit: cover;
 }
 
-/*
-.photo {
-  width: 100%;
-  height: auto;
-  border-radius: 6px;
-  object-fit: cover;
-}
-*/
-
 @media (max-width: 768px) {
   .title {
     font-size: 22px;
