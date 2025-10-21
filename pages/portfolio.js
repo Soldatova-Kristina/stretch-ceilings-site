@@ -1,7 +1,8 @@
 // pages/portfolio.js
-import Head from 'next/head';
+import Seo from '@/components/Seo';
 import Image from 'next/image';
 import { useState } from 'react';
+import CtaButton from '@/components/CtaButton/CtaButton';
 import styles from './portfolio.module.css';
 
 const ImageSlider = ({ images, address }) => {
@@ -113,7 +114,7 @@ export async function getStaticProps() {
         '/images/portfolio/3/che_4.jpg',
         '/images/portfolio/3/che_5.jpg',
       ],
-      address: 'ЖК «Квартал Che”, Ул. Черниговская, 17',
+      address: 'ЖК «Квартал Che", Ул. Черниговская, 17',
       description: 'Произведен монтаж теневого профиля EURO 05 по всему периметру квартиры. Натянуто полотно HALEAD. Установлены встраиваемые карнизы FLEXY GARDINA. В качестве основного освещения заказчик выбрал накладные треки',
       slug: 'metropolis-office'
     }
@@ -138,12 +139,69 @@ export async function getStaticProps() {
     }
   ];
 
+  // Structured Data for Portfolio/Image Gallery (enhances visual search and rich snippets)
+  const baseUrl = 'https://piterpotolok.ru';
+  
+  const structuredData = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Портфолио работ по установке натяжных потолков",
+    "description": "Примеры реализованных проектов натяжных потолков в Санкт-Петербурге: квартиры, дома, коммерческие помещения. Фото работ с описанием.",
+    "url": `${baseUrl}/portfolio`,
+    "publisher": {
+      "@type": "Organization",
+      "name": "Питер Потолок",
+      "url": baseUrl,
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${baseUrl}/icons/logo.svg`
+      }
+    },
+    "mainEntity": {
+      "@type": "ItemList",
+      "numberOfItems": portfolioItems.length,
+      "itemListElement": portfolioItems.map((item, index) => ({
+        "@type": "ListItem",
+        "position": index + 1,
+        "item": {
+          "@type": "CreativeWork",
+          "name": item.address,
+          "description": item.description,
+          "image": item.images.map(img => `${baseUrl}${img}`),
+          "creator": {
+            "@type": "Organization",
+            "name": "Питер Потолок"
+          }
+        }
+      }))
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Главная",
+          "item": baseUrl
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Портфолио",
+          "item": `${baseUrl}/portfolio`
+        }
+      ]
+    }
+  });
+
   return {
     props: {
       seo: {
-        title: "Портфолио — Примеры наших работ | Натяжные потолки",
-        description: "Примеры наших работ по установке натяжных потолков и стен. Реализованные проекты в квартирах, домах и коммерческих помещениях.",
-        keywords: "портфолио, примеры работ, фото потолков, наши проекты, натяжные потолки фото",
+        title: "Портфолио работ",
+        description: "Портфолио натяжных потолков в СПб: фото реализованных проектов в квартирах и домах. Примеры работ с теневыми профилями, световыми линиями. Питер Потолок.",
+        keywords: "портфолио натяжные потолки, фото потолков СПб, примеры работ Санкт-Петербург, наши проекты, реализованные объекты, галерея работ",
+        ogImage: '/images/portfolio/1/1.jpg',
+        structuredData,
       },
       portfolioItems,
     },
@@ -154,16 +212,9 @@ export async function getStaticProps() {
 export default function Portfolio({ seo, portfolioItems }) {
   return (
     <>
-      <Head>
-        <title>{seo.title}</title>
-        <meta name="description" content={seo.description} />
-        <meta name="keywords" content={seo.keywords} />
-        <meta property="og:title" content={seo.title} />
-        <meta property="og:description" content={seo.description} />
-        <meta property="og:type" content="website" />
-      </Head>
+      <Seo {...seo} />
 
-      <section className={styles.gallery}>
+      <section className={styles.gallery} itemScope itemType="https://schema.org/CollectionPage">
         <div className={styles.container}>
           <div className={styles.header}>
             <h1 className={styles.title}>Примеры наших работ</h1>
@@ -186,28 +237,25 @@ export default function Portfolio({ seo, portfolioItems }) {
             </a>
           </div>
 
-          <div className={styles.grid}>
-            {portfolioItems.map((item) => (
-              <article key={item.id} className={styles.card}>
+          <div className={styles.grid} itemScope itemType="https://schema.org/ItemList">
+            {portfolioItems.map((item, index) => (
+              <article 
+                key={item.id} 
+                className={styles.card}
+                itemScope 
+                itemType="https://schema.org/CreativeWork"
+                itemProp="itemListElement"
+              >
+                <meta itemProp="position" content={String(index + 1)} />
                 <div className={styles.cardContent}>
                   <div className={styles.textBlock}>
-                    <h2 className={styles.address}>{item.address}</h2>
-                    <p className={styles.description}>{item.description}</p>
-                    <a
-                      href="https://t.me/piterpotolok"
-                      className={styles.ctaButton}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="Узнать подробнее в Telegram"
-                    >
-                      <span className={styles.ctaText}>УЗНАТЬ ПОДРОБНЕЕ</span>
-                      <svg className={styles.ctaArrow} width="38" height="12" viewBox="0 0 38 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                        <path d="M37.5303 6.53033C37.8232 6.23744 37.8232 5.76256 37.5303 5.46967L32.7574 0.696699C32.4645 0.403806 31.9896 0.403806 31.6967 0.696699C31.4038 0.989593 31.4038 1.46447 31.6967 1.75736L35.9393 6L31.6967 10.2426C31.4038 10.5355 31.4038 11.0104 31.6967 11.3033C31.9896 11.5962 32.4645 11.5962 32.7574 11.3033L37.5303 6.53033ZM0 6.75H37V5.25H0V6.75Z" fill="currentColor"/>
-                      </svg>
-                    </a>
+                    <h2 className={styles.address} itemProp="name">{item.address}</h2>
+                    <p className={styles.description} itemProp="description">{item.description}</p>
+                    <meta itemProp="creator" content="Питер Потолок" />
+                    <CtaButton text="УЗНАТЬ ПОДРОБНЕЕ" ariaLabel="Узнать подробнее в Telegram" />
                   </div>
-                  <div className={styles.imageBlock}>
-                    <ImageSlider images={item.images} address={item.address} />
+                  <div className={styles.imageBlock} itemProp="image">
+                    <ImageSlider images={item.images} address={item.address} itemId={item.id} />
                   </div>
                 </div>
               </article>
