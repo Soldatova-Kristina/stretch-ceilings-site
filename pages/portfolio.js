@@ -87,7 +87,8 @@ export async function getStaticProps() {
         '/images/portfolio/1/4.jpg',
         '/images/portfolio/1/5.jpg',
       ],
-      address: 'ЖК «MODUM», Авиаконструкторов, 54',
+      complexName: 'ЖК «MODUM»',
+      address: 'Авиаконструкторов, 54',
       description: 'Был выполнен монтаж всей евродвушки. Заказчиком выбран стандартный профиль с полотнами BAUF. В качестве основного освещения были использованы световые линии, накладные треки и точечные светильники в ванной комнате. А так же выполнены карнизные ниши с подсветкой. Данное решение в натяжных потолках помогло подчеркнуть дизайн-интерьер во всей квартире, а так же сделало ее более уютной.',
       slug: 'novye-gorizonty'
     },
@@ -101,7 +102,8 @@ export async function getStaticProps() {
         '/images/portfolio/2/5.jpg',
         '/images/portfolio/2/6.jpg',
       ],
-      address: 'ЖК «ПОЛИС 2», Ул. Арцеуловская аллея, 9',
+      complexName: 'ЖК «ПОЛИС 2»',
+      address: 'Ул. Арцеуловская аллея, 9',
       description: 'Произвели монтаж теневого профиля FLEXY EURO 05 по всему периметру евродвушки. Натянули полотно MSD PREMIUM. Смонтировали черные встраиваемые карнизы FLEXY GARDINA. В качестве основного освещения использовали точечные двойные светильники MAYTONI, люстра STLUCE, а так же магнитный трек с линейными светильниками от компании LUMFER',
       slug: 'rublevka-house'
     },
@@ -114,11 +116,11 @@ export async function getStaticProps() {
         '/images/portfolio/3/che_4.jpg',
         '/images/portfolio/3/che_5.jpg',
       ],
-      address: 'ЖК «Квартал Che", Ул. Черниговская, 17',
+      complexName: 'ЖК «Квартал Che»',
+      address: 'Ул. Черниговская, 17',
       description: 'Произведен монтаж теневого профиля EURO 05 по всему периметру квартиры. Натянуто полотно HALEAD. Установлены встраиваемые карнизы FLEXY GARDINA. В качестве основного освещения заказчик выбрал накладные треки',
       slug: 'metropolis-office'
-    }
-    , 
+    },
     {
       id: 4,
       images: [
@@ -131,9 +133,9 @@ export async function getStaticProps() {
         '/images/portfolio/4/7.jpg',
         '/images/portfolio/4/8.jpg',
         '/images/portfolio/4/9.jpg',
-
       ],
-      address: 'ЖК «Черная Речка», Ул. Белоостровская, 10к1',
+      complexName: 'ЖК «Черная Речка»',
+      address: 'Ул. Белоостровская, 10к1',
       description: 'Выполнили дизайнерский объект. Весь профиль: теневой EUROKRAAB и парящий FLEXY FLY. Полотно BAUF. В качестве основного освещения по проекту установили световые линии ARLIGHT, магнитный трек со светильниками компании DENKIRS, а так же точечные сдвоенные светильники компании MAYTONI. Закарнизная часть выполнена из нишевого профиля компании LUMFER',
       slug: 'metropolis-office'
     }
@@ -218,23 +220,6 @@ export default function Portfolio({ seo, portfolioItems }) {
         <div className={styles.container}>
           <div className={styles.header}>
             <h1 className={styles.title}>Примеры наших работ</h1>
-            <a 
-              href="https://t.me/piterpotolok"
-              className={styles.moreButton}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              БОЛЬШЕ РАБОТ ТУТ
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <path 
-                  d="M4 10H16M16 10L11 5M16 10L11 15" 
-                  stroke="currentColor" 
-                  strokeWidth="2" 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </a>
           </div>
 
           <div className={styles.grid} itemScope itemType="https://schema.org/ItemList">
@@ -249,10 +234,11 @@ export default function Portfolio({ seo, portfolioItems }) {
                 <meta itemProp="position" content={String(index + 1)} />
                 <div className={styles.cardContent}>
                   <div className={styles.textBlock}>
-                    <h2 className={styles.address} itemProp="name">{item.address}</h2>
+                    <h2 className={styles.complexName} itemProp="name">{item.complexName}</h2>
+                    <h3 className={styles.address}>{item.address}</h3>
                     <p className={styles.description} itemProp="description">{item.description}</p>
                     <meta itemProp="creator" content="Питер Потолок" />
-                    <CtaButton text="УЗНАТЬ ПОДРОБНЕЕ" ariaLabel="Узнать подробнее в Telegram" />
+                    <CtaButton text="УЗНАТЬ ПОДРОБНЕЕ" ariaLabel="Узнать подробнее в Telegram" className={styles.portfolioCtaButton} />
                   </div>
                   <div className={styles.imageBlock} itemProp="image">
                     <ImageSlider images={item.images} address={item.address} itemId={item.id} />
