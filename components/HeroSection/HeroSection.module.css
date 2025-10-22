@@ -1,0 +1,156 @@
+.hero::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 750px;
+  background-image: url('/images/texture/white_texture.jpg');
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+
+.heroInner {
+  display: flex;
+  width: 1480px;
+  height: 750px;
+  position: relative;
+}
+
+.leftSection {
+  flex: 1;
+  height: 748px;
+  display: flex;
+  flex-direction: column;
+}
+
+.brandContainer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 62px 36px 0 0;
+}
+
+.brandText {
+  width: 220px;
+  height: 57px;
+  color: #090909;
+  font-family: var(--font-family-gilda);
+  font-size: 16px;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.brandName {
+    position: absolute;
+    left: 597px;
+    bottom: 181px;
+    transform: rotate(-90deg);
+    transform-origin: right bottom;
+    font-family: var(--font-family-gilda);
+    font-size: 16px;
+    color: #090909;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.contentContainer {
+  padding-top: 146px;
+}
+
+.title {
+  color: #000;
+  font-family: var(--font-family-regular);
+  font-size: 46px;
+  line-height: 60px;
+}
+
+.subtitle {
+  color: #6F3D3D;
+  font-family: var(--font-family-regular);
+  font-size: 46px;
+  line-height: 60px;
+  margin: 0 0 59px 0;
+}
+
+.priceText {
+  height: 36px;
+  color: #6F3D3D;
+  font-family: var(--font-family-gilda);
+  font-size: 16px;
+}
+
+.ctaButton {
+  width: 390px !important;
+  height: 60px !important;
+}
+
+.rightSection {
+  width: 587px;
+  height: 747px;
+  margin-right: 140px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.image {
+  object-fit: cover;
+}
+
+@media (max-width: 1480px) {
+  .hero {
+    height: auto;
+  }
+
+  .leftSection {
+    width: 100%;
+    height: auto;
+    min-height: 600px;
+  }
+
+  .brandContainer {
+    padding: 40px 20px 0 40px;
+  }
+
+  .priceText {
+           margin-top: 32px;
+        margin-bottom: 17px;
+  }
+
+  .ctaButton {
+    width: 100% !important;
+    max-width: 390px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .leftSection {
+    min-height: 500px;
+  }
+
+  .brandContainer {
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px 20px 0 20px;
+  }
+
+  .contentContainer {
+    padding: 40px 20px 40px 20px;
+  }
+
+  .title {
+    font-size: 28px;
+    line-height: 38px;
+    margin-bottom: 30px;
+  }
+
+  .priceText {
+    font-size: 14px;
+    margin-bottom: 30px;
+  }
+
+  .rightSection {
+    height: 400px;
+  }
+}
