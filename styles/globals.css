@@ -28,8 +28,8 @@
 
 @font-face {
   font-family: 'Gilda-Display';
-  src: url('/fonts/Gilda-Display.woff2') format('woff2'),
-  url('/fonts/Gilda-Display.woff') format('woff');
+  src: url('/fonts/GildaDisplay-Regular.woff2') format('woff2'),
+  url('/fonts/GildaDisplay-Regular.woff') format('woff');
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -315,6 +315,12 @@ select:focus-visible {
   margin-right: auto;
   padding-left: var(--container-padding);
   padding-right: var(--container-padding);
+}
+
+.containerServices{
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
 }
 
 .visually-hidden {

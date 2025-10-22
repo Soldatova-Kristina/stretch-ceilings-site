@@ -1,4 +1,5 @@
 import styles from "@/styles/Home.module.css";
+import HeroSection from "@/components/HeroSection/HeroSection";
 
 export async function getStaticProps() {
   return {
@@ -13,37 +14,16 @@ export async function getStaticProps() {
 }
 
 export default function Home() {
-  return (
-    <div className={styles.page}>
-      <section className={styles.hero}>
-        <div className="container">
-          <h1>Hero</h1>
-        </div>
-      </section>
-
-      <section className={styles.features}>
-        <div className="container">
-          <h2>О Нас</h2>
-        </div>
-      </section>
-
-      <section className={styles.features}>
-        <div className="container">
-          <h2>Наши преимущества</h2>
-        </div>
-      </section>
-
-      <section className={styles.features}>
-        <div className="container">
-          <h2>Наши услуги</h2>
-        </div>
-      </section>
-
-      <section className={styles.features}>
-        <div className="container">
-          <h2>Этапы работы</h2>
-        </div>
-      </section>
-    </div>
-  );
+    return (
+           <div className="containerServices">
+             <HeroSection
+         title="НАТЯЖНЫЕ ПОТОЛКИ"
+         subtitle="ТИХИЕ СТЕНЫ"
+         city="САНКТ-ПЕТЕРБУРГ И ЛО"
+         buttonText="ЗАПИСАТЬСЯ НА ЗАМЕР"
+         imageSrc="/images/main/hero_main.png"
+         imageAlt="Ceilings example"
+       />
+           </div>
+         );
 }

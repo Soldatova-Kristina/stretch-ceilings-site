@@ -1,3 +1,5 @@
+import HeroSection from "@/components/HeroSection/HeroSection";
+
 export async function getStaticProps() {
   return {
     props: {
@@ -11,9 +13,17 @@ export async function getStaticProps() {
 }
 
 export default function Walls() {
-  return (
-    <div className="container" style={{ padding: 'var(--spacing-section) 0' }}>
-      <h1>Тихие стены</h1>
-    </div>
-  );
+    return (
+      <div className="containerServices">
+        <HeroSection
+    mainTitle="АРХИТЕКТУРНЫЙ ТЕКСТИЛЬ"
+    subtitle="ТИХИЕ СТЕНЫ"
+    city="САНКТ-ПЕТЕРБУРГ И ЛО"
+    priceText="СТОИМОСТЬ ТИХИХ СТЕН ОТ 4500 РУБЛЕЙ/м²"
+    buttonText="ЗАПИСАТЬСЯ НА ЗАМЕР"
+    imageSrc="/images/walls/hero_walls.png"
+    imageAlt="Ceilings example"
+  />
+      </div>
+    );
 }

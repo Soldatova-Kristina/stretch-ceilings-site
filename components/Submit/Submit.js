@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Link from 'next/link';
 import styles from './Submit.module.css';
 
 export default function Submit() {
@@ -172,7 +173,10 @@ export default function Submit() {
       <div className={styles.checkboxWrapper}>
         <label className={styles.checkboxLabel}>
           <input type="checkbox" className={styles.checkbox} required />
-          Я согласен с политикой конфиденциальности
+          Я согласен с{' '}
+          <Link href="/privacy" className={styles.privacyLink} target="_blank" rel="noopener noreferrer">
+            политикой конфиденциальности
+          </Link>
         </label>
       </div>
 

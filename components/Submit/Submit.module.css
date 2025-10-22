@@ -87,6 +87,16 @@
   flex-shrink: 0;
 }
 
+.privacyLink {
+  color: #FFF;
+  text-decoration: underline;
+  transition: opacity 0.2s ease;
+}
+
+.privacyLink:hover {
+  opacity: 0.8;
+}
+
 .button {
   margin-left: 28px;
   padding: 0 18px;
