@@ -88,7 +88,7 @@ export async function getStaticProps() {
         '/images/portfolio/1/5.jpg',
       ],
       complexName: 'ЖК «MODUM»',
-      address: 'Авиаконструкторов, 54',
+      address: 'Ул. Авиаконструкторов, 54',
       description: 'Был выполнен монтаж всей евродвушки. Заказчиком выбран стандартный профиль с полотнами BAUF. В качестве основного освещения были использованы световые линии, накладные треки и точечные светильники в ванной комнате. А так же выполнены карнизные ниши с подсветкой. Данное решение в натяжных потолках помогло подчеркнуть дизайн-интерьер во всей квартире, а так же сделало ее более уютной.',
       slug: 'novye-gorizonty'
     },
@@ -232,7 +232,7 @@ export default function Portfolio({ seo, portfolioItems }) {
                 itemProp="itemListElement"
               >
                 <meta itemProp="position" content={String(index + 1)} />
-                <div className={styles.cardContent}>
+                <div className={`${styles.cardContent} ${item.id === 2 || item.id === 4 ? styles.cardContentReverse : ''}`}>
                   <div className={styles.textBlock}>
                     <h2 className={styles.complexName} itemProp="name">{item.complexName}</h2>
                     <h3 className={styles.address}>{item.address}</h3>

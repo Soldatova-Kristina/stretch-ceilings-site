@@ -77,6 +77,10 @@
   gap: 60px;
 }
 
+.cardContentReverse {
+  flex-direction: row-reverse;
+}
+
 @media (max-width: 1024px) {
   .cardContent {
     flex-direction: column;
