@@ -1,5 +1,5 @@
+import styles from "@/styles/Home.module.css";
 import HeroSection from "@/components/HeroSection/HeroSection";
-import SectionLayout from "@/components/SectionLayout/SectionLayout";
 
 export async function getStaticProps() {
   return {
@@ -15,7 +15,6 @@ export async function getStaticProps() {
 
 export default function Home() {
     return (
-        <>
            <div className="containerServices">
              <HeroSection
          title="НАТЯЖНЫЕ ПОТОЛКИ"
@@ -25,11 +24,6 @@ export default function Home() {
          imageSrc="/images/main/hero_main.png"
          imageAlt="Ceilings example"
        />
-       </div>
-       <SectionLayout />
-       <SectionLayout />
-       <SectionLayout />
-       <SectionLayout />
-           </>
+           </div>
          );
 }
