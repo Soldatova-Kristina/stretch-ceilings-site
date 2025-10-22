@@ -124,6 +124,16 @@ export default function Footer() {
         </div>
 
       </div>
+
+      <div className={styles.footer__bottom}>
+        <p className={styles.footer__copyright}>
+          © Питер Потолок — установка натяжных потолков и тихих стен в Санкт-Петербурге и области.<br />
+          Сайт piterpotolok.ru не является публичной офертой и носит информационный характер.
+        </p>
+        <Link href="/privacy" className={styles.footer__privacy}>
+          Политика конфиденциальности
+        </Link>
+      </div>
     </footer>
   );
 }
