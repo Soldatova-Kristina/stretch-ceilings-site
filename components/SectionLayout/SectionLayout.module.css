@@ -37,14 +37,11 @@
   width: 1242px;
   height: 1px;
   background: #ffffff;
-  margin-top: 12px;
-  margin-bottom: 75px;
+  margin: 12px 0 75px 0;
   align-self: center;
 }
 
-.content {
-  width: 100%;
-}
+
 
 @media (max-width: 1480px) {
   .container,
