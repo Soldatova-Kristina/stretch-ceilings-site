@@ -2,65 +2,12 @@ import Seo from '@/components/Seo';
 import styles from './contacts.module.css';
 import Image from 'next/image';
 import Submit from '@/components/Submit/Submit';
+import { contactsSeoData } from '@/data/seo/contactsSeo';
 
 export async function getStaticProps() {
-  
-  const structuredData = JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Питер Потолок",
-    "image": "https://piterpotolok.ru/og-default.jpg",
-    "@id": "https://piterpotolok.ru",
-    "url": "https://piterpotolok.ru/contacts",
-    "telephone": "+7-932-007-60-85",
-    "priceRange": "$$",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "",
-      "addressLocality": "Санкт-Петербург",
-      "addressRegion": "Ленинградская область",
-      "postalCode": "",
-      "addressCountry": "RU"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 59.9311,
-      "longitude": 30.3609
-    },
-    "areaServed": [
-      {
-        "@type": "City",
-        "name": "Санкт-Петербург"
-      },
-      {
-        "@type": "State",
-        "name": "Ленинградская область"
-      }
-    ],
-    "sameAs": [
-      "https://t.me/piterpotolok",
-      "https://vk.com/piterpoto1ok",
-      "https://instagram.com/piterpotolok"
-    ],
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+7-932-007-60-85",
-      "contactType": "customer service",
-      "availableLanguage": ["Russian"],
-      "areaServed": "RU"
-    }
-  });
-
   return {
     props: {
-      seo: {
-        title: 'Контакты',
-        description:
-          'Свяжитесь с нами для бесплатной консультации по натяжным потолкам в Санкт-Петербурге и ЛО. Телефон +7-932-007-60-85, выезд замерщика бесплатно, работаем ежедневно.',
-        keywords: 'контакты натяжные потолки, телефон Питер Потолок, адрес СПб, связаться консультация, бесплатный замер, Санкт-Петербург ЛО',
-        ogImage: '/og-default.jpg',
-        structuredData,
-      },
+      seo: contactsSeoData,
     },
   };
 }

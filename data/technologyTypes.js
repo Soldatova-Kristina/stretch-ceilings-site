@@ -1,7 +1,7 @@
 export const technologyTypes = [
   {
     id: 1,
-    image: "/images/ceilings/par.png",
+    image: "/images/ceilings/para.png",
     imageAlt: "Парящие потолки",
     title: "ПАРЯЩИЕ",
     subtitle: "ПОТОЛКИ",
@@ -9,7 +9,7 @@ export const technologyTypes = [
   },
   {
     id: 2,
-    image: "/images/ceilings/tenevye.png",
+    image: "/images/ceilings/tenev.png",
     imageAlt: "Теневой потолок",
     title: "ТЕНЕВЫЕ",
     subtitle: "ПОТОЛКИ",
@@ -25,7 +25,7 @@ export const technologyTypes = [
   },
   {
     id: 4,
-    image: "/images/ceilings/svetovye.png",
+    image: "/images/ceilings/sveto.jpeg",
     imageAlt: "Световой потолок",
     title: "СВЕТОВЫЕ",
     subtitle: "ПОТОЛКИ",

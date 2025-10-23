@@ -4,6 +4,8 @@ import Image from 'next/image';
 import { useState } from 'react';
 import CtaButton from '@/components/CtaButton/CtaButton';
 import styles from './portfolio.module.css';
+import { createPortfolioStructuredData, portfolioSeoBase } from '@/data/seo/portfolioSeo';
+import { portfolioItems } from '@/data/portfolioData';
 
 const ImageSlider = ({ images, address }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -77,132 +79,13 @@ const ImageSlider = ({ images, address }) => {
 };
 
 export async function getStaticProps() {
-  const portfolioItems = [
-    {
-      id: 1,
-      images: [
-        '/images/portfolio/1/1.jpg',
-        '/images/portfolio/1/2.jpg',
-        '/images/portfolio/1/3.jpg',
-        '/images/portfolio/1/4.jpg',
-        '/images/portfolio/1/5.jpg',
-      ],
-      complexName: 'ЖК «MODUM»',
-      address: 'Ул. Авиаконструкторов, 54',
-      description: 'Был выполнен монтаж всей евродвушки. Заказчиком выбран стандартный профиль с полотнами BAUF. В качестве основного освещения были использованы световые линии, накладные треки и точечные светильники в ванной комнате. А так же выполнены карнизные ниши с подсветкой. Данное решение в натяжных потолках помогло подчеркнуть дизайн-интерьер во всей квартире, а так же сделало ее более уютной.',
-      slug: 'novye-gorizonty'
-    },
-    {
-      id: 2,
-      images: [
-        '/images/portfolio/2/1.jpg',
-        '/images/portfolio/2/2.jpg',
-        '/images/portfolio/2/3.jpg',
-        '/images/portfolio/2/4.jpg',
-        '/images/portfolio/2/5.jpg',
-        '/images/portfolio/2/6.jpg',
-      ],
-      complexName: 'ЖК «ПОЛИС 2»',
-      address: 'Ул. Арцеуловская аллея, 9',
-      description: 'Произвели монтаж теневого профиля FLEXY EURO 05 по всему периметру евродвушки. Натянули полотно MSD PREMIUM. Смонтировали черные встраиваемые карнизы FLEXY GARDINA. В качестве основного освещения использовали точечные двойные светильники MAYTONI, люстра STLUCE, а так же магнитный трек с линейными светильниками от компании LUMFER',
-      slug: 'rublevka-house'
-    },
-    {
-      id: 3,
-      images: [
-        '/images/portfolio/3/che_1.jpg',
-        '/images/portfolio/3/che_2.jpg',
-        '/images/portfolio/3/che_3.jpg',
-        '/images/portfolio/3/che_4.jpg',
-        '/images/portfolio/3/che_5.jpg',
-      ],
-      complexName: 'ЖК «Квартал Che»',
-      address: 'Ул. Черниговская, 17',
-      description: 'Произведен монтаж теневого профиля EURO 05 по всему периметру квартиры. Натянуто полотно HALEAD. Установлены встраиваемые карнизы FLEXY GARDINA. В качестве основного освещения заказчик выбрал накладные треки',
-      slug: 'metropolis-office'
-    },
-    {
-      id: 4,
-      images: [
-        '/images/portfolio/4/1.jpg',
-        '/images/portfolio/4/2.jpg',
-        '/images/portfolio/4/3.jpg',
-        '/images/portfolio/4/4.jpg',
-        '/images/portfolio/4/5.jpg',
-        '/images/portfolio/4/6.jpg',
-        '/images/portfolio/4/7.jpg',
-        '/images/portfolio/4/8.jpg',
-        '/images/portfolio/4/9.jpg',
-      ],
-      complexName: 'ЖК «Черная Речка»',
-      address: 'Ул. Белоостровская, 10к1',
-      description: 'Выполнили дизайнерский объект. Весь профиль: теневой EUROKRAAB и парящий FLEXY FLY. Полотно BAUF. В качестве основного освещения по проекту установили световые линии ARLIGHT, магнитный трек со светильниками компании DENKIRS, а так же точечные сдвоенные светильники компании MAYTONI. Закарнизная часть выполнена из нишевого профиля компании LUMFER',
-      slug: 'metropolis-office'
-    }
-  ];
-
-  // Structured Data for Portfolio/Image Gallery (enhances visual search and rich snippets)
-  const baseUrl = 'https://piterpotolok.ru';
-  
-  const structuredData = JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    "name": "Портфолио работ по установке натяжных потолков",
-    "description": "Примеры реализованных проектов натяжных потолков в Санкт-Петербурге: квартиры, дома, коммерческие помещения. Фото работ с описанием.",
-    "url": `${baseUrl}/portfolio`,
-    "publisher": {
-      "@type": "Organization",
-      "name": "Питер Потолок",
-      "url": baseUrl,
-      "logo": {
-        "@type": "ImageObject",
-        "url": `${baseUrl}/icons/logo.svg`
-      }
-    },
-    "mainEntity": {
-      "@type": "ItemList",
-      "numberOfItems": portfolioItems.length,
-      "itemListElement": portfolioItems.map((item, index) => ({
-        "@type": "ListItem",
-        "position": index + 1,
-        "item": {
-          "@type": "CreativeWork",
-          "name": item.address,
-          "description": item.description,
-          "image": item.images.map(img => `${baseUrl}${img}`),
-          "creator": {
-            "@type": "Organization",
-            "name": "Питер Потолок"
-          }
-        }
-      }))
-    },
-    "breadcrumb": {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Главная",
-          "item": baseUrl
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Портфолио",
-          "item": `${baseUrl}/portfolio`
-        }
-      ]
-    }
-  });
+ 
+  const structuredData = JSON.stringify(createPortfolioStructuredData(portfolioItems));
 
   return {
     props: {
       seo: {
-        title: "Портфолио работ",
-        description: "Портфолио натяжных потолков в СПб: фото реализованных проектов в квартирах и домах. Примеры работ с теневыми профилями, световыми линиями. Питер Потолок.",
-        keywords: "портфолио натяжные потолки, фото потолков СПб, примеры работ Санкт-Петербург, наши проекты, реализованные объекты, галерея работ",
-        ogImage: '/images/portfolio/1/1.jpg',
+        ...portfolioSeoBase,
         structuredData,
       },
       portfolioItems,
