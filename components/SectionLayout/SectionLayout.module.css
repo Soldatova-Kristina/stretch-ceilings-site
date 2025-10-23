@@ -17,7 +17,6 @@
 .subtitle,
 .secondSubtitle {
   font-size: 16px;
-  text-transform: uppercase;
   align-self: flex-start;
   color: var(--color-text-secondary);
   margin: 0;

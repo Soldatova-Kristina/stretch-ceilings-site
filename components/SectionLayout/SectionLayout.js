@@ -1,9 +1,9 @@
 // components/SectionLayout.jsx
 import styles from './SectionLayout.module.css';
 
-export default function SectionLayout({ title, subtitle, secondSubtitle, children }) {
+export default function SectionLayout({ title, subtitle, secondSubtitle, children, backgroundColor }) {
   return (
-    <section className={styles.section}>
+    <section className={styles.section} style={backgroundColor ? { background: `var(${backgroundColor})` } : {}}>
       <div className={styles.container}>
         <h2 className={styles.title}>{title}</h2>
         <div className={styles.line} />

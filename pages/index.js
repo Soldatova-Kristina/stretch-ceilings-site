@@ -1,6 +1,7 @@
-import styles from "@/styles/Home.module.css";
 import HeroSection from "@/components/HeroSection/HeroSection";
-
+import SectionLayout from "@/components/SectionLayout/SectionLayout";
+import About
+ from "@/components/About/About";
 export async function getStaticProps() {
   return {
     props: {
@@ -15,6 +16,7 @@ export async function getStaticProps() {
 
 export default function Home() {
     return (
+      <>
            <div className="containerServices">
              <HeroSection
          title="НАТЯЖНЫЕ ПОТОЛКИ"
@@ -25,5 +27,18 @@ export default function Home() {
          imageAlt="Ceilings example"
        />
            </div>
+           <SectionLayout 
+                 title="О НАС"
+                 backgroundColor={"--color-background-tecnology-and-material"}>
+                  <About/>
+                 </SectionLayout>
+                 
+                 <SectionLayout 
+                 title="НАШИ ПРЕИМУЩЕТСВА"/>
+                 <SectionLayout 
+                 title="НАШИ УСЛУГИ"/>
+                 <SectionLayout 
+                 title="ЭТАПЫ РАБОТЫ"/>
+                 </>
          );
 }
