@@ -36,7 +36,8 @@ export default function Ceilings({ seo }) {
       <SectionLayout 
       title="МАТЕРИАЛЫ" 
       subtitle="КАКАЯ ПОВЕРХНОСТЬ ПОДОЙДЕТ ИМЕННО ВАМ?"
-      secondSubtitle="Для натяжных потолков используется два основных материала — ПВХ-плёнка и тканевые полотна">
+      secondSubtitle="Для натяжных потолков используется два основных материала — ПВХ-плёнка и тканевые полотна"
+      backgroundColor="--color-background-tecnology-and-material">
         <MaterialsPreview />
       </SectionLayout>
 
@@ -48,7 +49,10 @@ export default function Ceilings({ seo }) {
         <CeilingGrid items={technologyTypes} />
       </SectionLayout>
 
-      <SectionLayout title="ОСВЕЩЕНИЕ" subtitle="КАКИЕ СВЕТОВЫЕ РЕШЕНИЯ ПОДОЙДУТ ВАШЕМУ ИНТЕРЬЕРУ?">
+      <SectionLayout 
+      title="ОСВЕЩЕНИЕ" 
+      subtitle="КАКИЕ СВЕТОВЫЕ РЕШЕНИЯ ПОДОЙДУТ ВАШЕМУ ИНТЕРЬЕРУ?"
+      backgroundColor="--color-background-light">
         <CeilingGrid items={lightTypes} />
       </SectionLayout>
     </>

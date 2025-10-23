@@ -1,5 +1,6 @@
 import HeroSection from "@/components/HeroSection/HeroSection";
 import SectionLayout from "@/components/SectionLayout/SectionLayout";
+import About from "@/components/About/About";
 
 export async function getStaticProps() {
   return {
@@ -7,7 +8,7 @@ export async function getStaticProps() {
       seo: {
         title: "Тихие стены",
         description: "Установка натяжных стен для оригинального дизайна интерьера. Скрытие неровностей, звукоизоляция, уникальный внешний вид.",
-        keywords: "натяжные стены, дизайн стен, декоративные стены, отделка стен",
+        keywords: "тихие стены, дизайн стен, натяжные стены, отделка стен",
       },
     },
   };
@@ -27,7 +28,18 @@ export default function Walls() {
     imageAlt="Ceilings example"
   />
       </div>
-      <SectionLayout />
+      <SectionLayout 
+      title="О ТЕХНОЛОГИИ"
+      backgroundColor={"--color-background-tecnology-and-material"}>
+        <About />
+      </SectionLayout>
+      
+      <SectionLayout 
+      title="ПРЕИМУЩЕСТВА ТЕХНОЛОГИИ"/>
+      <SectionLayout 
+      title="СРАВНЕНИЕ ЭТАПОВ"/>
+      <SectionLayout 
+      title="ПРИМЕРЫ РАБОТ"/>
       </>
     );
 }
