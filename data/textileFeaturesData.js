@@ -1,8 +1,3 @@
-/**
- * Textile Features data
- * Contains information about architectural textile advantages and features
- */
-
 export const textileFeaturesData = [
   {
     id: 1,

@@ -1,8 +1,3 @@
-/**
- * Portfolio items data
- * Contains information about completed projects: residential complexes, addresses, descriptions, and images
- */
-
 export const portfolioItems = [
   {
     id: 1,

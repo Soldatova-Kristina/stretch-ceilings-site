@@ -3,17 +3,15 @@ import SectionLayout from "@/components/SectionLayout/SectionLayout";
 import About from "@/components/About/About";
 import ImageSlider from "@/components/ImageSlider/ImageSlider";
 import TextileFeatures from "@/components/TextileFeatures/TextileFeatures";
+import FinishingComparison from "@/components/FinishingComparison/FinishingComparison";
 import { aboutWallsData } from "@/data/aboutWalls";
 import { wallsPortfolioData } from "@/data/wallsPortfolioData";
+import { wallsSeoData } from "@/data/seo/wallsSeo";
 
 export async function getStaticProps() {
   return {
     props: {
-      seo: {
-        title: "Тихие стены",
-        description: "Установка натяжных стен для оригинального дизайна интерьера. Скрытие неровностей, звукоизоляция, уникальный внешний вид.",
-        keywords: "тихие стены, дизайн стен, натяжные стены, отделка стен",
-      },
+      seo: wallsSeoData,
     },
   };
 }
@@ -46,7 +44,10 @@ export default function Walls() {
       </SectionLayout>
 
       <SectionLayout 
-      title="СРАВНЕНИЕ ЭТАПОВ"/>
+      title="СРАВНЕНИЕ ЭТАПОВ"
+      backgroundColor={"--color-background-comparison"}>
+       <FinishingComparison />
+        </SectionLayout>
 
       <SectionLayout 
       title="ПРИМЕРЫ РАБОТ"
