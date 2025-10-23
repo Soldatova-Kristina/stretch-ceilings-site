@@ -1,6 +1,10 @@
 import HeroSection from "@/components/HeroSection/HeroSection";
 import SectionLayout from "@/components/SectionLayout/SectionLayout";
 import About from "@/components/About/About";
+import ImageSlider from "@/components/ImageSlider/ImageSlider";
+import TextileFeatures from "@/components/TextileFeatures/TextileFeatures";
+import { aboutWallsData } from "@/data/aboutWalls";
+import { wallsPortfolioData } from "@/data/wallsPortfolioData";
 
 export async function getStaticProps() {
   return {
@@ -31,15 +35,29 @@ export default function Walls() {
       <SectionLayout 
       title="О ТЕХНОЛОГИИ"
       backgroundColor={"--color-background-tecnology-and-material"}>
-        <About />
+        <About {...aboutWallsData} />
       </SectionLayout>
       
       <SectionLayout 
-      title="ПРЕИМУЩЕСТВА ТЕХНОЛОГИИ"/>
+      title="ПРЕИМУЩЕСТВА ТЕХНОЛОГИИ"
+      backgroundImage="/images/walls/features_background.jpg"
+      backgroundOpacity={0.35}>
+      <TextileFeatures />
+      </SectionLayout>
+
       <SectionLayout 
       title="СРАВНЕНИЕ ЭТАПОВ"/>
+
       <SectionLayout 
-      title="ПРИМЕРЫ РАБОТ"/>
+      title="ПРИМЕРЫ РАБОТ"
+      backgroundImage="/images/texture/black_djins.png">
+        <ImageSlider 
+          images={wallsPortfolioData.images}
+          address={wallsPortfolioData.address}
+          width={1480}
+          height={654}
+        />
+      </SectionLayout>
       </>
     );
 }

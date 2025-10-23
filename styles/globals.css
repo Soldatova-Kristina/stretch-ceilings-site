@@ -271,7 +271,6 @@ button:focus-visible {
 
 img,
 svg {
-  height: auto;
   display: block;
 }
 
