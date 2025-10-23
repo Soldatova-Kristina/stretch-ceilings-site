@@ -1,0 +1,98 @@
+.section {
+  display: flex;
+  margin-bottom: 75px;
+  margin-top: 0;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  margin-right: 40px;
+}
+
+.columnRight {
+  display: flex;
+  flex-direction: column;
+  margin-left: 40px;
+}
+
+.verticalLine {
+  width: 2px;
+  height: 2000px;
+  background: #FFF;
+  flex-shrink: 0;
+}
+
+.columnTitle {
+  font-family: 'Gilroy-Regular', sans-serif;
+  font-size: 30px;
+  color: #fff;
+  margin-top: 0;
+  margin-bottom: 50px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+}
+
+.card {
+  width: 576px;
+  height: 120px;
+  border-radius: 20px;
+  background: url('/images/texture/white_texture.jpg') lightgray 50% / cover no-repeat;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.textBlock {
+  display: flex;
+  flex-direction: column;
+  margin-top: 28px;
+  margin-left: 55px;
+}
+
+.cardTitle {
+  color: #000;
+  font-family: 'Gilroy-Medium', sans-serif;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.cardSubtitle {
+  color: #000;
+  font-family: 'Gilroy-Regular', sans-serif;
+  font-size: 16px;
+}
+
+.cardNum {
+  color: #000;
+  font-family: 'Gilroy-Regular', sans-serif;
+  font-size: 30px;
+  margin-top: 20px;
+  margin-right: 17px;
+}
+
+/* Правый блок — зеркальный */
+.cardRight {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+.textBlockRight {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: 28px;
+  margin-right: 55px;
+}
+
+.cardNumRight {
+  color: #000;
+  font-family: 'Gilroy-Regular', sans-serif;
+  font-size: 30px;
+  margin-top: 20px;
+  margin-left: 17px;
+}
