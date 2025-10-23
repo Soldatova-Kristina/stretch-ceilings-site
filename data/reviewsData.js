@@ -1,8 +1,3 @@
-/**
- * Reviews data
- * Contains customer reviews and review images for the reviews page
- */
-
 export const reviewsData = [
   {
     author: "Евгения",

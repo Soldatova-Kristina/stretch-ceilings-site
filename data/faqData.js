@@ -1,8 +1,3 @@
-/**
- * FAQ items data
- * Contains frequently asked questions and answers about stretch ceilings installation
- */
-
 export const faqList = [
   {
     question: "Когда правильнее всего пригласить замерщика?",
