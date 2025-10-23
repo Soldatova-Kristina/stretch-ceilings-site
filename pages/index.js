@@ -1,6 +1,7 @@
 import HeroSection from "@/components/HeroSection/HeroSection";
 import SectionLayout from "@/components/SectionLayout/SectionLayout";
 import About from "@/components/About/About";
+import AdvantagesBlock from "@/components/AdvantagesBlock/AdvantagesBlock";
 import { aboutIndexData } from "@/data/aboutIndex";
 export async function getStaticProps() {
   return {
@@ -34,7 +35,10 @@ export default function Home() {
                  </SectionLayout>
                  
                  <SectionLayout 
-                 title="НАШИ ПРЕИМУЩЕТСВА"/>
+                 title="НАШИ ПРЕИМУЩЕТСВА">
+                  <AdvantagesBlock />
+
+                 </SectionLayout>
                  <SectionLayout 
                  title="НАШИ УСЛУГИ"/>
                  <SectionLayout 
