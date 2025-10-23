@@ -4,11 +4,20 @@
   color: var(--color-text-secondary);
 }
 
+.reverse {
+  flex-direction: row-reverse;
+}
+
 .leftBlock {
   display: flex;
   flex-direction: column;
   margin-left: 116px;
   margin-bottom: 35px;
+}
+
+.reverse .leftBlock {
+  margin-left: 35px;
+  margin-right: 116px;
 }
 
 .title {
@@ -21,7 +30,6 @@
 .text {
   font-family: var(----font-family-light);
   font-size: 16px;
-  width: 304px;
   color: var(--color-text-secondary);
   margin-bottom: 35px;
   line-height: 1.4;
@@ -45,6 +53,7 @@
   position: relative;
 }
 
-.verticalImage {
-  object-fit: cover;
+.reverse .verticalWrapper {
+  margin-right: 35px;
+  margin-left: 155px;
 }

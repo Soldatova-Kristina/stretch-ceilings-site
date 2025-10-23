@@ -1,7 +1,7 @@
 import HeroSection from "@/components/HeroSection/HeroSection";
 import SectionLayout from "@/components/SectionLayout/SectionLayout";
-import About
- from "@/components/About/About";
+import About from "@/components/About/About";
+import { aboutIndexData } from "@/data/aboutIndex";
 export async function getStaticProps() {
   return {
     props: {
@@ -30,7 +30,7 @@ export default function Home() {
            <SectionLayout 
                  title="О НАС"
                  backgroundColor={"--color-background-tecnology-and-material"}>
-                  <About/>
+                  <About {...aboutIndexData} />
                  </SectionLayout>
                  
                  <SectionLayout 

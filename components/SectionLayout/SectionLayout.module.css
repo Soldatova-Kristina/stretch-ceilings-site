@@ -3,6 +3,27 @@
   justify-content: center;
   width: 100%;
   background: #353535;
+  position: relative;
+}
+
+.section.withBackgroundImage {
+  background: transparent;
+}
+
+.backgroundLayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+.section.withBackgroundImage::before {
+  display: none;
 }
 
 .container {
@@ -11,6 +32,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  z-index: 1;
 }
 
 .title,

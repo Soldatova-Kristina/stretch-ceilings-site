@@ -1,27 +1,39 @@
 import Image from 'next/image';
 import styles from './About.module.css';
 
-export default function About() {
-  return (
-    <section className={styles.section}>
-      <div className={styles.leftBlock}>
-        <h2 className={styles.title}>АРХИТЕКТУРНЫЙ ТЕКСТИЛЬ</h2>
+export default function About({ 
+  reverse,
+  title,
+  text,
+  textWidth,
+  horizontalImage,
+  horizontalImageAlt,
+  horizontalImageWidth,
+  horizontalImageHeight,
+  verticalImage,
+  verticalImageAlt,
+  verticalImageWidth,
+  verticalImageHeight
+}) {
+  const textStyle = textWidth 
+    ? { width: textWidth, maxWidth: '100%' } 
+    : {};
 
-        <p className={styles.text}>
-          Финишная отделка стен и потолков архитектурным текстилем — это быстрый,
-          эстетичный и долговечный способ преобразить любое пространство.
-          Материал обеспечивает качественное звукопоглощение и улучшает акустику.
-          Благодаря продуманной технологии монтажа установка выполняется в пять
-          раз быстрее традиционных способов отделки помещений. При этом текстиль
-          сохраняет свои свойства и внешний вид.
+  return (
+    <section className={`${styles.section} ${reverse ? styles.reverse : ''}`}>
+      <div className={styles.leftBlock}>
+        <h2 className={styles.title}>{title}</h2>
+
+        <p className={styles.text} style={textStyle}>
+          {text}
         </p>
 
         <div className={styles.horizontalWrapper}>
           <Image
-            src="/images/walls/review_backgroundd.jpg"
-            alt="Архитектурный текстиль"
-            width={721}
-            height={397}
+            src={horizontalImage}
+            alt={horizontalImageAlt}
+            width={horizontalImageWidth}
+            height={horizontalImageHeight}
             className={styles.horizontalImage}
           />
         </div>
@@ -29,10 +41,10 @@ export default function About() {
 
       <div className={styles.verticalWrapper}>
         <Image
-          src="/images/walls/about1.jpg"
-          alt="Интерьер с текстилем"
-          width={453}
-          height={736}
+          src={verticalImage}
+          alt={verticalImageAlt}
+          width={verticalImageWidth}
+          height={verticalImageHeight}
           className={styles.verticalImage}
         />
       </div>
