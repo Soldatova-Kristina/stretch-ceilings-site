@@ -1,4 +1,5 @@
 import HeroSection from "@/components/HeroSection/HeroSection";
+import SectionLayout from "@/components/SectionLayout/SectionLayout";
 
 export async function getStaticProps() {
   return {
@@ -14,6 +15,7 @@ export async function getStaticProps() {
 
 export default function Walls() {
     return (
+      <>
       <div className="containerServices">
         <HeroSection
     mainTitle="АРХИТЕКТУРНЫЙ ТЕКСТИЛЬ"
@@ -25,5 +27,7 @@ export default function Walls() {
     imageAlt="Ceilings example"
   />
       </div>
+      <SectionLayout />
+      </>
     );
 }
