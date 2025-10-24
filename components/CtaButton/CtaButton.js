@@ -6,23 +6,24 @@ import styles from './CtaButton.module.css';
  * @param {Object} props - Component props
  * @param {string} props.text - Button text content
  * @param {string} [props.href='https://t.me/piterpotolok'] - Link URL (default: Telegram)
+ * @param {Function} [props.onClick] - Click handler (if provided, renders as button instead of link)
  * @param {string} [props.ariaLabel] - Accessibility label
  * @param {string} [props.className] - Additional CSS classes
  */
 export default function CtaButton({ 
   text, 
   href = 'https://t.me/piterpotolok',
+  onClick,
   ariaLabel,
   className = ''
 }) {
-  return (
-    <a
-      href={href}
-      className={`${styles.ctaButton} ${className}`}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={ariaLabel || text}
-    >
+  const sharedProps = {
+    className: `${styles.ctaButton} ${className}`,
+    'aria-label': ariaLabel || text,
+  };
+
+  const content = (
+    <>
       <span className={styles.ctaText}>{text}</span>
       <svg 
         className={styles.ctaArrow} 
@@ -38,6 +39,29 @@ export default function CtaButton({
           fill="currentColor"
         />
       </svg>
+    </>
+  );
+
+  if (onClick) {
+    return (
+      <button
+        {...sharedProps}
+        onClick={onClick}
+        type="button"
+      >
+        {content}
+      </button>
+    );
+  }
+
+  return (
+    <a
+      {...sharedProps}
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      {content}
     </a>
   );
 }
