@@ -1,0 +1,100 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 75px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.card {
+  position: relative;
+  width: 180px;
+  height: 418px;
+  background: url('/images/texture/white_texture.jpg') lightgray 50% / cover no-repeat;
+  border-radius: 20px;
+  transition: width 0.3s ease, height 0.3s ease;
+  overflow: hidden;
+}
+
+.card.open {
+  width: 360px;
+  height: 418px;
+}
+
+.number {
+  position: absolute;
+  top: 26px;
+  left: 18px;
+  color: #000;
+  font-family: 'Gilroy-Medium', sans-serif;
+  font-size: 16px;
+}
+
+.title {
+  position: absolute;
+  bottom: 47px;
+  left: 18px;
+  color: #1b1b1b;
+  font-family: 'Gilroy-Regular', sans-serif;
+  font-size: 16px;
+  width: 135px;
+}
+
+.text {
+  position: absolute;
+  top: 80px;
+  left: 30px;
+  right: 30px;
+  color: #1b1b1b;
+  font-family: 'Gilroy-Regular', sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.arrow {
+  position: absolute;
+  bottom: 19px;
+  right: 21px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow svg {
+  width: 24px;
+  height: 15px;
+  color: #000;
+}
+
+.arrow.left {
+  transform: rotate(180deg);
+}
+
+.cta {
+  margin-top: 46px;
+  width: 598px;
+  height: 47px;
+  border-radius: 20px;
+  border: 1px solid #878787;
+  background: none;
+  color: #fff;
+  font-family: 'Gilroy-Regular', sans-serif;
+  font-size: 16px;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.cta:hover {
+  border-color: #fff;
+}
