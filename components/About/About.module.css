@@ -25,14 +25,22 @@
   font-size: 25px;
   color: var(--color-text-secondary);
   margin-bottom: 35px;
+  white-space: pre-line;
+}
+
+.contentWrapper {
+  position: relative;
+  display: flex;
+  gap: 27px;
+  margin-bottom: 35px;
 }
 
 .text {
   font-family: var(----font-family-light);
   font-size: 16px;
   color: var(--color-text-secondary);
-  margin-bottom: 35px;
   line-height: 1.4;
+  flex-shrink: 0;
 }
 
 .horizontalWrapper {
@@ -56,4 +64,33 @@
 .reverse .verticalWrapper {
   margin-right: 35px;
   margin-left: 155px;
+}
+
+.statistics {
+    display: flex;
+    flex-direction: column;
+    gap: 27px;
+    flex-shrink: 0;
+    margin-left: 38px;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.statNumber {
+  color: #FFF;
+  font-family: var(----font-family-regular);
+  font-size: 30px;
+  line-height: 1.2;
+}
+
+.statDescription {
+  color: #FFF;
+  font-family: var(----font-family-light);
+  font-size: 16px;
+  line-height: 1.4;
+  white-space: pre-line;
 }
