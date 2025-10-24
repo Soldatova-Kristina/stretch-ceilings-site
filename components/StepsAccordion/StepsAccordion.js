@@ -10,7 +10,7 @@ export default function StepsAccordion() {
   };
 
   return (
-    <section className={styles.section}>
+    <div className={styles.section}>
       <div className={styles.container}>
         {stepsData.map((step, index) => (
           <div
@@ -39,6 +39,6 @@ export default function StepsAccordion() {
       </div>
 
       <button className={styles.cta}>ЗАПИСАТЬСЯ НА ЗАМЕР →</button>
-    </section>
+    </div>
   );
 }

@@ -37,7 +37,7 @@ export default function About({
   };
 
   return (
-    <section className={`${styles.section} ${reverse ? styles.reverse : ''}`}>
+    <div className={`${styles.section} ${reverse ? styles.reverse : ''}`}>
       <div className={styles.leftBlock}>
         <h2 className={styles.title}>{renderTitle()}</h2>
 
@@ -78,6 +78,6 @@ export default function About({
           className={styles.verticalImage}
         />
       </div>
-    </section>
+    </div>
   );
 }

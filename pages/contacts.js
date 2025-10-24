@@ -7,18 +7,18 @@ import { contactsSeoData } from '@/data/seo/contactsSeo';
 export async function getStaticProps() {
   return {
     props: {
-      seo: contactsSeoData,
+      seoData: contactsSeoData,
     },
   };
 }
 
-export default function Contacts({ seo }) {
+export default function Contacts({ seoData }) {
   return (
     <>
-      <Seo {...seo} />
-      <div className={styles.page} itemScope itemType="https://schema.org/ContactPage">
-
-      <section className={styles.section}>
+      <Seo {...seoData} />
+      <div className={styles.pageWrapper} itemScope itemType="https://schema.org/ContactPage">
+        {/* Contact Form Section */}
+        <section className={styles.section} aria-label="Форма обратной связи">
         <div className={styles.leftColumn}>
           <h1 className={styles.title}>ГОТОВЫ<br />ОБСУДИТЬ ВАШ ПРОЕКТ?</h1>
           <p className={styles.subtext}>
@@ -36,9 +36,10 @@ export default function Contacts({ seo }) {
             className={styles.photoOne}
           />
         </div>
-      </section>
+        </section>
 
-      <section className={styles.sectionTwo}>
+        {/* Contact Information Section */}
+        <section className={styles.sectionTwo} aria-label="Контактная информация">
         <div className={styles.leftColumn}>
           <Image
             src="/images/contacts/contacts_photo_two.png"
@@ -102,8 +103,8 @@ export default function Contacts({ seo }) {
             </div>
           </div>
         </div>
-      </section>
-    </div>
+        </section>
+      </div>
     </>
   );
 }

@@ -1,8 +1,18 @@
+.pageWrapper {
+  position: relative;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+  background-image: url(/images/texture/black_djins.png);
+  background-size: cover;
+  background-position: center;
+}
+
 .main {
-    background-image: url(/images/texture/black_djins.png);
-    background-size: cover;
-    background-position: center;
-    padding: 2rem;
+  width: 100%;
 }
 
 .title {

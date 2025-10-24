@@ -3,7 +3,7 @@ import { standardFinishingSteps, quietWallsSteps } from '@/data/finishingCompari
 
 export default function FinishingComparison() {
   return (
-    <section className={styles.section}>
+    <div className={styles.section}>
       <div className={styles.column}>
         <h2 className={styles.columnTitle}>СТАНДАРТНАЯ ОТДЕЛКА</h2>
         <div className={styles.list}>
@@ -35,6 +35,6 @@ export default function FinishingComparison() {
           ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 }

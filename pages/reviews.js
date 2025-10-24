@@ -11,7 +11,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      seo: {
+      seoData: {
         ...reviewsSeoBase,
         structuredData,
       },
@@ -20,45 +20,47 @@ export async function getStaticProps() {
   };
 }
 
-export default function Reviews({ seo, reviewImages }) {
+export default function Reviews({ seoData, reviewImages }) {
   return (
     <>
-      <Seo {...seo} />
-      <main className={styles.main} itemScope itemType="https://schema.org/LocalBusiness">
+      <Seo {...seoData} />
+      {/* Reviews Section */}
+      <section className={styles.pageWrapper} aria-label="Отзывы клиентов" itemScope itemType="https://schema.org/LocalBusiness">
         <meta itemProp="name" content="Питер Потолок" />
-        
-        <div className={styles.grid} itemProp="review" itemScope itemType="https://schema.org/Review">
-        {reviewImages.slice(0, 2).map((review, index) => (
-          <ReviewCard
-            key={index}
-            src={review.src}
-            alt={review.alt}
-            className={styles.card}
-          />
-        ))}
-        <div className={styles.headerSection}>
-          <h2 className={styles.title}>ОТЗЫВЫ</h2>
-          <p className={styles.subtitle}>Что о нас говорят клиенты</p>
-        </div>
-        {reviewImages.slice(2).map((review, index) => (
-          <ReviewCard
-            key={index + 2}
-            src={review.src}
-            alt={review.alt}
-            className={styles.card}
-          />
-        ))}
-        <div className={styles.cardWide}>
-          <Image
-            src="/images/reviews/telegram.png"
-            alt="Telegram review"
-            width={600}
-            height={600}
-            className={styles.image}
-          />
-        </div>
-      </div>
-    </main>
+          <div className={styles.main}>
+            <div className={styles.grid} itemProp="review" itemScope itemType="https://schema.org/Review">
+                    {reviewImages.slice(0, 2).map((review, index) => (
+                <ReviewCard
+                  key={index}
+                  src={review.src}
+                  alt={review.alt}
+                  className={styles.card}
+                />
+              ))}
+              <div className={styles.headerSection}>
+                <h1 className={styles.title}>ОТЗЫВЫ</h1>
+                <p className={styles.subtitle}>Что о нас говорят клиенты</p>
+              </div>
+                    {reviewImages.slice(2).map((review, index) => (
+                <ReviewCard
+                  key={index + 2}
+                  src={review.src}
+                  alt={review.alt}
+                  className={styles.card}
+                />
+              ))}
+                    <div className={styles.cardWide}>
+                <Image
+                  src="/images/reviews/telegram.png"
+                  alt="Telegram review"
+                  width={600}
+                  height={600}
+                  className={styles.image}
+                />
+              </div>
+            </div>
+          </div>
+      </section>
     </>
   );
 }

@@ -12,7 +12,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      seo: {
+      seoData: {
         ...portfolioSeoBase,
         structuredData,
       },
@@ -22,12 +22,13 @@ export async function getStaticProps() {
   };
 }
 
-export default function Portfolio({ seo, portfolioItems }) {
+export default function Portfolio({ seoData, portfolioItems }) {
   return (
     <>
-      <Seo {...seo} />
-
-      <section className={styles.gallery} itemScope itemType="https://schema.org/CollectionPage">
+      <Seo {...seoData} />
+      {/* Portfolio Section */}
+      <section className={styles.pageWrapper} itemScope itemType="https://schema.org/CollectionPage" aria-label="Портфолио">
+          <div className={styles.gallery}>
         <div className={styles.container}>
           <div className={styles.header}>
             <h1 className={styles.title}>Примеры наших работ</h1>
@@ -59,6 +60,7 @@ export default function Portfolio({ seo, portfolioItems }) {
             ))}
           </div>
         </div>
+          </div>
       </section>
     </>
   );

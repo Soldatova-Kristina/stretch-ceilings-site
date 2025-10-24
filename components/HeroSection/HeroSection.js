@@ -1,5 +1,6 @@
 import Image from "next/image";
 import CtaButton from "@/components/CtaButton/CtaButton";
+import ShinyText from "@/components/ShinyText/ShinyText";
 import styles from "./HeroSection.module.css";
 
 export default function HeroSection({
@@ -14,7 +15,7 @@ export default function HeroSection({
   onSecondButtonClick,
 }) {
   return (
-    <section className={styles.hero}>
+    <div className={styles.hero}>
       <div className={styles.heroInner}>
         <div className={styles.leftSection}>
           <div className={styles.brandContainer}>
@@ -27,7 +28,7 @@ export default function HeroSection({
           <div className={styles.contentContainer}>
             <h1 className={styles.title}>
               {mainTitle}<br />
-             {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
+             {subtitle && <p className={styles.subtitle}><ShinyText text={subtitle} /></p>}
               {location}
             </h1>
 
@@ -63,6 +64,6 @@ export default function HeroSection({
           )}
         </div>
       </div>
-    </section>
+    </div>
   );
 }
