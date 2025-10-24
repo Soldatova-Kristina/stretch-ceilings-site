@@ -10,7 +10,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      seo: {
+      seoData: {
         ...faqSeoBase,
         structuredData
       },
@@ -18,7 +18,7 @@ export async function getStaticProps() {
   };
 }
 
-export default function FAQ({ seo }) {
+export default function FAQ({ seoData }) {
   const [openIndex, setOpenIndex] = useState(null);
 
   const toggle = (index) => {
@@ -27,12 +27,13 @@ export default function FAQ({ seo }) {
 
   return (
     <>
-      <Seo {...seo} />
-      <div className={styles.pageWrapper} itemScope itemType="https://schema.org/FAQPage">
-        <div className="container">
-          <h1 className={styles.title}>
-            Мы подготовили для вас <br /> ответы на самые часто задаваемые вопросы
-          </h1>
+      <Seo {...seoData} />
+      {/* FAQ Section */}
+      <section className={styles.pageWrapper} itemScope itemType="https://schema.org/FAQPage" aria-label="Часто задаваемые вопросы">
+          <div className={styles.container}>
+            <h1 className={styles.title}>
+              Мы подготовили для вас <br /> ответы на самые часто задаваемые вопросы
+            </h1>
 
           <ul className={styles.faqList}>
             {faqList.map((item, i) => (
@@ -50,8 +51,8 @@ export default function FAQ({ seo }) {
               </li>
             ))}
           </ul>
-        </div>
-      </div>
+          </div>
+        </section>
     </>
   );
 }

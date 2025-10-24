@@ -8,7 +8,7 @@ export default function TextileFeatures() {
   const secondRow = textileFeaturesData.slice(3, 6);
 
   return (
-    <section className={styles.section}>
+    <div className={styles.section}>
       <div className={styles.row}>
         {firstRow.map((feature) => (
           <div key={feature.id} className={styles.card}>
@@ -42,6 +42,6 @@ export default function TextileFeatures() {
           </div>
         ))}
       </div>
-    </section>
+    </div>
   );
 }

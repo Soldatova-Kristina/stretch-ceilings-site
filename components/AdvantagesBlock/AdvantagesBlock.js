@@ -4,7 +4,7 @@ import { advantagesData } from '@/data/advantagesData';
 
 export default function AdvantagesBlock() {
   return (
-    <section className={styles.section}>
+    <div className={styles.section}>
       <div className={styles.advantages}>
         {advantagesData.map((item) => (
           <div key={item.id} className={styles.card}>
@@ -25,6 +25,6 @@ export default function AdvantagesBlock() {
           loading="lazy"
         />
       </div>
-    </section>
+    </div>
   );
 }

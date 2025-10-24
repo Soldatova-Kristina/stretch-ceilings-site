@@ -1,4 +1,3 @@
-// components/SectionLayout.jsx
 import styles from './SectionLayout.module.css';
 
 export default function SectionLayout({ 
@@ -9,7 +8,9 @@ export default function SectionLayout({
   children, 
   backgroundColor,
   backgroundImage,
-  backgroundOpacity
+  backgroundOpacity,
+  as: Component = 'div',
+  'aria-label': ariaLabel
 }) {
   if (backgroundImage) {
     const bgStyle = {
@@ -21,7 +22,7 @@ export default function SectionLayout({
     }
 
     return (
-      <section id={id} className={`${styles.section} ${styles.withBackgroundImage}`}>
+      <Component id={id} className={`${styles.section} ${styles.withBackgroundImage}`} aria-label={ariaLabel}>
         <div 
           className={styles.backgroundLayer} 
           style={bgStyle}
@@ -33,12 +34,12 @@ export default function SectionLayout({
           {secondSubtitle && <p className={styles.secondSubtitle}>{secondSubtitle}</p>}
           {children}
         </div>
-      </section>
+      </Component>
     );
   }
 
   return (
-    <section id={id} className={styles.section} style={backgroundColor ? { background: `var(${backgroundColor})` } : {}}>
+    <Component id={id} className={styles.section} style={backgroundColor ? { background: `var(${backgroundColor})` } : {}} aria-label={ariaLabel}>
       <div className={styles.container}>
         <h2 className={styles.title}>{title}</h2>
         <div className={styles.line} />
@@ -46,6 +47,6 @@ export default function SectionLayout({
         {secondSubtitle && <p className={styles.secondSubtitle}>{secondSubtitle}</p>}
         {children}
       </div>
-    </section>
+    </Component>
   );
 }

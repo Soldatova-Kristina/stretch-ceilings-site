@@ -397,12 +397,12 @@
   }
 
   .ctaButton:hover {
-    background-color: var(--color-primary-hover);
-    color: var( --color-text-primary);
+    background-color: rgba(0, 0, 0, 0.1);
+    color: #000000;
   }
 
   .ctaButton:hover .ctaArrow {
-    color: var( --color-text-primary);
+    color: #000000;
   }
 
   .mobileMenuToggle {

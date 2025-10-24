@@ -4,7 +4,7 @@ import { servicesData } from '@/data/servicesData';
 
 export default function ServiceBlocks() {
   return (
-    <section className={styles.section}>
+    <div className={styles.section}>
       <div className={styles.container}>
         {servicesData.map((service) => (
           <div key={service.id} className={styles.block}>
@@ -29,6 +29,6 @@ export default function ServiceBlocks() {
           </div>
         ))}
       </div>
-    </section>
+    </div>
   );
 }

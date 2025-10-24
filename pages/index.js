@@ -27,41 +27,53 @@ export default function Home({ seoData }) {
     return (
       <>
            <Seo {...seoData} />
-           <div className="containerServices">
-             <HeroSection
-         title="НАТЯЖНЫЕ ПОТОЛКИ"
-         subtitle="ТИХИЕ СТЕНЫ"
-         location="САНКТ-ПЕТЕРБУРГ И ЛО"
-         imageSrc="/images/index/hero_main.png"
-         imageAlt="Натяжные потолки в Санкт-Петербурге - современные решения для вашего интерьера"
-         showSecondButton={true}
-         secondButtonText="ПОДРОБНЕЕ ОБ УСЛУГАХ"
-         onSecondButtonClick={scrollToServices}
-       />
-           </div>
-           <SectionLayout 
-                 title="О НАС"
-                 backgroundColor={"--color-background-tecnology-and-material"}>
-                  <About {...aboutIndexData} />
-                 </SectionLayout>
-                 
-                 <SectionLayout 
-                 title="НАШИ ПРЕИМУЩЕТСВА">
-                  <AdvantagesBlock />
-                 </SectionLayout>
+           {/* Hero Section */}
+           <section aria-label="Главная секция">
+             <div className="containerServices">
+               <HeroSection
+                 mainTitle="НАТЯЖНЫЕ ПОТОЛКИ"
+                 subtitle="ТИХИЕ СТЕНЫ"
+                 location="САНКТ-ПЕТЕРБУРГ И ЛО"
+                 imageSrc="/images/index/hero_main.png"
+                 imageAlt="Натяжные потолки в Санкт-Петербурге - современные решения для вашего интерьера"
+                 showSecondButton={true}
+                 secondButtonText="ПОДРОБНЕЕ ОБ УСЛУГАХ"
+                 onSecondButtonClick={scrollToServices}
+               />
+             </div>
+           </section>
 
-                 <SectionLayout 
-                 id="services-section"
-                 title="НАШИ УСЛУГИ"
-                 backgroundColor={"--color-background-our-services"}>
-                  <ServiceBlock />
-                  </SectionLayout>
+           <section aria-label="О компании">
+             <SectionLayout 
+               title="О НАС"
+               backgroundColor={"--color-background-tecnology-and-material"}>
+                <About {...aboutIndexData} />
+             </SectionLayout>
+           </section>
+             
+           <section aria-label="Наши преимущества">
+             <SectionLayout 
+               title="НАШИ ПРЕИМУЩЕСТВА">
+                <AdvantagesBlock />
+             </SectionLayout>
+           </section>
 
-                 <SectionLayout 
-                 title="ЭТАПЫ РАБОТЫ"
-                 backgroundImage="/images/texture/black_djins.png">
-                  <StepsAccordion />
-                  </SectionLayout>
-                 </>
-         );
+           <section aria-label="Наши услуги">
+             <SectionLayout 
+               id="services-section"
+               title="НАШИ УСЛУГИ"
+               backgroundColor={"--color-background-our-services"}>
+                <ServiceBlock />
+             </SectionLayout>
+           </section>
+
+           <section aria-label="Этапы работы">
+             <SectionLayout 
+               title="ЭТАПЫ РАБОТЫ"
+               backgroundImage="/images/texture/black_djins.png">
+                <StepsAccordion />
+             </SectionLayout>
+           </section>
+      </>
+    );
 }
