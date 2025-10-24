@@ -9,6 +9,9 @@ export default function HeroSection({
   priceText,
   imageSrc,
   imageAlt = "Натяжные потолки",
+  showSecondButton = false,
+  secondButtonText = "ПОДРОБНЕЕ ОБ УСЛУГАХ",
+  onSecondButtonClick,
 }) {
   return (
     <section className={styles.hero}>
@@ -48,6 +51,16 @@ export default function HeroSection({
             className={styles.image}
             style={{ objectFit: 'cover' }}
           />
+          {showSecondButton && (
+            <div className={styles.secondButtonContainer}>
+              <CtaButton 
+                text={secondButtonText}
+                ariaLabel={secondButtonText}
+                className={styles.secondButton}
+                onClick={onSecondButtonClick}
+              />
+            </div>
+          )}
         </div>
       </div>
     </section>

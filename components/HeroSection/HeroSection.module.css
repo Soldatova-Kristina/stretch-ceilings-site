@@ -94,6 +94,31 @@
   flex-shrink: 0;
 }
 
+.secondButtonContainer {
+  position: absolute;
+  bottom: 166px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.secondButton {
+  width: 390px !important;
+  height: 60px !important;
+  color: #FFFFFF !important;
+  border-color: #FFFFFF !important;
+}
+
+.secondButton svg {
+  color: #FFFFFF !important;
+}
+
+.secondButton:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: #FFFFFF !important;
+  border-color: #FFFFFF !important;
+}
+
 .image {
   object-fit: cover;
 }
@@ -119,6 +144,15 @@
   }
 
   .ctaButton {
+    width: 100% !important;
+    max-width: 390px !important;
+  }
+
+  .secondButtonContainer {
+    bottom: 120px;
+  }
+
+  .secondButton {
     width: 100% !important;
     max-width: 390px !important;
   }
@@ -152,5 +186,13 @@
 
   .rightSection {
     height: 400px;
+  }
+
+  .secondButtonContainer {
+    bottom: 80px;
+  }
+
+  .secondButton {
+    width: 300px !important;
   }
 }

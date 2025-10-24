@@ -2,6 +2,7 @@
 import styles from './SectionLayout.module.css';
 
 export default function SectionLayout({ 
+  id,
   title, 
   subtitle, 
   secondSubtitle, 
@@ -20,7 +21,7 @@ export default function SectionLayout({
     }
 
     return (
-      <section className={`${styles.section} ${styles.withBackgroundImage}`}>
+      <section id={id} className={`${styles.section} ${styles.withBackgroundImage}`}>
         <div 
           className={styles.backgroundLayer} 
           style={bgStyle}
@@ -37,7 +38,7 @@ export default function SectionLayout({
   }
 
   return (
-    <section className={styles.section} style={backgroundColor ? { background: `var(${backgroundColor})` } : {}}>
+    <section id={id} className={styles.section} style={backgroundColor ? { background: `var(${backgroundColor})` } : {}}>
       <div className={styles.container}>
         <h2 className={styles.title}>{title}</h2>
         <div className={styles.line} />
