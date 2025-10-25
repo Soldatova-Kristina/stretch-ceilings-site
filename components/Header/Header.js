@@ -3,8 +3,12 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import ShinyText from '@/components/ShinyText/ShinyText';
+import { navigationItems, servicesPageNavigation, socialLinks } from '@/data/navigationData';
+import { COMPANY_PHONE, TELEGRAM_URL } from '@/data/contactsData';
+import { useScrollLock } from './useScrollLock';
+import ArrowIcon from './ArrowIcon';
+import DropdownIcon from './DropdownIcon';
 import styles from './Header.module.css';
-
 /**
  * Header Component - Site-wide navigation with dropdown menu
  */
@@ -13,6 +17,9 @@ export default function Header() {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const dropdownRef = useRef(null);
+
+  // Use scroll lock hook
+  useScrollLock(isMobileMenuOpen);
 
   // Close mobile menu on route change
   useEffect(() => {
@@ -55,14 +62,10 @@ export default function Header() {
 
     if (isMobileMenuOpen) {
       document.addEventListener('keydown', handleEscape);
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
     }
 
     return () => {
       document.removeEventListener('keydown', handleEscape);
-      document.body.style.overflow = '';
     };
   }, [isMobileMenuOpen]);
 
@@ -74,13 +77,13 @@ export default function Header() {
     return router.pathname.startsWith(path);
   }, [router.pathname]);
 
-  // Toggle services dropdown (memoized)
+  // Toggle services dropdown (desktop only)
   const toggleServices = useCallback((e) => {
     e.preventDefault();
     setIsServicesOpen(prev => !prev);
   }, []);
 
-  // Handle services dropdown keyboard navigation (memoized)
+  // Handle services dropdown keyboard navigation (desktop only)
   const handleServicesKeyDown = useCallback((e) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
@@ -90,227 +93,253 @@ export default function Header() {
     }
   }, []);
 
-  // Determine current display mode based on route
+  // Toggle mobile menu handler
+  const toggleMobileMenu = useCallback(() => {
+    setIsMobileMenuOpen(prev => !prev);
+  }, []);
+
+  // Get navigation items based on current page
   const isHomepage = router.pathname === '/';
   const isServicesPage = router.pathname.startsWith('/services/');
-
-  // Base navigation items
-  const allNavItems = [
-    { href: '/', label: 'Главная' },
-    { 
-      label: 'Услуги',
-      dropdown: true,
-      items: [
-        { href: '/services/ceilings', label: 'Потолки' },
-        { href: '/services/walls', label: 'Стены' },
-      ]
-    },
-    { href: '/portfolio', label: 'Наши работы' },
-    { href: '/faq', label: 'FAQ' },
-    { href: '/reviews', label: 'Отзывы' },
-    { href: '/contacts', label: 'Контакты' },
-  ];
-
-  // Filter navigation items based on current page mode
-  const getNavItems = () => {
-    if (isServicesPage) {
-      // Services mode: Show only Главная, Потолки, Стены (no dropdown)
-      return [
-        { href: '/', label: 'Главная' },
-        { href: '/services/ceilings', label: 'Потолки' },
-        { href: '/services/walls', label: 'Стены' },
-      ];
-    }
-    // Homepage and Standard mode: Show all items with dropdown
-    return allNavItems;
-  };
-
-  const navItems = getNavItems();
+  const navItems = isServicesPage ? servicesPageNavigation : navigationItems;
 
   return (
     <header className={styles.header} data-mode={isHomepage ? 'homepage' : isServicesPage ? 'services' : 'standard'}>
       <div className={styles.container}>
-        {/* Logo */}
-        <Link href="/" className={styles.logo} aria-label="Перейти на главную страницу">
-          <Image
-            src="/icons/logotype.svg"
-            alt="Логотип Питер Потолок"
-            width={112}
-            height={90}
-            priority
-            className={styles.logoImg}
-          />
-        </Link>
+        {/* Logo Section */}
+        <div className={styles.logoWrapper}>
+          <Link href="/" className={styles.logo} aria-label="Перейти на главную страницу">
+            <Image
+              src="/icons/logotype.svg"
+              alt="Логотип Питер Потолок"
+              width={112}
+              height={90}
+              priority
+              className={styles.logoImg}
+            />
+          </Link>
+        </div>
 
-        {/* Desktop Navigation */}
-        <nav className={styles.nav} aria-label="Основная навигация">
-          <ul className={styles.navList}>
-            {navItems.map((item, index) => (
-              <li key={index} className={styles.navItem}>
-                {item.dropdown ? (
-                  <div className={styles.dropdown} ref={dropdownRef}>
-                    <button
-                      className={`${styles.navLink} ${styles.dropdownToggle} ${
-                        isActive('/services') ? styles.active : ''
+        {/* Navigation Section */}
+        <div className={styles.navWrapper}>
+          <nav className={styles.nav} aria-label="Основная навигация">
+            <ul className={styles.navList}>
+              {navItems.map((item, index) => (
+                <li key={index} className={styles.navItem}>
+                  {item.dropdown ? (
+                    <div className={styles.dropdown} ref={dropdownRef}>
+                      <button
+                        className={`${styles.navLink} ${styles.dropdownToggle} ${
+                          isActive('/services') ? styles.active : ''
+                        }`}
+                        onClick={toggleServices}
+                        onKeyDown={handleServicesKeyDown}
+                        aria-expanded={isServicesOpen}
+                        aria-haspopup="true"
+                      >
+                        {item.label}
+                        <DropdownIcon 
+                          className={`${styles.dropdownIcon} ${isServicesOpen ? styles.open : ''}`}
+                        />
+                      </button>
+                      {isServicesOpen && (
+                        <ul className={styles.dropdownMenu}>
+                          {item.items.map((subItem, subIndex) => (
+                            <li key={subIndex}>
+                              <Link
+                                href={subItem.href}
+                                className={`${styles.dropdownLink} ${
+                                  isActive(subItem.href) ? styles.active : ''
+                                }`}
+                              >
+                                {subItem.label}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      className={`${styles.navLink} ${
+                        isActive(item.href) ? styles.active : ''
                       }`}
-                      onClick={toggleServices}
-                      onKeyDown={handleServicesKeyDown}
-                      aria-expanded={isServicesOpen}
-                      aria-haspopup="true"
                     >
                       {item.label}
-                      <svg 
-                        className={`${styles.dropdownIcon} ${isServicesOpen ? styles.open : ''}`}
-                        width="12" 
-                        height="8" 
-                        viewBox="0 0 12 8" 
-                        fill="none"
-                        aria-hidden="true"
-                      >
-                        <path d="M1 1L6 6L11 1" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                      </svg>
-                    </button>
-                    {isServicesOpen && (
-                      <ul className={styles.dropdownMenu}>
-                        {item.items.map((subItem, subIndex) => (
-                          <li key={subIndex}>
-                            <Link
-                              href={subItem.href}
-                              className={`${styles.dropdownLink} ${
-                                isActive(subItem.href) ? styles.active : ''
-                              }`}
-                            >
-                              {subItem.label}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </div>
-                ) : (
-                  <Link
-                    href={item.href}
-                    className={`${styles.navLink} ${
-                      isActive(item.href) ? styles.active : ''
-                    }`}
-                  >
-                    {item.label}
-                  </Link>
-                )}
-              </li>
-            ))}
+                    </Link>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
+
+        {/* Actions Section (CTA Button + Mobile Menu) */}
+        <div className={styles.actionsWrapper}>
+          {/* CTA Button - Hidden on homepage */}
+          {!isHomepage && (
+            <button
+              className={styles.ctaButton}
+              onClick={() => window.open(TELEGRAM_URL, '_blank', 'noopener,noreferrer')}
+              aria-label="Записаться на замер в Telegram"
+              type="button"
+            >
+              <span className={styles.ctaText}>
+                <ShinyText text="ЗАПИСАТЬСЯ НА ЗАМЕР" />
+              </span>
+              <ArrowIcon className={styles.ctaArrow} />
+            </button>
+          )}
+
+          {/* Mobile Menu Toggle */}
+          <button
+            className={styles.mobileMenuToggle}
+            onClick={toggleMobileMenu}
+            aria-label={isMobileMenuOpen ? 'Закрыть меню' : 'Открыть меню'}
+            aria-expanded={isMobileMenuOpen}
+          >
+            <span className={`${styles.hamburger} ${isMobileMenuOpen ? styles.open : ''}`}>
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Navigation */}
+      <div 
+        className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.open : ''}`}
+        aria-hidden={!isMobileMenuOpen}
+      >
+        <nav aria-label="Мобильная навигация">
+          <ul className={styles.mobileNavList}>
+            <li className={styles.mobileNavItem}>
+              <Link
+                href="/"
+                className={`${styles.mobileNavLink} ${
+                  isActive('/') ? styles.active : ''
+                }`}
+              >
+                О нас
+              </Link>
+            </li>
+            <li className={styles.mobileNavItem}>
+              <Link
+                href="/services/ceilings"
+                className={`${styles.mobileNavLink} ${
+                  isActive('/services/ceilings') ? styles.active : ''
+                }`}
+              >
+                Потолки
+              </Link>
+            </li>
+            <li className={styles.mobileNavItem}>
+              <Link
+                href="/services/walls"
+                className={`${styles.mobileNavLink} ${
+                  isActive('/services/walls') ? styles.active : ''
+                }`}
+              >
+                Стены
+              </Link>
+            </li>
+            <li className={styles.mobileNavItem}>
+              <Link
+                href="/portfolio"
+                className={`${styles.mobileNavLink} ${
+                  isActive('/portfolio') ? styles.active : ''
+                }`}
+              >
+                Наши работы
+              </Link>
+            </li>
+            <li className={styles.mobileNavItem}>
+              <Link
+                href="/faq"
+                className={`${styles.mobileNavLink} ${
+                  isActive('/faq') ? styles.active : ''
+                }`}
+              >
+                FAQ
+              </Link>
+            </li>
+            <li className={styles.mobileNavItem}>
+              <Link
+                href="/reviews"
+                className={`${styles.mobileNavLink} ${
+                  isActive('/reviews') ? styles.active : ''
+                }`}
+              >
+                Отзывы
+              </Link>
+            </li>
+            <li className={styles.mobileNavItem}>
+              <Link
+                href="/contacts"
+                className={`${styles.mobileNavLink} ${
+                  isActive('/contacts') ? styles.active : ''
+                }`}
+              >
+                Контакты
+              </Link>
+            </li>
           </ul>
         </nav>
 
-        {/* CTA Button - Hidden on homepage */}
-        {!isHomepage && (
-          <a 
-            href="https://t.me/piterpotolok" 
-            className={styles.ctaButton}
-            target="_blank"
-            rel="noopener noreferrer"
+        {/* Mobile Menu Footer */}
+        <div className={styles.mobileMenuFooter}>
+          {/* Mobile CTA Button */}
+          <button
+            className={styles.mobileCtaButton}
+            onClick={() => window.open(TELEGRAM_URL, '_blank', 'noopener,noreferrer')}
             aria-label="Записаться на замер в Telegram"
+            type="button"
           >
             <span className={styles.ctaText}>
               <ShinyText text="ЗАПИСАТЬСЯ НА ЗАМЕР" />
             </span>
-            <svg className={styles.ctaArrow} width="38" height="12" viewBox="0 0 38 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M37.5303 6.53033C37.8232 6.23744 37.8232 5.76256 37.5303 5.46967L32.7574 0.696699C32.4645 0.403806 31.9896 0.403806 31.6967 0.696699C31.4038 0.989593 31.4038 1.46447 31.6967 1.75736L35.9393 6L31.6967 10.2426C31.4038 10.5355 31.4038 11.0104 31.6967 11.3033C31.9896 11.5962 32.4645 11.5962 32.7574 11.3033L37.5303 6.53033ZM0 6.75H37V5.25H0V6.75Z" fill="currentColor"/>
-            </svg>
+            <ArrowIcon className={styles.ctaArrow} />
+          </button>
+
+          {/* Phone Number */}
+          <a href={`tel:${COMPANY_PHONE}`} className={styles.mobilePhone}>
+            {COMPANY_PHONE}
           </a>
-        )}
 
-        {/* Mobile Menu Toggle */}
-        <button
-          className={styles.mobileMenuToggle}
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label="Меню"
-          aria-expanded={isMobileMenuOpen}
-        >
-          <span className={`${styles.hamburger} ${isMobileMenuOpen ? styles.open : ''}`}>
-            <span></span>
-            <span></span>
-            <span></span>
-          </span>
-        </button>
-      </div>
-
-      {/* Mobile Navigation */}
-      <div className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.open : ''}`}>
-        <nav aria-label="Мобильная навигация">
-          <ul className={styles.mobileNavList}>
-            {allNavItems.map((item, index) => (
-              <li key={index} className={styles.mobileNavItem}>
-                {item.dropdown ? (
-                  <>
-                    <button
-                      className={`${styles.mobileNavLink} ${
-                        isActive('/services') ? styles.active : ''
-                      }`}
-                      onClick={toggleServices}
-                      aria-expanded={isServicesOpen}
-                    >
-                      {item.label}
-                      <svg 
-                        className={`${styles.dropdownIcon} ${isServicesOpen ? styles.open : ''}`}
-                        width="12" 
-                        height="8" 
-                        viewBox="0 0 12 8" 
-                        fill="none"
-                      >
-                        <path d="M1 1L6 6L11 1" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                      </svg>
-                    </button>
-                    {isServicesOpen && (
-                      <ul className={styles.mobileDropdownMenu}>
-                        {item.items.map((subItem, subIndex) => (
-                          <li key={subIndex}>
-                            <Link
-                              href={subItem.href}
-                              className={`${styles.mobileNavLink} ${styles.subLink} ${
-                                isActive(subItem.href) ? styles.active : ''
-                              }`}
-                            >
-                              {subItem.label}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </>
-                ) : (
-                  <Link
-                    href={item.href}
-                    className={`${styles.mobileNavLink} ${
-                      isActive(item.href) ? styles.active : ''
-                    }`}
-                  >
-                    {item.label}
-                  </Link>
-                )}
-              </li>
+          {/* Social Links */}
+          <div className={styles.mobileSocial}>
+            {socialLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                {...(link.external && {
+                  target: '_blank',
+                  rel: 'noopener noreferrer',
+                })}
+                className={styles.mobileSocialLink}
+                aria-label={`Связаться через ${link.label}`}
+              >
+                <Image
+                  src={link.icon}
+                  alt={link.label}
+                  width={35}
+                  height={35}
+                />
+              </a>
             ))}
-          </ul>
-          
-          {/* Mobile CTA */}
-          <a 
-            href="https://t.me/piterpotolok" 
-            className={styles.mobileCtaButton}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Связаться через Telegram"
-          >
-            Позвонить
-          </a>
-        </nav>
+          </div>
+        </div>
       </div>
 
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
         <div 
           className={styles.overlay}
-          onClick={() => setIsMobileMenuOpen(false)}
+          onClick={toggleMobileMenu}
           aria-hidden="true"
+          role="presentation"
         />
       )}
     </header>

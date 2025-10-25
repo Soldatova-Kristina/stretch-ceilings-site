@@ -8,6 +8,7 @@ export default function Submit() {
   const [errors, setErrors] = useState({ name: '', phone: '' });
   const [lastSubmitTime, setLastSubmitTime] = useState(0);
 
+
   // Валидация имени (только русские или английские буквы, пробелы, дефисы)
   const validateName = (name) => {
     const trimmedName = name.trim();
@@ -118,16 +119,36 @@ export default function Submit() {
     setErrors({ name: '', phone: '' });
 
     try {
-      const res = await fetch('/api/send-form', {
+     
+      const chatId = "1059807951";
+      const botToken = "8304740862:AAGz9xqUxavyJoWDqaRSiETGmYCThb-bfsk";
+
+      if (!botToken || !chatId) {
+        throw new Error('Telegram credentials not configured');
+      }
+
+      const message = `
+📩 *Новая заявка с сайта:*
+━━━━━━━━━━━━━━━
+👤 Имя: ${formData.name.trim()}
+📞 Телефон: ${formData.phone.trim()}
+`;
+
+      const res = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          name: formData.name.trim(),
-          phone: formData.phone.trim(),
+          chat_id: chatId,
+          text: message,
+          parse_mode: 'Markdown',
         }),
       });
 
-      if (!res.ok) throw new Error('Ошибка при отправке');
+      const data = await res.json();
+
+      if (!data.ok) {
+        throw new Error(data.description || 'Ошибка отправки в Telegram');
+      }
 
       setStatus('Заявка успешно отправлена!');
       setFormData({ name: '', phone: '' });

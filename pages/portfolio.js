@@ -18,7 +18,6 @@ export async function getStaticProps() {
       },
       portfolioItems,
     },
-    revalidate: 3600,
   };
 }
 

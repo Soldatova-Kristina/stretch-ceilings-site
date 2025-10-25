@@ -46,7 +46,7 @@
 
   --color-primary-hover: #d6d6d6;
 
-  --color-background: #353535;
+  --color-background: #333333;
   --color-background-about-us: linear-gradient(180deg, #1B1B1B 0%, #353535 60.58%);
   --color-background-our-services: linear-gradient(180deg, #353535 30.29%, #1D1D1D 100%);
   --color-background-tecnology-and-material: linear-gradient(180deg, #1D1D1D 12%, #353535 59%);
@@ -79,7 +79,7 @@
   --spacing-component: 8px;
   
   /* Header */
-  --header-height: 70px;
+  --header-height: 90px;
   
   /* Border Radius */
   --radius: 20px;

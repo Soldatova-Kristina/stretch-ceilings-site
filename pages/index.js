@@ -7,6 +7,8 @@ import { aboutIndexData } from "@/data/aboutIndex";
 import StepsAccordion from "@/components/StepsAccordion/StepsAccordion";
 import Seo from "@/components/Seo";
 import { homeSeoData } from "@/data/seo/homeSeo";
+import dynamic from 'next/dynamic'
+const LightRays = dynamic(() => import('@/components/LightRays/LightRays'), { ssr: false })
 
 export async function getStaticProps() {
   return {
@@ -58,14 +60,27 @@ export default function Home({ seoData }) {
              </SectionLayout>
            </section>
 
-           <section aria-label="Наши услуги">
-             <SectionLayout 
-               id="services-section"
-               title="НАШИ УСЛУГИ"
-               backgroundColor={"--color-background-our-services"}>
-                <ServiceBlock />
-             </SectionLayout>
-           </section>
+       <section aria-label="Наши услуги" style={{ position: 'relative', overflow: 'hidden' }}>
+  <SectionLayout
+    id="services-section"
+    title="НАШИ УСЛУГИ"
+  >
+    {/* <div style={{ width: '100%', height: '600px', position: 'absolute', top: 0, left: 0, zIndex: 0 }}>
+      <LightRays
+        raysOrigin="top-center"
+        raysColor="#ffffff"
+        raysSpeed={1.5}
+        lightSpread={0.8}
+        rayLength={1.2}
+        followMouse={true}
+        mouseInfluence={0.1}
+        noiseAmount={0.1}
+        distortion={0.05}
+      />
+    </div> */}
+    <ServiceBlock />
+  </SectionLayout>
+</section>
 
            <section aria-label="Этапы работы">
              <SectionLayout 

@@ -47,10 +47,17 @@
   width: 721px;
   height: 397px;
   position: relative;
+  box-shadow: 0 0 24px 0 #1A1A1A;
+  overflow: hidden;
 }
 
 .horizontalImage {
   object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.horizontalImage:hover {
+  transform: scale(1.05);
 }
 
 .verticalWrapper {
@@ -59,11 +66,22 @@
   margin-right: 155px;
   margin-left: 35px;
   position: relative;
+  box-shadow: 0 0 24px 0 #1A1A1A;
+  overflow: hidden;
 }
 
 .reverse .verticalWrapper {
   margin-right: 35px;
   margin-left: 155px;
+}
+
+.verticalImage {
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.verticalImage:hover {
+  transform: scale(1.05);
 }
 
 .statistics {
