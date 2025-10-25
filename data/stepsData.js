@@ -1,8 +1,3 @@
-/**
- * Steps Accordion data
- * Contains work process steps for the accordion component
- */
-
 export const stepsData = [
   {
     id: 1,

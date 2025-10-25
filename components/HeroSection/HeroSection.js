@@ -46,11 +46,10 @@ export default function HeroSection({
           <Image 
             src={imageSrc} 
             alt={imageAlt} 
-            width={587}
-            height={748}
+            fill
             priority 
             className={styles.image}
-            style={{ objectFit: 'cover' }}
+            sizes="587px"
           />
           {showSecondButton && (
             <div className={styles.secondButtonContainer}>

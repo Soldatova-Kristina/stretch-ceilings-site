@@ -101,3 +101,14 @@
   line-height: 1.6;
   color: var(--color-text-primary);
 }
+
+@media (max-width: 425px) {
+  .title {
+   font-size: 25px;
+  }
+  .icon {
+    width: 30px;
+    height: 30px;
+
+  }
+}

@@ -13,7 +13,7 @@
 .heroInner {
   display: flex;
   width: 1480px;
-  height: 750px;
+  height: 748px;
   position: relative;
 }
 
@@ -87,11 +87,13 @@
 
 .rightSection {
   width: 587px;
-  height: 747px;
+  height: 748px;
   margin-right: 140px;
   position: relative;
   overflow: hidden;
   flex-shrink: 0;
+  box-shadow: 0 0 24px 0 #1A1A1A;
+  display: flex;
 }
 
 .secondButtonContainer {
@@ -120,7 +122,14 @@
 }
 
 .image {
+  width: 100% !important;
+  height: 100% !important;
   object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.image:hover {
+  transform: scale(1.05);
 }
 
 @media (max-width: 1480px) {
@@ -139,8 +148,8 @@
   }
 
   .priceText {
-           margin-top: 32px;
-        margin-bottom: 17px;
+    margin-top: 32px;
+    margin-bottom: 17px;
   }
 
   .ctaButton {

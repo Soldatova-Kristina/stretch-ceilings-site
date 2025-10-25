@@ -4,7 +4,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 100vh;
   overflow: hidden;
   background-image: url(/images/texture/black_djins.png);
   background-size: cover;

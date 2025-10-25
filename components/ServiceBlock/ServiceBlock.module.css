@@ -25,6 +25,12 @@
   width: 563px;
   height: 330px;
   object-fit: cover;
+  box-shadow: 0 0 24px 0 #1A1A1A;
+  transition: transform 0.3s ease;
+}
+
+.image:hover {
+  transform: scale(1.05);
 }
 
 .content {
