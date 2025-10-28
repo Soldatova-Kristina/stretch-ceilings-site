@@ -23,7 +23,6 @@ export default function HeroSection({
               ВДОХНОВЛЯЕМ<br />ПРОСТРАНСТВО КРАСОТОЙ<br />И УЮТОМ
             </p>
           </div>
-          <p className={styles.brandName}>ПИТЕР ПОТОЛОК</p>
 
           <div className={styles.contentContainer}>
             <h1 className={styles.title}>
@@ -32,24 +31,32 @@ export default function HeroSection({
               {location}
             </h1>
 
-            <p className={styles.priceText}>{priceText}</p>
+            {priceText && <p className={styles.priceText}>{priceText}</p>}
 
-            <CtaButton 
-              text="ЗАПИСАТЬСЯ НА ЗАМЕР" 
-              ariaLabel="Записаться на замер" 
-              className={styles.ctaButton}
-            />
+            <div className={styles.buttonsContainer}>
+              <CtaButton 
+                text="ЗАПИСАТЬСЯ НА ЗАМЕР" 
+                ariaLabel="Записаться на замер" 
+                className={styles.ctaButton}
+              />
+              <CtaButton 
+                text="УЗНАТЬ ПОДРОБНЕЕ" 
+                ariaLabel="Узнать подробнее" 
+                className={styles.ctaButtonReverse}
+              />
+            </div>
           </div>
         </div>
-
+   <p className={styles.brandName}>ПИТЕР ПОТОЛОК</p>
         <div className={styles.rightSection}>
+       
           <Image 
             src={imageSrc} 
             alt={imageAlt} 
             fill
             priority 
             className={styles.image}
-            sizes="587px"
+            sizes="(max-width: 540px) 100vw, (max-width: 1024px) 80vw, 587px"
           />
           {showSecondButton && (
             <div className={styles.secondButtonContainer}>

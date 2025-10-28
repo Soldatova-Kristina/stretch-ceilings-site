@@ -23,7 +23,6 @@ export default function Walls({ seoData }) {
         <Seo {...seoData} />
         {/* Hero Section */}
         <section aria-label="Главная секция">
-          <div className="containerServices">
             <HeroSection
               mainTitle="АРХИТЕКТУРНЫЙ ТЕКСТИЛЬ"
               subtitle="ТИХИЕ СТЕНЫ"
@@ -32,7 +31,6 @@ export default function Walls({ seoData }) {
               imageSrc="/images/walls/hero_walls.png"
               imageAlt="Архитектурный текстиль и тихие стены в Санкт-Петербурге"
             />
-          </div>
         </section>
 
         <section aria-label="О технологии тихих стен">
