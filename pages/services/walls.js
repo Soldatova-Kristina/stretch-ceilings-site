@@ -1,6 +1,7 @@
 import HeroSection from "@/components/HeroSection/HeroSection";
 import SectionLayout from "@/components/SectionLayout/SectionLayout";
 import About from "@/components/About/About";
+import BeforeAfter from "@/components/BeforeAfter/BeforeAfter";
 import ImageSlider from "@/components/ImageSlider/ImageSlider";
 import TextileFeatures from "@/components/TextileFeatures/TextileFeatures";
 import FinishingComparison from "@/components/FinishingComparison/FinishingComparison";
@@ -8,6 +9,7 @@ import Seo from "@/components/Seo";
 import { aboutWallsData } from "@/data/aboutWalls";
 import { wallsPortfolioData } from "@/data/wallsPortfolioData";
 import { wallsSeoData } from "@/data/seo/wallsSeo";
+import { beforeAfterData } from "@/data/beforeAfterData";
 
 export async function getStaticProps() {
   return {
@@ -30,6 +32,7 @@ export default function Walls({ seoData }) {
               priceText="СТОИМОСТЬ ТИХИХ СТЕН ОТ 4500 РУБЛЕЙ/м²"
               imageSrc="/images/walls/hero_walls.png"
               imageAlt="Архитектурный текстиль и тихие стены в Санкт-Петербурге"
+              mobileBackgroundImage="/images/walls/hero_walls.png"
             />
         </section>
 
@@ -37,7 +40,18 @@ export default function Walls({ seoData }) {
           <SectionLayout 
             title="О ТЕХНОЛОГИИ"
             backgroundColor={"--color-background-tecnology-and-material"}>
-              <About {...aboutWallsData} />
+            <div style={{ paddingLeft: "20px", textAlign: "start", paddingTop: "30px", color: "white" }}>
+              <h2 style={{ fontFamily: 'var(--font-family-regular)', fontSize: '25px', marginBottom: '35px', color: '#fff' }}>
+                {beforeAfterData.title}
+              </h2>
+              <p style={{ fontFamily: 'var(--font-family-light)', fontSize: '16px', marginBottom: '40px', padding: '0 20px' }}>
+                {beforeAfterData.text}
+              </p>
+            </div>
+            <BeforeAfter
+              beforeSrc={beforeAfterData.beforeImage}
+              afterSrc={beforeAfterData.afterImage}
+            />
           </SectionLayout>
         </section>
           

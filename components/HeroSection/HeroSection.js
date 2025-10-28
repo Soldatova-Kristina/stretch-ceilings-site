@@ -10,22 +10,27 @@ export default function HeroSection({
   priceText,
   imageSrc,
   imageAlt = "Натяжные потолки",
+  mobileBackgroundImage,
   showSecondButton = false,
   secondButtonText = "ПОДРОБНЕЕ ОБ УСЛУГАХ",
   onSecondButtonClick,
+  titleClassName = '',
 }) {
-  return (
-    <div className={styles.hero}>
-      <div className={styles.heroInner}>
-        <div className={styles.leftSection}>
-          <div className={styles.brandContainer}>
-            <p className={styles.brandText}>
-              ВДОХНОВЛЯЕМ<br />ПРОСТРАНСТВО КРАСОТОЙ<br />И УЮТОМ
-            </p>
-          </div>
+  const heroStyle = mobileBackgroundImage 
+    ? { '--mobile-bg-image': `url('${mobileBackgroundImage}')` }
+    : {};
 
+  return (
+    <div className={styles.hero} style={heroStyle}>
+      <div className={styles.heroInner}>
+        <p className={styles.brandText}>
+          ВДОХНОВЛЯЕМ<br />ПРОСТРАНСТВО <br />КРАСОТОЙ И УЮТОМ
+        </p>
+        <p className={styles.brandName}>ПИТЕР ПОТОЛОК</p>
+        
+        <div className={styles.leftSection}>
           <div className={styles.contentContainer}>
-            <h1 className={styles.title}>
+            <h1 className={`${styles.title} ${titleClassName}`}>
               {mainTitle}<br />
              {subtitle && <p className={styles.subtitle}><ShinyText text={subtitle} /></p>}
               {location}
@@ -40,14 +45,15 @@ export default function HeroSection({
                 className={styles.ctaButton}
               />
               <CtaButton 
-                text="УЗНАТЬ ПОДРОБНЕЕ" 
-                ariaLabel="Узнать подробнее" 
+                text="ПОДРОБНЕЕ ОБ УСЛУГАХ" 
+                ariaLabel="Подробнее об услугах" 
                 className={styles.ctaButtonReverse}
+                onClick={onSecondButtonClick}
               />
             </div>
           </div>
         </div>
-   <p className={styles.brandName}>ПИТЕР ПОТОЛОК</p>
+
         <div className={styles.rightSection}>
        
           <Image 

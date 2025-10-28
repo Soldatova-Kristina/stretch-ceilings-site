@@ -22,7 +22,6 @@ export default function Ceilings({ seoData }) {
       <Seo {...seoData} />
       {/* Hero Section */}
       <section aria-label="Главная секция">
-        <div className="containerServices">
           <HeroSection
             mainTitle="НАТЯЖНЫЕ ПОТОЛКИ"
             subtitle="ОСВЕЩЕНИЕ"
@@ -30,8 +29,8 @@ export default function Ceilings({ seoData }) {
             priceText="СТОИМОСТЬ НАТЯЖНОГО ПОТОЛКА ОТ 1100 РУБЛЕЙ/м²"
             imageSrc="/images/ceilings/hero_ceilings.png"
             imageAlt="Натяжные потолки - примеры работ в Санкт-Петербурге"
+            mobileBackgroundImage="/images/ceilings/hero_ceilings.png"
           />
-        </div>
       </section>
 
       <section aria-label="Материалы для натяжных потолков">

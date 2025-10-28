@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 75px;
+  margin-bottom: 35px;
 }
 
 .container {
@@ -10,8 +10,8 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: flex-start;
-  gap: 45px;
-  margin-top: 28px;
+  gap: 35px;
+  margin-top: 35px;
 }
 
 .card {
@@ -94,7 +94,7 @@
 }
 
 .cta {
-  margin-top: 46px;
+  margin-top: 35px;
   width: 598px;
   height: 47px;
   border-radius: 20px;

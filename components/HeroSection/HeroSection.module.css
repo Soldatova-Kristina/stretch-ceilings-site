@@ -1,5 +1,6 @@
 .hero {
   padding-left: 90px;
+  position: relative;
 }
 
 .hero::before {
@@ -8,7 +9,6 @@
   left: 0;
   right: 0;
   height: 750px;
-  background-color: #FFFFFF;
   background-image: url('/images/texture/white_texture.jpg');
   background-size: cover;
   background-position: center;
@@ -18,6 +18,8 @@
 .heroInner {
   display: flex;
   position: relative;
+  margin: 0 auto;
+  max-width: 1480px;
 }
 
 .leftSection {
@@ -25,42 +27,39 @@
   height: 748px;
   display: flex;
   flex-direction: column;
-}
-
-.brandContainer {
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
-  padding: 62px 36px 0 0;
+  padding-top: 284px;
 }
 
 .brandText {
+  position: absolute;
+  top: 45px;
+  right: 568px;
   width: 220px;
-  height: 57px;
   color: #090909;
   font-family: var(--font-family-gilda);
   font-size: 16px;
   margin: 0;
   line-height: 1.2;
+  z-index: 5;
 }
 
 .brandName {
-     position: absolute;
-    right: 470px;
-    bottom: 44px;
-    transform: rotate(-90deg);
-    transform-origin: left bottom;
-    font-family: var(--font-family-gilda);
-    font-size: 16px;
-    color: #090909;
-    margin: 0;
-    line-height: 1.2;
-    white-space: nowrap;
-    z-index: 1;
+  position: absolute;
+  right: 630px;
+  bottom: 150px;
+  transform: rotate(-90deg);
+  transform-origin: right top;
+  font-family: var(--font-family-gilda);
+  font-size: 16px;
+  color: #090909;
+  margin: 0;
+  line-height: 1.2;
+  white-space: nowrap;
+  z-index: 5;
 }
 
 .contentContainer {
-  padding-top: 146px;
+  width: 100%;
 }
 
 .buttonsContainer {
@@ -90,7 +89,7 @@
   color: #6F3D3D;
   font-family: var(--font-family-gilda);
   font-size: 16px;
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
 .ctaButton {
@@ -127,6 +126,7 @@
 }
 
 .secondButtonContainer {
+  margin-right: 92px;
   position: absolute;
   bottom: 202px;
   left: 60%;
@@ -162,16 +162,15 @@
   transform: scale(1.05);
 }
 
-@media (min-width: 1481px) {
-  .heroInner {
-    max-width: 1480px;
-  }
-}
-
-
 @media (max-width: 1280px) {
+  .hero {
+    padding-left: 30px;
+  }
+
   .hero::before {
-    background-image: url('/images/index/mobile_main.png');
+    background-image: 
+      linear-gradient(rgb(255, 255, 255, 0.7), rgb(255, 255, 255, 0.7)),
+      var(--mobile-bg-image, url('/images/index/mobile_main.png'));
   }
 
   .heroInner {
@@ -179,17 +178,25 @@
   }
 
   .leftSection {
-    width: 100%;
-    position: relative;
+        padding-left: 90px;
+        width: 100%;
+        padding-top: 210px;
+  }
+
+  .brandText {
+    position: absolute;
+    top: 45px;
+    right: 0px;
+    z-index: 5;
   }
 
   .brandName {
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
-    left: auto;
-    transform: none;
-    transform-origin: initial;
+    position: absolute;
+    right: 50px;
+    bottom: 150px;
+    transform: rotate(-90deg);
+    transform-origin: right top;
+    z-index: 5;
   }
 
   .rightSection {
@@ -204,6 +211,12 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    max-width: 600px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 20px;
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
   }
 
   .ctaButtonReverse {
@@ -214,13 +227,86 @@
     margin-left: 20px;
     transform: rotate(180deg);
   }
-   .ctaButton {
+  
+  .ctaButton {
     display: inline-flex !important; 
   }
+  
   .title, .subtitle {
     font-size: 40px;
   }
 }
 
-@media (max-width: 620px) { 
+@media (max-width: 768px) {
+  .hero {
+    padding-left: 20px;
+  }
+
+  .contentContainer {
+    max-width: 500px;
+  }
+
+  .title, .subtitle {
+    font-size: 35px;
+    line-height: 45px;
+  }
+
+.leftSection {
+  padding-left: 45px;
+}
+  .priceText {
+    font-size: 14px;
+  }
+
+  .ctaButton, .ctaButtonReverse {
+    width: 290px !important;
+  }
+}
+@media (max-width: 525px) {
+  .hero {
+    padding-left: 15px;
+  }
+
+  .brandText {
+    font-size: 12px;
+    right: -67px;
+  }
+
+  .brandName {
+    font-size: 12px;
+    right: 30px;
+  }
+
+  .title, .subtitle {
+    font-size: 30px;
+    line-height: 40px;
+  }
+}
+
+
+@media (max-width: 455px) {
+  .hero {
+    padding-left: 10px;
+  }
+
+  .title, .subtitle {
+    font-size: 25px;
+    line-height: 30px;
+  }
+
+  .priceText {
+    font-size: 11px;
+  }
+
+  .buttonsContainer {
+    margin-top: 0;
+  }
+  .leftSection {
+  padding-left: 25px;
+}
+
+  .ctaButton, .ctaButtonReverse {
+    width: 220px !important;
+    height: 40px !important;
+  }
 }
