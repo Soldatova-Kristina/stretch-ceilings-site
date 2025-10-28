@@ -1,0 +1,81 @@
+.sliderContainer {
+  position: relative;
+  width: 100vw;
+  height: auto;
+  overflow: hidden;
+  cursor: ew-resize;
+}
+
+.afterImg,
+.beforeImg {
+  width: 100%;
+  display: block;
+  user-select: none;
+  pointer-events: none;
+  object-fit: cover;
+  object-position: center;
+}
+
+.beforeWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.beforeWrapper img {
+  width: 100vw;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.handle {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 2px;
+  background: transparent;
+  cursor: ew-resize;
+  transform: translateX(-1px);
+}
+
+.line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: #fff;
+}
+
+.labelBefore {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: #fff;
+  font-family: var(--font-family-medium);
+  font-size: 20px;
+  text-transform: uppercase;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 8px 16px;
+  border-radius: 4px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.labelAfter {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  color: #fff;
+  font-family: var(--font-family-medium);
+  font-size: 20px;
+  text-transform: uppercase;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 8px 16px;
+  border-radius: 4px;
+  z-index: 10;
+  pointer-events: none;
+}
