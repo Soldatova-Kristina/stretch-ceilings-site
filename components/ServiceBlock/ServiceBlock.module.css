@@ -1,7 +1,8 @@
 .section {
   display: flex;
   justify-content: center;
-  margin-bottom: 75px;
+  margin-top: 35px;
+  margin-bottom: 35px;
 }
 
 .container {
@@ -47,7 +48,7 @@
   font-family: 'Gilroy-Regular', sans-serif;
   font-size: 25px;
   margin-top: 0;
-  margin-bottom: 33px;
+  margin-bottom: 35px;
   margin-left: 57px;
 }
 
@@ -104,7 +105,6 @@
   .title {
     font-size: 22px;
     margin-left: 40px;
-    margin-bottom: 25px;
   }
 
   .text {
@@ -167,7 +167,7 @@
 
 @media (max-width: 768px) {
   .section {
-    margin-bottom: 50px;
+    margin-bottom: 35px;
   }
 
   .container {
@@ -175,16 +175,13 @@
     padding: 1px 15px;
   }
 
-  .image {
-    max-width: 100%;
-  }   
 .content {
     padding-left: 0px;
     padding-right: 0px;
   }
   .title {
     font-size: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 35px;
   }
 
   .text {
@@ -203,7 +200,14 @@
   }
 
   .title {
+    margin-left: 40px;
+    margin-right: 40px;
     font-size: 18px;
+  }
+
+  .text {
+    margin-right: 40px;
+    margin-left: 40px;
   }
 
   .button {
@@ -216,7 +220,7 @@
     padding-right: 0px;
   }
   
-  .serviceBlock_image{
+  .image{
     width: 100vw;
   }
 

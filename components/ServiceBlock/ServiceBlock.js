@@ -23,7 +23,7 @@ export default function ServiceBlocks() {
               <p className={styles.text}>{service.text}</p>
 
               <button className={styles.button}>
-                ПОДРОБНЕЕ ОБ УСЛУГЕ →
+                ПОДРОБНЕЕ ОБ УСЛУГЕ
               </button>
             </div>
           </div>

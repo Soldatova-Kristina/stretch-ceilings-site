@@ -8,6 +8,7 @@ import StepsAccordion from "@/components/StepsAccordion/StepsAccordion";
 import Seo from "@/components/Seo";
 import { homeSeoData } from "@/data/seo/homeSeo";
 import dynamic from 'next/dynamic'
+import styles from '@/styles/Home.module.css';
 const LightRays = dynamic(() => import('@/components/LightRays/LightRays'), { ssr: false })
 
 export async function getStaticProps() {
@@ -40,6 +41,7 @@ export default function Home({ seoData }) {
                  showSecondButton={true}
                  secondButtonText="ПОДРОБНЕЕ ОБ УСЛУГАХ"
                  onSecondButtonClick={scrollToServices}
+                 titleClassName={styles.indexHeroTitle}
                />
            </section>
 

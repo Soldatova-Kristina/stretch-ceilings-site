@@ -40,7 +40,7 @@ export default function StepsAccordion() {
         ))}
       </div>
 
-      <button className={styles.cta}>ЗАПИСАТЬСЯ НА ЗАМЕР →</button>
+      <button className={styles.cta}>ЗАПИСАТЬСЯ НА ЗАМЕР</button>
     </div>
   );
 }

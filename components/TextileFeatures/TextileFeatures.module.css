@@ -10,6 +10,7 @@
   display: flex;
   justify-content: space-between;
   gap: 79px;
+  flex-wrap: wrap;
 }
 
 .card {
@@ -18,10 +19,7 @@
   border: 1px solid #fff;
   display: flex;
   flex-direction: column;
-  padding-top: 23px;
-  padding-left: 23px;
-  padding-right: 23px;
-  padding-bottom: 23px;
+  padding: 23px;
 }
 
 .icon {
@@ -42,4 +40,124 @@
   font-size: 20px;
   color: #fff;
   line-height: 1.4;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 1480px) {
+  .row {
+    gap: 40px;
+    justify-content: center;
+  }
+
+  .card {
+    width: 340px;
+    min-height: 500px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .section {
+    gap: 50px;
+    margin-bottom: 50px;
+  }
+
+  .row {
+    gap: 30px;
+  }
+
+  .card {
+    width: 300px;
+    min-height: 450px;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+
+  .text {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .row {
+    gap: 25px;
+  }
+
+  .card {
+    width: 280px;
+    min-height: 400px;
+    padding: 20px;
+  }
+
+  .icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .title {
+    font-size: 17px;
+    margin-bottom: 12px;
+  }
+
+  .text {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+
+  .row {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 450px;
+    min-height: auto;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+
+  .text {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 520px) {
+  .section {
+    gap: 30px;
+  }
+
+  .row {
+    gap: 25px;
+  }
+
+  .card {
+    max-width: 100%;
+    padding: 18px;
+  }
+
+  .icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 35px;
+  }
+
+  .title {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  .text {
+    font-size: 15px;
+  }
 }

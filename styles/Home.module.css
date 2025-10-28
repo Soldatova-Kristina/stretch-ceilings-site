@@ -1,16 +1,9 @@
-/* ========================================
-   HOME PAGE STYLES
-   ======================================== */
 
 .page {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
-
-/* ========================================
-   HERO SECTION
-   ======================================== */
 
 .hero {
   background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-white) 100%);
@@ -137,4 +130,8 @@
   font-size: var(--font-size-body-small);
   color: var(--color-text-secondary);
   margin: 0;
+}
+
+.indexHeroTitle {
+  margin-bottom: 15px;
 }
