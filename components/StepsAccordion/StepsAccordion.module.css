@@ -7,9 +7,11 @@
 
 .container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
-  gap: 40px;
+  align-items: flex-start;
+  gap: 45px;
+  margin-top: 28px;
 }
 
 .card {
@@ -18,46 +20,59 @@
   height: 418px;
   background: url('/images/texture/white_texture.jpg') lightgray 50% / cover no-repeat;
   border-radius: 20px;
-  transition: width 0.3s ease, height 0.3s ease;
+  transition: all 0.3s ease;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .card.open {
-  width: 360px;
+  width: 321px;
   height: 418px;
 }
 
+.content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
 .number {
-  position: absolute;
-  top: 26px;
-  left: 18px;
+  padding-top: 28px;
+  padding-left: 18px;
   color: #000;
   font-family: 'Gilroy-Medium', sans-serif;
   font-size: 16px;
+  line-height: 1.2;
 }
 
 .title {
-  position: absolute;
-  bottom: 47px;
-  left: 18px;
+  padding-left: 18px;
+  padding-right: 18px;
+  margin-top: auto;
+  margin-bottom: 50px;
   color: #1b1b1b;
   font-family: 'Gilroy-Regular', sans-serif;
   font-size: 16px;
-  width: 135px;
+  line-height: 1.2;
+  max-width: 280px;
 }
 
 .text {
-  position: absolute;
-  top: 80px;
-  left: 30px;
-  right: 30px;
+  padding-left: 18px;
+  padding-right: 18px;
+  padding-top: 10px;
   color: #1b1b1b;
   font-family: 'Gilroy-Regular', sans-serif;
   font-size: 16px;
   line-height: 1.4;
+  margin: 0;
+  flex: 1;
 }
 
-.arrow {
+.arrowBottom {
   position: absolute;
   bottom: 19px;
   right: 21px;
@@ -66,18 +81,15 @@
   cursor: pointer;
   padding: 0;
   transition: transform 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.arrow svg {
+.arrowBottom svg {
   width: 24px;
   height: 15px;
   color: #000;
 }
 
-.arrow.left {
+.card.open .arrowBottom {
   transform: rotate(180deg);
 }
 
@@ -97,4 +109,63 @@
 
 .cta:hover {
   border-color: #fff;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 1180px) {
+  .container {
+    flex-wrap: wrap;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 520px) {
+  .card {
+    width: 100%;
+    max-width: 314px;
+    height: 102px;
+  }
+
+  .card.open {
+    width: 100%;
+    max-width: 321px;
+    height: auto;
+    min-height: 200px;
+  }
+
+  .content {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .number {
+    padding-top: 28px;
+    flex-shrink: 0;
+  }
+
+  .title {
+    margin-bottom: 0;
+    margin-top: 28px;
+    margin-left: 10px;
+    padding-left: 0;
+    flex: 1;
+    max-width: calc(100% - 120px);
+  }
+
+  .text {
+    padding-top: 10px;
+    padding-bottom: 50px;
+    width: 100%;
+  }
+
+  .arrowBottom {
+    bottom: 19px;
+    right: 21px;
+  }
+
+  .cta {
+    max-width: 100%;
+    width: calc(100% - 40px);
+  }
 }

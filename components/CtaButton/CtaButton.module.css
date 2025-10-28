@@ -15,8 +15,8 @@
   text-transform: uppercase;
   transition: all var(--transition-fast);
   white-space: nowrap;
-  margin-right: 113px; /* фиксированный отступ справа */
-  margin-left: auto;   /* прижимает кнопку вправо */
+  margin-right: 113px;
+  margin-left: auto;   
 }
 
 .ctaButton:hover {
@@ -46,12 +46,12 @@
 @media (max-width: 1024px) {
   .ctaButton {
     display: inline-flex;
-    margin-right: 40px; /* немного меньше на планшете */
+    margin-right: 40px; 
   }
 }
 
 @media (max-width: 768px) {
   .ctaButton {
-    display: none; /* можно скрывать только на очень узких экранах */
+    display: none; 
   }
 }

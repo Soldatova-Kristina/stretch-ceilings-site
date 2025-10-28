@@ -44,16 +44,25 @@ export default function Portfolio({ seoData, portfolioItems }) {
               >
                 <meta itemProp="position" content={String(index + 1)} />
                 <div className={`${styles.cardContent} ${item.id === 2 || item.id === 4 ? styles.cardContentReverse : ''}`}>
-                  <div className={styles.textBlock}>
+                  
+                  {/* Текстовый контент */}
+                  <div className={styles.contentBlock}>
                     <h2 className={styles.complexName} itemProp="name">{item.complexName}</h2>
                     <h3 className={styles.address}>{item.address}</h3>
                     <p className={styles.description} itemProp="description">{item.description}</p>
                     <meta itemProp="creator" content="Питер Потолок" />
-                    <CtaButton text="УЗНАТЬ ПОДРОБНЕЕ" ariaLabel="Узнать подробнее в Telegram" className={styles.portfolioCtaButton} />
                   </div>
+                  
+                  {/* Изображение */}
                   <div className={styles.imageBlock} itemProp="image">
                     <ImageSlider images={item.images} address={item.address} itemId={item.id} />
                   </div>
+                  
+                  {/* Кнопка - отдельный блок для гибкого позиционирования */}
+                  <div className={styles.actionBlock}>
+                    <CtaButton text="УЗНАТЬ ПОДРОБНЕЕ" ariaLabel="Узнать подробнее в Telegram" className={styles.portfolioCtaButton} />
+                  </div>
+                  
                 </div>
               </article>
             ))}

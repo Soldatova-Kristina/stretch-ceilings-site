@@ -6,7 +6,10 @@
 
 .advantages {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 30px;
+  margin-bottom: 80px;
 }
 
 .card {
@@ -31,14 +34,103 @@
 }
 
 .imageWrapper {
-  margin-bottom: 80px;
-  width: 1480px;
-  height: 562px;
-  overflow: hidden;
+ width: 100vw;
 }
 
 .image {
-  width: 1480px;
-  height: 562px;
+  width: 100%;
+  height: auto;
   object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 1480px) {
+
+  .image {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1280px) {
+  .advantages {
+    max-width: 1000px;
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .advantages {
+    max-width: 800px;
+    gap: 25px;
+  }
+
+  .card {
+    width: 200px;
+    min-height: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .advantages {
+    max-width: 600px;
+    gap: 20px;
+    margin-bottom: 50px;
+  }
+
+  .card {
+    width: 180px;
+    min-height: 180px;
+  }
+
+  .title {
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
+
+  .text {
+    font-size: 14px;
+  }
+
+}
+
+@media (max-width: 520px) {
+  .section {
+    flex-direction: column-reverse;
+  }
+
+  .container {
+    padding: 0px;
+    width: 100%;
+
+  }
+  .advantages {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 20px;
+    gap: 30px;
+    margin-bottom: 0;
+    order: 2;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 350px;
+    min-height: auto;
+    text-align: start;
+  }
+
+  .title {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+
+  .text {
+    font-size: 14px;
+  }
+
+  .imageWrapper {
+    margin-top: 45px;
+  }
 }

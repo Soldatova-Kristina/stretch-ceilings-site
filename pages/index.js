@@ -31,7 +31,6 @@ export default function Home({ seoData }) {
            <Seo {...seoData} />
            {/* Hero Section */}
            <section aria-label="Главная секция">
-             <div className="containerServices">
                <HeroSection
                  mainTitle="НАТЯЖНЫЕ ПОТОЛКИ"
                  subtitle="ТИХИЕ СТЕНЫ"
@@ -42,7 +41,6 @@ export default function Home({ seoData }) {
                  secondButtonText="ПОДРОБНЕЕ ОБ УСЛУГАХ"
                  onSecondButtonClick={scrollToServices}
                />
-             </div>
            </section>
 
            <section aria-label="О компании">
@@ -65,19 +63,6 @@ export default function Home({ seoData }) {
     id="services-section"
     title="НАШИ УСЛУГИ"
   >
-    {/* <div style={{ width: '100%', height: '600px', position: 'absolute', top: 0, left: 0, zIndex: 0 }}>
-      <LightRays
-        raysOrigin="top-center"
-        raysColor="#ffffff"
-        raysSpeed={1.5}
-        lightSpread={0.8}
-        rayLength={1.2}
-        followMouse={true}
-        mouseInfluence={0.1}
-        noiseAmount={0.1}
-        distortion={0.05}
-      />
-    </div> */}
     <ServiceBlock />
   </SectionLayout>
 </section>
@@ -92,3 +77,18 @@ export default function Home({ seoData }) {
       </>
     );
 }
+
+
+  {/* <div style={{ width: '100%', height: '600px', position: 'absolute', top: 0, left: 0, zIndex: 0 }}>
+      <LightRays
+        raysOrigin="top-center"
+        raysColor="#ffffff"
+        raysSpeed={1.5}
+        lightSpread={0.8}
+        rayLength={1.2}
+        followMouse={true}
+        mouseInfluence={0.1}
+        noiseAmount={0.1}
+        distortion={0.05}
+      />
+    </div> */}

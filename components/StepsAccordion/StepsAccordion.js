@@ -17,16 +17,17 @@ export default function StepsAccordion() {
             key={step.id}
             className={`${styles.card} ${openIndex === index ? styles.open : ''}`}
           >
-            <div className={styles.number}>{step.number}</div>
+            <div className={styles.content}>
+              <div className={styles.number}>{step.number}</div>
 
-            {openIndex === index ? (
-              <p className={styles.text}>{step.text}</p>
-            ) : (
-              <h3 className={styles.title}>{step.title}</h3>
-            )}
+              {openIndex === index ? (
+                <p className={styles.text}>{step.text}</p>
+              ) : (
+                <h3 className={styles.title}>{step.title}</h3>
+              )}
 
             <button
-              className={`${styles.arrow} ${openIndex === index ? styles.left : ''}`}
+              className={styles.arrowBottom}
               onClick={() => toggleCard(index)}
               aria-label={openIndex === index ? 'Закрыть' : 'Открыть'}
             >
@@ -34,6 +35,7 @@ export default function StepsAccordion() {
                 <path d="M1 7.5H23M23 7.5L16 1M23 7.5L16 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </button>
+            </div>
           </div>
         ))}
       </div>

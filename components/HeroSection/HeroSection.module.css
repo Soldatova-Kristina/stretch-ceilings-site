@@ -1,9 +1,14 @@
+.hero {
+  padding-left: 90px;
+}
+
 .hero::before {
   content: '';
   position: absolute;
   left: 0;
   right: 0;
   height: 750px;
+  background-color: #FFFFFF;
   background-image: url('/images/texture/white_texture.jpg');
   background-size: cover;
   background-position: center;
@@ -12,8 +17,6 @@
 
 .heroInner {
   display: flex;
-  width: 1480px;
-  height: 748px;
   position: relative;
 }
 
@@ -42,20 +45,29 @@
 }
 
 .brandName {
-    position: absolute;
-    left: 597px;
-    bottom: 181px;
+     position: absolute;
+    right: 470px;
+    bottom: 44px;
     transform: rotate(-90deg);
-    transform-origin: right bottom;
+    transform-origin: left bottom;
     font-family: var(--font-family-gilda);
     font-size: 16px;
     color: #090909;
     margin: 0;
     line-height: 1.2;
+    white-space: nowrap;
+    z-index: 1;
 }
 
 .contentContainer {
   padding-top: 146px;
+}
+
+.buttonsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
 }
 
 .title {
@@ -78,6 +90,7 @@
   color: #6F3D3D;
   font-family: var(--font-family-gilda);
   font-size: 16px;
+  margin-top: 40px;
 }
 
 .ctaButton {
@@ -85,10 +98,27 @@
   height: 60px !important;
 }
 
+.ctaButtonReverse {
+  display: none;
+  width: 390px !important;
+  height: 60px !important;
+  flex-direction: row-reverse;
+}
+
+.ctaButtonReverse :global(.ctaText) {
+  margin-right: 0;
+  margin-left: 15px;
+}
+
+.ctaButtonReverse :global(.ctaArrow) {
+  margin-right: 0;
+  margin-left: 18px;
+  transform: rotate(180deg);
+}
+
 .rightSection {
   width: 587px;
   height: 748px;
-  margin-right: 140px;
   position: relative;
   overflow: hidden;
   flex-shrink: 0;
@@ -98,8 +128,8 @@
 
 .secondButtonContainer {
   position: absolute;
-  bottom: 166px;
-  left: 50%;
+  bottom: 202px;
+  left: 60%;
   transform: translateX(-50%);
   z-index: 10;
 }
@@ -132,76 +162,65 @@
   transform: scale(1.05);
 }
 
-@media (max-width: 1480px) {
-  .hero {
-    height: auto;
+@media (min-width: 1481px) {
+  .heroInner {
+    max-width: 1480px;
+  }
+}
+
+
+@media (max-width: 1280px) {
+  .hero::before {
+    background-image: url('/images/index/mobile_main.png');
+  }
+
+  .heroInner {
+    max-width: 100%;
   }
 
   .leftSection {
     width: 100%;
-    height: auto;
-    min-height: 600px;
+    position: relative;
   }
 
-  .brandContainer {
-    padding: 40px 20px 0 40px;
-  }
-
-  .priceText {
-    margin-top: 32px;
-    margin-bottom: 17px;
-  }
-
-  .ctaButton {
-    width: 100% !important;
-    max-width: 390px !important;
-  }
-
-  .secondButtonContainer {
-    bottom: 120px;
-  }
-
-  .secondButton {
-    width: 100% !important;
-    max-width: 390px !important;
-  }
-}
-
-@media (max-width: 768px) {
-  .leftSection {
-    min-height: 500px;
-  }
-
-  .brandContainer {
-    flex-direction: column;
-    gap: 20px;
-    padding: 30px 20px 0 20px;
-  }
-
-  .contentContainer {
-    padding: 40px 20px 40px 20px;
-  }
-
-  .title {
-    font-size: 28px;
-    line-height: 38px;
-    margin-bottom: 30px;
-  }
-
-  .priceText {
-    font-size: 14px;
-    margin-bottom: 30px;
+  .brandName {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    left: auto;
+    transform: none;
+    transform-origin: initial;
   }
 
   .rightSection {
-    height: 400px;
+    display: none;
   }
 
-  .secondButtonContainer {
-    bottom: 80px;
+  .image {
+    display: none;
   }
 
-  .secondButton {
-    width: 300px !important;
+  .contentContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
   }
+
+  .ctaButtonReverse {
+    display: inline-flex !important;
+  }
+
+  .ctaButtonReverse svg {
+    margin-left: 20px;
+    transform: rotate(180deg);
+  }
+   .ctaButton {
+    display: inline-flex !important; 
+  }
+  .title, .subtitle {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 620px) { 
 }

@@ -177,25 +177,167 @@
   object-fit: cover;
 }
 
-@media (max-width: 768px) {
-  .title {
-    font-size: 22px;
-  }
-
-  .contactsHeading {
-    font-size: 28px;
-  }
-
+/* Tablet breakpoint - до 1024px изображения сдвигаются */
+@media (max-width: 1480px) {
   .section {
-    flex-direction: column;
-    gap: 40px;
-    padding-right: 20px !important;
-    padding-left: 20px !important;
+    max-width: 100%;
+    gap: 80px;
+    padding-right: 40px;
+  }
+  
+  .sectionTwo {
+    max-width: 100%;
+    gap: 80px;
+    padding-right: 40px;
+    padding-left: 40px;
   }
 
   .photoOne,
   .photoTwo {
     width: 100%;
-    height: auto;
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .section {
+    gap: 50px;
+    padding-right: 30px;
+  }
+
+  .section:nth-child(1) {
+    padding-left: 30px;
+  }
+
+  .sectionTwo {
+    gap: 50px;
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+
+  .photoOne,
+  .photoTwo {
+    max-width: 500px;
+  }
+}
+
+/* Mobile breakpoint - 768px и ниже */
+@media (max-width: 768px) {
+  .pageWrapper {
+    padding: 0 20px;
+  }
+
+  .section {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    height: auto !important;
+    padding: 40px 20px !important;
+  }
+
+  .section:nth-child(1) .rightColumn {
+    display: none; 
+  }
+
+  .sectionTwo {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    padding: 0 20px 40px 20px !important;
+  }
+
+  .leftColumn {
+    margin-left: 0; 
+    width: 100%;
+  }
+
+  .rightColumn {
+    width: 100%;
+  }
+  
+  .sectionTwo .leftColumn {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 49px;
+    margin-left: 0;
+  }
+
+  .sectionTwo .rightColumn {
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .title {
+    margin-top: 0;
+    padding: 0;
+    font-size: 22px;
+  }
+
+  .subtext {
+     margin-top: 45px;
+  }
+
+  .contactsHeading {
+    font-size: 24px;
+  }
+
+  .photoTwo {
+    width: 100%;
+    max-width: 600px;
+    height: auto; 
+    object-fit: contain;
+    margin-left: 15px;
+  }
+
+  .contactLine {
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+  .socialIcons {
+    justify-content: center;
+  }
+}
+
+/* Mobile breakpoint - 570px и ниже */
+@media (max-width: 570px) {
+  .title {
+    font-size: 18px;
+  }
+
+  .leftColumn {
+    margin-left: 0; /* Центрирование */
+  }
+
+  .subtext {
+    font-size: 14px;
+  }
+
+  .contactsHeading {
+    font-size: 18px;
+  }
+
+  .contactLine {
+    font-size: 14px;
+  }
+
+  .contactLine strong {
+    font-size: 16px;
+  }
+
+  .phoneLink {
+    font-size: 14px;
+  }
+
+  .socialList {
+    font-size: 14px;
+  }
+
+  .contactsLabel {
+    font-size: 14px;
+  }
+
+  .socialIcons {
+   gap: 18px;
   }
 }

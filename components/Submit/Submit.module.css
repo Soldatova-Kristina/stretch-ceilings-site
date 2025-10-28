@@ -135,3 +135,39 @@
   color: #FFF;
   text-align: center;
 }
+
+@media (max-width: 768px) {
+  .Submit_checkboxWrapper__hvPuy {
+    margin-top: 45px;
+    margin-bottom: 45px;
+}
+}
+
+/* Mobile breakpoint - 570px и ниже */
+@media (max-width: 570px) {
+  .label {
+    font-size: 16px;
+  }
+
+  .input {
+    width: 290px;
+    font-size: 14px;
+  }
+
+  .checkboxLabel {
+    font-size: 12px;
+  }
+
+  .button {
+    width: 200px;
+    font-size: 14px;
+  }
+
+  .error {
+    font-size: 12px;
+  }
+
+  .status {
+    font-size: 14px;
+  }
+}
