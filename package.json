@@ -8,7 +8,8 @@
     "build": "next build",
     "export": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "deploy": "npm run build && touch out/.nojekyll && echo 'Build complete! Ready for GitHub Pages.'"
   },
   "dependencies": {
     "next": "15.5.5",
