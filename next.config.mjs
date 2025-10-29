@@ -7,7 +7,7 @@ const nextConfig = {
   output: 'export',
   reactStrictMode: true,
   basePath: isProduction ? '/stretch-ceilings-site' : '',
-  assetPrefix: isProduction ? '/stretch-ceilings-site/' : '',
+  assetPrefix: isProduction ? '/stretch-ceilings-site' : '',
   
   // Оптимизация изображений для лучшей производительности и SEO
   images: {
