@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import styles from './ServiceBlock.module.css';
 import { servicesData } from '@/data/servicesData';
 
@@ -22,9 +23,9 @@ export default function ServiceBlocks() {
               <h2 className={styles.title}>{service.title}</h2>
               <p className={styles.text}>{service.text}</p>
 
-              <button className={styles.button}>
+              <Link href={service.link} className={styles.button}>
                 ПОДРОБНЕЕ ОБ УСЛУГЕ
-              </button>
+              </Link>
             </div>
           </div>
         ))}

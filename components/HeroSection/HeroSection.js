@@ -1,6 +1,7 @@
 import Image from "next/image";
 import CtaButton from "@/components/CtaButton/CtaButton";
 import ShinyText from "@/components/ShinyText/ShinyText";
+import { WHATSAPP_URL } from "@/data/contactsData";
 import styles from "./HeroSection.module.css";
 
 export default function HeroSection({
@@ -41,6 +42,7 @@ export default function HeroSection({
             <div className={styles.buttonsContainer}>
               <CtaButton 
                 text="ЗАПИСАТЬСЯ НА ЗАМЕР" 
+                href={WHATSAPP_URL}
                 ariaLabel="Записаться на замер" 
                 className={styles.ctaButton}
               />

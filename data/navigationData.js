@@ -3,6 +3,8 @@
  * Main navigation items and social links configuration
  */
 
+import { WHATSAPP_URL, VK_URL, TELEGRAM_URL, COMPANY_PHONE } from './contactsData';
+
 // Main navigation items (with dropdown support)
 export const navigationItems = [
   { href: '/', label: 'Главная' },
@@ -30,25 +32,25 @@ export const servicesPageNavigation = [
 // Social links configuration
 export const socialLinks = [
   {
-    href: 'https://wa.me/79209063386',
+    href: WHATSAPP_URL,
     icon: '/icons/social/icon-whatsapp.svg',
     label: 'WhatsApp',
     external: true,
   },
   {
-    href: 'https://vk.com/piterpoto1ok',
+    href: VK_URL,
     icon: '/icons/social/icon-vk.svg',
     label: 'VK',
     external: true,
   },
   {
-    href: 'https://t.me/piterpotolok',
+    href: TELEGRAM_URL,
     icon: '/icons/social/icon-telegram.svg',
     label: 'Telegram',
     external: true,
   },
   {
-    href: 'tel:+79209063386',
+    href: `tel:${COMPANY_PHONE}`,
     icon: '/icons/social/icon-phone.svg',
     label: 'Телефон',
     external: false,

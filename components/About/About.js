@@ -1,4 +1,3 @@
-
 import Image from 'next/image';
 import styles from './About.module.css';
 import CountUp from '../CountUp/CountUp';
@@ -46,17 +45,6 @@ export default function About({
           <p className={styles.text} style={textStyle}>
             {text}
           </p>
-
-          {statistics && (
-            <div className={styles.statistics}>
-              {statistics.map((stat, index) => (
-                <div key={index} className={styles.statItem}>
-                  <div className={styles.statNumber}>{stat.number}</div>
-                  <div className={styles.statDescription}>{stat.description}</div>
-                </div>
-              ))}
-            </div>
-          )}
         </div>
 
         <div className={styles.horizontalWrapper}>
@@ -79,6 +67,17 @@ export default function About({
           className={styles.verticalImage}
         />
       </div>
+
+      {statistics && (
+        <div className={styles.statistics}>
+          {statistics.map((stat, index) => (
+            <div key={index} className={styles.statItem}>
+              <div className={styles.statNumber}>{stat.number}</div>
+              <div className={styles.statDescription}>{stat.description}</div>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

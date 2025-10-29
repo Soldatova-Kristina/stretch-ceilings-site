@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import styles from './StepsAccordion.module.css';
 import { stepsData } from '@/data/stepsData';
+import { WHATSAPP_URL } from '@/data/contactsData';
 
 export default function StepsAccordion() {
   const [openIndex, setOpenIndex] = useState(null);
@@ -40,7 +41,14 @@ export default function StepsAccordion() {
         ))}
       </div>
 
-      <button className={styles.cta}>ЗАПИСАТЬСЯ НА ЗАМЕР</button>
+      <a 
+        href={WHATSAPP_URL} 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        className={styles.cta}
+      >
+        ЗАПИСАТЬСЯ НА ЗАМЕР
+      </a>
     </div>
   );
 }

@@ -318,6 +318,7 @@
   background: transparent;
   border: 1px solid #FFFFFF;
   border-radius: 20px;
+  text-decoration: none;
   text-transform: uppercase;
   transition: all var(--transition-fast);
   cursor: pointer;
@@ -325,6 +326,7 @@
 
 .mobileCtaButton:hover {
   background: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
 }
 
 .mobileCtaButton .ctaText {
