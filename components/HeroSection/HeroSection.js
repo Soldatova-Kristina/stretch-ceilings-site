@@ -16,6 +16,7 @@ export default function HeroSection({
   secondButtonText = "ПОДРОБНЕЕ ОБ УСЛУГАХ",
   onSecondButtonClick,
   titleClassName = '',
+  showLeftSecondButton = false,
 }) {
   const heroStyle = mobileBackgroundImage 
     ? { '--mobile-bg-image': `url('${mobileBackgroundImage}')` }
@@ -46,12 +47,14 @@ export default function HeroSection({
                 ariaLabel="Записаться на замер" 
                 className={styles.ctaButton}
               />
-              <CtaButton 
-                text="ПОДРОБНЕЕ ОБ УСЛУГАХ" 
-                ariaLabel="Подробнее об услугах" 
-                className={styles.ctaButtonReverse}
-                onClick={onSecondButtonClick}
-              />
+              {showLeftSecondButton && (
+                <CtaButton 
+                  text="ПОДРОБНЕЕ ОБ УСЛУГАХ" 
+                  ariaLabel="Подробнее об услугах" 
+                  className={styles.ctaButtonReverse}
+                  onClick={onSecondButtonClick}
+                />
+              )}
             </div>
           </div>
         </div>

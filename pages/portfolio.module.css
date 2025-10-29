@@ -53,11 +53,11 @@
   display: flex;
   flex-direction: column;
   gap: 17px;
+  margin-bottom: 35px;
 }
 
 .card {
   position: relative;
-  padding: 0 24px 0 24px;
   border: none;
   background: transparent;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -84,7 +84,7 @@
 }
 
 .complexName {
-  margin: 0 0 14px 0;
+  margin: 0 0 10px 0;
   color: #000;
   font-family: var(--font-family-regular);
   font-size: 30px;
@@ -92,7 +92,6 @@
 }
 
 .address {
-  margin: 0 0 14px 0;
   color: #000;
   font-family: var(--font-family-regular);
   font-size: 20px;
@@ -106,6 +105,11 @@
   font-family: var(--font-family-regular);
   font-size: 16px;
   line-height: 1.6;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 20px;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  padding: 10px;
 }
 
 .actionBlock {
@@ -117,6 +121,7 @@
 .cardContentReverse .actionBlock {
   right: 24px;
   left: auto;
+  margin-left: 40px;
 }
 
 .portfolioCtaButton {
@@ -128,14 +133,7 @@
   flex-shrink: 0;
   width: 481px;
   height: 361px;
-  padding: 0 72px;
-  background: linear-gradient(90deg, 
-    rgba(255, 255, 255, 0.8) 0%, 
-    transparent 15%, 
-    transparent 85%, 
-    rgba(255, 255, 255, 0.8) 100%
-  );
-  box-shadow: 0 0 20px 0 #353535;
+  overflow: hidden;
 }
 
 .sliderContainer {
@@ -291,8 +289,7 @@
     align-self: center;
     width: 100%;
     max-width: 481px;
-    height: 300px;
-    padding: 0 40px;
+    height: auto;
   }
   
   .description {
@@ -310,10 +307,11 @@
     align-items: flex-start;
     gap: 20px;
     margin-bottom: 24px;
+    padding-left: 0;
   }
 
   .title {
-    font-size: 32px;
+    font-size: 25px;
   }
 
   .cardContent {
@@ -335,7 +333,7 @@
   }
 
   .imageBlock {
-    padding: 0 20px;
+    padding: 0;
   }
 
   .sliderButton {
@@ -355,3 +353,10 @@
     display: inline-flex !important; 
   }
 }
+
+@media (max-width: 425px) {
+  .title {
+    font-size: 25px;
+  }
+}
+

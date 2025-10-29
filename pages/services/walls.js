@@ -1,7 +1,7 @@
 import HeroSection from "@/components/HeroSection/HeroSection";
 import SectionLayout from "@/components/SectionLayout/SectionLayout";
 import About from "@/components/About/About";
-import BeforeAfter from "@/components/BeforeAfter/BeforeAfter";
+import TechnologySection from "@/components/TechnologySection/TechnologySection";
 import ImageSlider from "@/components/ImageSlider/ImageSlider";
 import TextileFeatures from "@/components/TextileFeatures/TextileFeatures";
 import FinishingComparison from "@/components/FinishingComparison/FinishingComparison";
@@ -40,17 +40,13 @@ export default function Walls({ seoData }) {
           <SectionLayout 
             title="О ТЕХНОЛОГИИ"
             backgroundColor={"--color-background-tecnology-and-material"}>
-            <div style={{ paddingLeft: "20px", textAlign: "start", paddingTop: "30px", color: "white" }}>
-              <h2 style={{ fontFamily: 'var(--font-family-regular)', fontSize: '25px', marginBottom: '35px', color: '#fff' }}>
-                {beforeAfterData.title}
-              </h2>
-              <p style={{ fontFamily: 'var(--font-family-light)', fontSize: '16px', marginBottom: '40px', padding: '0 20px' }}>
-                {beforeAfterData.text}
-              </p>
-            </div>
-            <BeforeAfter
-              beforeSrc={beforeAfterData.beforeImage}
-              afterSrc={beforeAfterData.afterImage}
+            <TechnologySection
+              title={beforeAfterData.title}
+              text={beforeAfterData.text}
+              subtextTitle={beforeAfterData.subtextTitle}
+              subtext={beforeAfterData.subtext}
+              beforeImage={beforeAfterData.beforeImage}
+              afterImage={beforeAfterData.afterImage}
             />
           </SectionLayout>
         </section>

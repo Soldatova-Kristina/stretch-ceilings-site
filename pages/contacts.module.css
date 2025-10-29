@@ -82,7 +82,7 @@
   display: flex;
   margin-top: 100px;
   padding: 0 40px 49px 3px;
-  font-size: 25px;
+  font-size: 30px;
   color: #FFF;
 }
 
@@ -96,7 +96,7 @@
 
 .contactsHeading {
   margin-bottom: 49px;
-  font-size: 25px;
+  font-size: 30px;
   color: var(--color-text-secondary);
 }
 
@@ -270,7 +270,7 @@
   .title {
     margin-top: 0;
     padding: 0;
-    font-size: 22px;
+    font-size: 25px;
   }
 
   .subtext {
@@ -278,7 +278,7 @@
   }
 
   .contactsHeading {
-    font-size: 24px;
+    font-size: 25px;
   }
 
   .photoTwo {
@@ -299,14 +299,10 @@
   }
 }
 
-/* Mobile breakpoint - 570px и ниже */
-@media (max-width: 570px) {
-  .title {
-    font-size: 18px;
-  }
 
+@media (max-width: 570px) {
   .leftColumn {
-    margin-left: 0; /* Центрирование */
+    margin-left: 0; 
   }
 
   .subtext {
@@ -339,5 +335,15 @@
 
   .socialIcons {
    gap: 18px;
+  }
+}
+
+@media (max-width: 425px) {
+  .title {
+    font-size: 20px;
+  }
+  
+  .contactsHeading {
+    font-size: 20px;
   }
 }

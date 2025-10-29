@@ -1,10 +1,10 @@
 .sliderContainer {
   position: relative;
   width: 100%;
-  height: 100%;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
   border-radius: 4px;
-  margin-bottom: 75px;
+  margin-bottom: 35px;
 }
 
 .imageWrapper {
@@ -14,6 +14,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 20px;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
 }
 
 .image {
@@ -68,7 +72,7 @@
 
 .sliderDots {
   position: absolute;
-  bottom: 12px;
+  bottom: 6px;
   left: 50%;
   z-index: 10;
   display: flex;
@@ -112,6 +116,10 @@
 }
 
 @media (max-width: 768px) {
+  .sliderContainer {
+    aspect-ratio: 4 / 3;
+  }
+
   .sliderButton {
     width: 32px;
     height: 32px;
@@ -123,5 +131,37 @@
 
   .sliderButtonNext {
     right: 8px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1480px) {
+  .sliderContainer {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+/* Portfolio variant styles */
+.portfolioContainer {
+  aspect-ratio: 4 / 3;
+  margin-bottom: 0;
+  border-radius: 0;
+}
+
+.portfolioWrapper {
+  background: transparent;
+  border-radius: 0;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+@media (max-width: 1070px) {
+  .portfolioContainer {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+@media (max-width: 480px) {
+  .portfolioContainer {
+    aspect-ratio: 4 / 3;
   }
 }

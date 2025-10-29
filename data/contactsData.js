@@ -1,4 +1,3 @@
-ф
 export const COMPANY_PHONE = '+79320076085';
 export const COMPANY_PHONE_DISPLAY = '+79320076085';
 export const TELEGRAM_URL = 'https://t.me/piterpotolok';
