@@ -85,13 +85,11 @@ margin-top: 15px;
   display: block;
 }
 
-/* Tablet and Mobile views - hidden by default */
 .tabletView,
 .mobileView {
   display: none;
 }
 
-/* Header sections for tablet and mobile */
 .headerSectionTablet,
 .headerSectionMobile {
   display: flex;
@@ -103,7 +101,6 @@ margin-top: 15px;
   margin-bottom: 40px;
 }
 
-/* Sliders container for tablet view */
 .slidersContainer {
   display: flex;
   justify-content: center;
@@ -204,3 +201,8 @@ margin-top: 15px;
     margin-bottom: 0px;
   }
 }
+  @media (max-width: 425px) {
+    .title {
+        font-size: 25px;
+    }
+  }

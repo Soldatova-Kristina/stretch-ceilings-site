@@ -1,0 +1,68 @@
+.container {
+  width: 100%;
+}
+
+.textBlock {
+  padding-left: 20px;
+  text-align: start;
+  padding-top: 30px;
+  color: white;
+}
+
+.title, .subtextTitle {
+  font-family: var(--font-family-regular);
+  font-size: 25px;
+  color: #fff;
+}
+
+.title {
+   margin-bottom: 30px;
+}
+
+.subtextTitle {
+margin-bottom: 10px;
+}
+
+.text {
+  font-family: var(--font-family-regular);
+  font-size: 16px;
+  width: 50%;
+  margin-bottom: 30px;
+}
+
+.subtextTitle, .subtext {
+    display: flex;
+    justify-content: center;
+}
+
+.subtext{
+   font-size: 18px;
+}
+
+@media screen and (max-width: 768px) {
+    .text {
+  width: 100%;
+}
+}
+
+
+@media screen and (max-width: 570px) {
+    .textBlock {
+        padding-top: 0;
+    }
+    .title {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+    .text {
+    font-size: 14px;
+    margin-bottom: 15px;
+    }
+    .subtextTitle {
+  justify-content: flex-start;
+  font-size: 20px;
+}
+.subtext {
+font-size: 16px;
+}
+}

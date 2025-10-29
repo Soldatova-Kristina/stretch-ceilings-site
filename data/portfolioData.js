@@ -2,8 +2,6 @@ export const portfolioItems = [
   {
     id: 1,
     images: [
-      '/images/portfolio/1/1.jpg',
-      '/images/portfolio/1/2.jpg',
       '/images/portfolio/1/3.jpg',
       '/images/portfolio/1/4.jpg',
       '/images/portfolio/1/5.jpg',
@@ -18,7 +16,6 @@ export const portfolioItems = [
     images: [
       '/images/portfolio/2/1.jpg',
       '/images/portfolio/2/2.jpg',
-      '/images/portfolio/2/3.jpg',
       '/images/portfolio/2/4.jpg',
       '/images/portfolio/2/5.jpg',
       '/images/portfolio/2/6.jpg',
@@ -32,9 +29,7 @@ export const portfolioItems = [
     id: 3,
     images: [
       '/images/portfolio/3/che_1.jpg',
-      '/images/portfolio/3/che_2.jpg',
       '/images/portfolio/3/che_3.jpg',
-      '/images/portfolio/3/che_4.jpg',
       '/images/portfolio/3/che_5.jpg',
     ],
     complexName: 'ЖК «Квартал Che»',

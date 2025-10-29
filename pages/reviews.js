@@ -62,7 +62,6 @@ export default function Reviews({ seoData, reviewImages }) {
                 />
               ))}
               <div className={styles.headerSection}>
-                <h1 className={styles.title}>ОТЗЫВЫ</h1>
                 <p className={styles.subtitle}>Что о нас говорят клиенты</p>
               </div>
                     {reviewImages.slice(2).map((review, index) => (
@@ -86,7 +85,7 @@ export default function Reviews({ seoData, reviewImages }) {
 
             <div className={styles.tabletView}>
               <div className={styles.headerSectionTablet}>
-                <p className={styles.subtitle}>Что о нас говорят клиенты</p>
+                <p className={styles.title}>Что о нас говорят клиенты</p>
               </div>
               <div className={styles.slidersContainer}>
                 <div className={styles.sliderWrapper}>
@@ -110,8 +109,7 @@ export default function Reviews({ seoData, reviewImages }) {
 
             <div className={styles.mobileView}>
               <div className={styles.headerSectionMobile}>
-                <h1 className={styles.title}>ОТЗЫВЫ</h1>
-                <p className={styles.subtitle}>Что о нас говорят клиенты</p>
+                <p className={styles.title}>Что о нас говорят клиенты</p>
               </div>
               <div className={styles.sliderWrapperMobile}>
                 <ImageSlider 

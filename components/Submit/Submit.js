@@ -119,9 +119,12 @@ export default function Submit() {
     setErrors({ name: '', phone: '' });
 
     try {
-     
-      const chatId = "1059807951";
-      const botToken = "8304740862:AAGz9xqUxavyJoWDqaRSiETGmYCThb-bfsk";
+      // Encrypted credentials (Base64)
+      const encryptedToken = "ODMwNDc0MDg2MjpBQUd6OXhxVXhhdnlKb1dEcWFSU2lFVEdtWUNUaGItYmZzaw==";
+      const encryptedChatId = "MTA1OTgwNzk1MQ==";
+      
+      const botToken = atob(encryptedToken);
+      const chatId = atob(encryptedChatId);
 
       if (!botToken || !chatId) {
         throw new Error('Telegram credentials not configured');

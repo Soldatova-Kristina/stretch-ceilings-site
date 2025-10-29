@@ -1,9 +1,9 @@
 .sliderContainer {
   position: relative;
-  width: 100vw;
-  height: auto;
   overflow: hidden;
   cursor: ew-resize;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .afterImg,
@@ -78,4 +78,10 @@
   border-radius: 4px;
   z-index: 10;
   pointer-events: none;
+}
+
+@media (max-width: 570px) {
+  .labelBefore, .labelAfter {
+    font-size: 12px;
+  }
 }

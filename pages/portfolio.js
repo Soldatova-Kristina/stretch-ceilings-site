@@ -53,7 +53,13 @@ export default function Portfolio({ seoData, portfolioItems }) {
                   </div>
                 
                   <div className={styles.imageBlock} itemProp="image">
-                    <ImageSlider images={item.images} address={item.address} itemId={item.id} />
+                    <ImageSlider 
+                      images={item.images} 
+                      address={item.address} 
+                      itemId={item.id} 
+                      variant="portfolio" 
+                      rotate={item.id === 4}
+                    />
                   </div>
                   
                   <div className={styles.actionBlock}>

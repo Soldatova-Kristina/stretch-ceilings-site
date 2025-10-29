@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { TELEGRAM_URL } from "@/data/contactsData";
 import styles from "./CeilingGrid.module.css";
 
 function CeilingCard({ image, imageAlt, title, subtitle, description, buttonText = "ПОДРОБНЕЕ" }) {
@@ -15,10 +16,14 @@ function CeilingCard({ image, imageAlt, title, subtitle, description, buttonText
         <h3 className={styles.cardTitle}>{title}</h3>
         {subtitle && <p className={styles.cardSubtitle}>{subtitle}</p>}
         <p className={styles.description}>{description}</p>
-        <button className={styles.button}>
+        <a 
+          href={TELEGRAM_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.button}
+        >
           {buttonText}
-          <span className={styles.arrow}>→</span>
-        </button>
+        </a>
       </div>
     </article>
   );

@@ -30,7 +30,7 @@
   font-size: 30px;
   color: #fff;
   margin-top: 0;
-  margin-bottom: 50px;
+  margin-bottom: 35x;
 }
 
 .list {
@@ -86,7 +86,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  margin-top: 28px;
+  margin-top: 30px;
   margin-right: 55px;
 }
 
@@ -111,7 +111,7 @@
 
   .columnTitle {
     font-size: 26px;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
   }
 }
 
@@ -182,7 +182,7 @@
 
 @media (max-width: 768px) {
   .section {
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     gap: 40px;
   }
 

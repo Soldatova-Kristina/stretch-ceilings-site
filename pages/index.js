@@ -42,6 +42,7 @@ export default function Home({ seoData }) {
                  secondButtonText="ПОДРОБНЕЕ ОБ УСЛУГАХ"
                  onSecondButtonClick={scrollToServices}
                  titleClassName={styles.indexHeroTitle}
+                 showLeftSecondButton={true}
                />
            </section>
 

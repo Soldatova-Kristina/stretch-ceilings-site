@@ -8,7 +8,9 @@ export default function ImageSlider({
   width = 481, 
   height = 361,
   quality = 90,
-  loading = "lazy"
+  loading = "lazy",
+  variant = "default", 
+  rotate = false 
 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -24,17 +26,30 @@ export default function ImageSlider({
     );
   };
 
+  const containerClass = variant === "portfolio" 
+    ? `${styles.sliderContainer} ${styles.portfolioContainer}`
+    : styles.sliderContainer;
+
+  const wrapperClass = variant === "portfolio"
+    ? `${styles.imageWrapper} ${styles.portfolioWrapper}`
+    : styles.imageWrapper;
+
+  const imageStyle = variant === "portfolio"
+    ? { objectFit: 'cover', transform: rotate ? 'rotate(90deg)' : 'none' }
+    : { objectFit: 'contain' };
+
   return (
-    <div className={styles.sliderContainer}>
-      <div className={styles.imageWrapper}>
+    <div className={containerClass}>
+      <div className={wrapperClass}>
         <Image 
           src={images[currentIndex]} 
           alt={`${address} - фото ${currentIndex + 1}`}
-          width={width}
-          height={height}
+          fill
           className={styles.image}
           quality={quality}
           loading={loading}
+          sizes="(max-width: 768px) 100vw, (max-width: 1480px) 90vw, 1480px"
+          style={imageStyle}
         />
       </div>
 
