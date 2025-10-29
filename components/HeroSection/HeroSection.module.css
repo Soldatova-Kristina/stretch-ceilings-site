@@ -126,10 +126,9 @@
 }
 
 .secondButtonContainer {
-  margin-right: 92px;
   position: absolute;
   bottom: 202px;
-  left: 60%;
+  left: 50%;
   transform: translateX(-50%);
   z-index: 10;
 }

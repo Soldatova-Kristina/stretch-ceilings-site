@@ -21,7 +21,7 @@ export default function Footer() {
 
   const socialLinks = useMemo(() => [
     {
-      href: 'https://wa.me/79209063386',
+      href: 'https://wa.me/+79679786000',
       icon: '/icons/social/icon-whatsapp.svg',
       label: 'WhatsApp',
       external: true,
@@ -39,7 +39,7 @@ export default function Footer() {
       external: true,
     },
     {
-      href: 'tel:+79209063386',
+      href: 'tel:+79320076085',
       icon: '/icons/social/icon-phone.svg',
       label: 'Телефон',
       external: false,

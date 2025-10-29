@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import ShinyText from '@/components/ShinyText/ShinyText';
 import { navigationItems, servicesPageNavigation, socialLinks } from '@/data/navigationData';
-import { COMPANY_PHONE, TELEGRAM_URL } from '@/data/contactsData';
+import { COMPANY_PHONE, WHATSAPP_URL } from '@/data/contactsData';
 import { useScrollLock } from './useScrollLock';
 import ArrowIcon from './ArrowIcon';
 import DropdownIcon from './DropdownIcon';
@@ -179,17 +179,18 @@ export default function Header() {
         <div className={styles.actionsWrapper}>
           {/* CTA Button - Hidden on homepage */}
           {!isHomepage && (
-            <button
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className={styles.ctaButton}
-              onClick={() => window.open(TELEGRAM_URL, '_blank', 'noopener,noreferrer')}
-              aria-label="Записаться на замер в Telegram"
-              type="button"
+              aria-label="Записаться на замер в WhatsApp"
             >
               <span className={styles.ctaText}>
                 <ShinyText text="ЗАПИСАТЬСЯ НА ЗАМЕР" />
               </span>
               <ArrowIcon className={styles.ctaArrow} />
-            </button>
+            </a>
           )}
 
           {/* Mobile Menu Toggle */}
@@ -291,24 +292,23 @@ export default function Header() {
         {/* Mobile Menu Footer */}
         <div className={styles.mobileMenuFooter}>
           {/* Mobile CTA Button */}
-          <button
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className={styles.mobileCtaButton}
-            onClick={() => window.open(TELEGRAM_URL, '_blank', 'noopener,noreferrer')}
-            aria-label="Записаться на замер в Telegram"
-            type="button"
+            aria-label="Записаться на замер в WhatsApp"
           >
             <span className={styles.ctaText}>
               <ShinyText text="ЗАПИСАТЬСЯ НА ЗАМЕР" />
             </span>
             <ArrowIcon className={styles.ctaArrow} />
-          </button>
+          </a>
 
-          {/* Phone Number */}
           <a href={`tel:${COMPANY_PHONE}`} className={styles.mobilePhone}>
             {COMPANY_PHONE}
           </a>
 
-          {/* Social Links */}
           <div className={styles.mobileSocial}>
             {socialLinks.map((link) => (
               <a
