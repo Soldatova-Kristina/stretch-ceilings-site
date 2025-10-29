@@ -2,6 +2,8 @@
 const nextConfig = {
   output: 'export',
   reactStrictMode: true,
+  basePath: '/stretch-ceilings-site',
+  assetPrefix: '/stretch-ceilings-site/',
   
   // Оптимизация изображений для лучшей производительности и SEO
   images: {
