@@ -1,9 +1,13 @@
 /** @type {import('next').NextConfig} */
+
+// Only use basePath in production (GitHub Pages)
+const isProduction = process.env.NODE_ENV === 'production';
+
 const nextConfig = {
   output: 'export',
   reactStrictMode: true,
-  basePath: '/stretch-ceilings-site',
-  assetPrefix: '/stretch-ceilings-site/',
+  basePath: isProduction ? '/stretch-ceilings-site' : '',
+  assetPrefix: isProduction ? '/stretch-ceilings-site/' : '',
   
   // Оптимизация изображений для лучшей производительности и SEO
   images: {
