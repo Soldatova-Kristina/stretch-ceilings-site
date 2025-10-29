@@ -1,4 +1,5 @@
 import Seo from '@/components/Seo';
+import Link from 'next/link';
 import styles from './privacy.module.css';
 
 export async function getStaticProps() {
@@ -98,7 +99,7 @@ export default function Privacy({ seo }) {
           <h2 className={styles.sectionTitle}>7. Изменения Политики</h2>
           <p className={styles.text}>
             Актуальная версия доступна по адресу{" "}
-            <a href="/privacy" className={styles.link}>https://piterpotolok.ru/privacy</a>.
+            <Link href="/privacy" className={styles.link}>https://piterpotolok.ru/privacy</Link>.
           </p>
         </section>
       </div>
