@@ -79,6 +79,16 @@ function processHTMLFile(filePath) {
     });
   }
 
+  // Fix inline styles: style="background-image:url(/images/...)" -> style="background-image:url(/stretch-ceilings-site/images/...)"
+  const inlineStyleRegex = /style="([^"]*url\((\/(?:images|icons|fonts)\/[^)]+)\)[^"]*)"/g;
+  if (inlineStyleRegex.test(content)) {
+    content = content.replace(inlineStyleRegex, (match, styleContent, path) => {
+      modified = true;
+      const fixedStyle = styleContent.replace(path, `${basePath}${path}`);
+      return `style="${fixedStyle}"`;
+    });
+  }
+
   if (modified) {
     writeFileSync(filePath, content, 'utf-8');
     console.log(`✓ Fixed HTML paths in: ${filePath.replace(outDir, '')}`);
