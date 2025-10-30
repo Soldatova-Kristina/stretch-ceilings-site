@@ -566,6 +566,11 @@
     height: 70px;
   }
 
+  .logoImg {
+    width: 75px;
+    height: auto;
+  }
+
   .container {
     padding: 0 15px;
     justify-content: space-between;
@@ -607,7 +612,7 @@
   }
 
   .logoImg {
-    width: 70px;
+    width: 60px;
     height: auto;
   }
 
