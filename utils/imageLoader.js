@@ -1,10 +1,10 @@
-// Import BASE_PATH from config - this will be inlined at build time
-import { BASE_PATH } from '../next.config.mjs';
-
 // Custom image loader for GitHub Pages with basePath
 export default function imageLoader({ src, width, quality }) {
-  // If src already has the BASE_PATH, return as is
-  if (BASE_PATH && src.startsWith(BASE_PATH + '/')) {
+  // Get BASE_PATH from environment variable (works in both build and runtime)
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+  
+  // If src already has the basePath, return as is
+  if (basePath && src.startsWith(basePath + '/')) {
     return src;
   }
   
@@ -13,9 +13,9 @@ export default function imageLoader({ src, width, quality }) {
     return src;
   }
   
-  // If src is relative (starts with /), add BASE_PATH
+  // If src is relative (starts with /), add basePath
   if (src.startsWith('/')) {
-    return BASE_PATH ? `${BASE_PATH}${src}` : src;
+    return basePath ? `${basePath}${src}` : src;
   }
   
   // Otherwise, return src as is
