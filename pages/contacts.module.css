@@ -5,7 +5,6 @@
   align-items: center;
   min-height: 100vh;
   background: var(--color-background);
-  background-image: url('/images/texture/black_djins.png');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

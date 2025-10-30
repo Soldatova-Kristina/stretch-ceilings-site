@@ -3,16 +3,27 @@
   position: relative;
 }
 
+.heroBackground {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 750px;
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+
 .hero::before {
   content: '';
   position: absolute;
   left: 0;
   right: 0;
   height: 750px;
-  background-image: url('/images/texture/white_texture.jpg');
   background-size: cover;
   background-position: center;
   z-index: -1;
+  display: none;
 }
 
 .heroInner {
@@ -166,7 +177,12 @@
     padding-left: 30px;
   }
 
+  .heroBackground {
+    display: none;
+  }
+
   .hero::before {
+    display: block;
     background-image: 
       linear-gradient(rgb(255, 255, 255, 0.7), rgb(255, 255, 255, 0.7)),
       var(--mobile-bg-image, url('/images/index/mobile_main.png'));

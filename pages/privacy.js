@@ -22,7 +22,7 @@ export default function Privacy({ seo }) {
       <div className={styles.container}>
         <header className={styles.header}>
           <h1 className={styles.title}>Политика конфиденциальности</h1>
-          <p className={styles.date}>Действующая редакция от 22.10.2025</p>
+          <p className={styles.date}>Действующая редакция от 1.11.2025</p>
         </header>
 
         <section className={styles.section}>

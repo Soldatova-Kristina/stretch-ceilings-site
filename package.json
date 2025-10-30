@@ -10,7 +10,9 @@
     "export": "next build",
     "start": "next start",
     "lint": "eslint",
-    "deploy": "npm run build && touch out/.nojekyll && echo 'Build complete! Ready for GitHub Pages.'"
+    "deploy": "npm run build && touch out/.nojekyll && echo 'Build complete! Ready for GitHub Pages.'",
+    "img:convert": "node scripts/convert-images.mjs",
+    "img:validate": "node scripts/validate-webp.mjs"
   },
   "dependencies": {
     "next": "15.5.5",
@@ -21,6 +23,7 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "eslint": "^9",
-    "eslint-config-next": "15.5.5"
+    "eslint-config-next": "15.5.5",
+    "sharp": "^0.33.0"
   }
 }

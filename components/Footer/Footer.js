@@ -2,9 +2,14 @@ import { useMemo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './Footer.module.css';
+import { assetPath } from '@/utils/assetPath';
 
 export default function Footer() {
   const currentYear = useMemo(() => new Date().getFullYear(), []);
+
+  const textureBackground = {
+    backgroundImage: `url(${assetPath('images/texture/white_texture.jpg')})`,
+  };
 
   const navItems = useMemo(() => [
     { href: '/', label: 'Главная' },
@@ -47,7 +52,7 @@ export default function Footer() {
   ], []);
 
   return (
-<footer className={styles.footer}>
+<footer className={styles.footer} style={textureBackground}>
       <div className={styles.footer__main}>
 
         <div className={styles.footer__logo}>
@@ -125,7 +130,7 @@ export default function Footer() {
 
       </div>
 
-      <div className={styles.footer__bottom}>
+      <div className={styles.footer__bottom} style={textureBackground}>
         <p className={styles.footer__copyright}>
           © Питер Потолок — установка натяжных потолков и тихих стен в Санкт-Петербурге и области.<br />
           Сайт piterpotolok.ru не является публичной офертой и носит информационный характер.

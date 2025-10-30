@@ -2,9 +2,14 @@ import { useState } from 'react';
 import styles from './StepsAccordion.module.css';
 import { stepsData } from '@/data/stepsData';
 import { WHATSAPP_URL } from '@/data/contactsData';
+import { assetPath } from '@/utils/assetPath';
 
 export default function StepsAccordion() {
   const [openIndex, setOpenIndex] = useState(null);
+
+  const cardBackground = {
+    backgroundImage: `url(${assetPath('images/texture/white_texture.jpg')})`,
+  };
 
   const toggleCard = (index) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -17,6 +22,7 @@ export default function StepsAccordion() {
           <div
             key={step.id}
             className={`${styles.card} ${openIndex === index ? styles.open : ''}`}
+            style={cardBackground}
           >
             <div className={styles.content}>
               <div className={styles.number}>{step.number}</div>

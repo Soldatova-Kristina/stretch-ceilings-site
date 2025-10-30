@@ -6,16 +6,25 @@ export default function BeforeAfter({ beforeSrc, afterSrc, title /* text */ }) {
   const [position, setPosition] = useState(50);
   const [isActive, setIsActive] = useState(false);
   const containerRef = useRef(null);
+  const lastClickTimeRef = useRef(0);
+  const DOUBLE_CLICK_DELAY = 300; // ms
 
   const clamp = (v) => Math.max(0, Math.min(100, v));
 
-  const updatePosition = useCallback((clientX) => {
+  const updatePosition = useCallback((clientX, snapToCenter = false) => {
     const el = containerRef.current;
     if (!el) return;
     const rect = el.getBoundingClientRect();
     if (rect.width <= 0) return;
     const x = clientX - rect.left;
-    setPosition(clamp((x / rect.width) * 100));
+    let newPosition = clamp((x / rect.width) * 100);
+    
+    // Snap to 50% when within 2% of center
+    if (snapToCenter && Math.abs(newPosition - 50) <= 2) {
+      newPosition = 50;
+    }
+    
+    setPosition(newPosition);
   }, []);
 
   // Глобальные pointer-события во время драга
@@ -52,7 +61,20 @@ export default function BeforeAfter({ beforeSrc, afterSrc, title /* text */ }) {
     else if (e.key === "End") { e.preventDefault(); setPosition(100); }
   };
 
-  const onContainerClick = (e) => updatePosition(e.clientX);
+  const onContainerClick = (e) => {
+    const currentTime = Date.now();
+    const isDoubleClick = currentTime - lastClickTimeRef.current < DOUBLE_CLICK_DELAY;
+    
+    if (isDoubleClick) {
+      // Reset to center on double-click
+      setPosition(50);
+    } else {
+      // Single click: update position with snap
+      updatePosition(e.clientX, true);
+    }
+    
+    lastClickTimeRef.current = currentTime;
+  };
 
   return (
     <div
@@ -62,6 +84,11 @@ export default function BeforeAfter({ beforeSrc, afterSrc, title /* text */ }) {
       aria-label={`Сравнение до и после: ${title || "изображение"}`}
       onClick={onContainerClick}
     >
+      {/* Hidden instructions for screen readers */}
+      <div id="slider-instructions" className={styles.srOnly}>
+        Используйте клавиши со стрелками для перемещения ползунка сравнения. 
+        Нажмите Home для начала, End для конца, или дважды кликните для возврата в центр.
+      </div>
       {/* After */}
       <div className={styles.afterImg}>
         <Image
@@ -98,6 +125,7 @@ export default function BeforeAfter({ beforeSrc, afterSrc, title /* text */ }) {
         style={{ left: `${position}%` }}
         role="slider"
         aria-label="Ползунок сравнения изображений"
+        aria-describedby="slider-instructions"
         aria-orientation="horizontal"
         aria-valuemin={0}
         aria-valuemax={100}
