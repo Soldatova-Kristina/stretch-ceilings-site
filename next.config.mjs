@@ -9,6 +9,7 @@ const nextConfig = {
   reactStrictMode: true,
   basePath: basePath,
   assetPrefix: basePath,
+  trailingSlash: true, // Better compatibility with static hosting
   
   // Make basePath available to components
   env: {
