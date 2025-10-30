@@ -34,7 +34,7 @@
 
 .logoImg {
   width: 90px;
-  height: 72px;
+  height: auto;
   object-fit: contain;
   flex-shrink: 0;
 }

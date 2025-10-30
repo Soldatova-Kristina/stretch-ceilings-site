@@ -15,7 +15,6 @@ export default function ServiceBlocks() {
               width={563}
               height={330}
               className={styles.image}
-              quality={90}
               loading="lazy"
             />
 

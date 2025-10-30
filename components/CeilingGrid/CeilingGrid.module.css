@@ -92,6 +92,12 @@
   transform: translateX(4px);
 }
 
+@media (min-width: 1480px) {
+  .grid {
+    margin-bottom:35px;
+  } 
+}
+
 @media (max-width: 1480px) {
   .grid {
     width: 100%;
@@ -146,6 +152,7 @@
 
   .button {
     font-size: 14px;
+    margin-top: 20px;
     padding: 8px 20px;
   }
 }

@@ -7,7 +7,6 @@ export default function ImageSlider({
   address, 
   width = 481, 
   height = 361,
-  quality = 90,
   loading = "lazy",
   variant = "default", 
   rotate = false 
@@ -46,7 +45,6 @@ export default function ImageSlider({
           alt={`${address} - фото ${currentIndex + 1}`}
           fill
           className={styles.image}
-          quality={quality}
           loading={loading}
           sizes="(max-width: 768px) 100vw, (max-width: 1480px) 90vw, 1480px"
           style={imageStyle}

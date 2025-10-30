@@ -21,7 +21,6 @@ export default function AdvantagesBlock() {
           width={1480}
           height={562}
           className={styles.image}
-          quality={90}
           loading="lazy"
         />
       </div>
