@@ -114,4 +114,4 @@ function walkDir(dir) {
 
 console.log('🔧 Fixing paths for GitHub Pages...');
 walkDir(outDir);
-console.log('✅ Done!');
+console.log('Done!');

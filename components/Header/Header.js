@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import ShinyText from '@/components/ShinyText/ShinyText';
-import { navigationItems, servicesPageNavigation, socialLinks } from '@/data/navigationData';
+import { navigationItems, socialLinks } from '@/data/navigationData';
 import { COMPANY_PHONE, WHATSAPP_URL } from '@/data/contactsData';
 import { useScrollLock } from './useScrollLock';
 import ArrowIcon from './ArrowIcon';
@@ -98,10 +98,43 @@ export default function Header() {
     setIsMobileMenuOpen(prev => !prev);
   }, []);
 
-  // Get navigation items based on current page
+  // Get navigation items for desktop menu
+  const getDesktopNavItems = () => {
+    const isServicesPage = router.pathname.startsWith('/services/');
+    
+    // On services pages, show simplified navigation without dropdown
+    if (isServicesPage) {
+      return [
+        { href: '/', label: 'Главная' },
+        { href: '/services/ceilings', label: 'Потолки' },
+        { href: '/services/walls', label: 'Стены' },
+      ];
+    }
+    
+    return navigationItems;
+  };
+
+  // Get mobile navigation items (flattened, no dropdowns)
+  const getMobileNavItems = () => {
+    const items = [];
+    
+    navigationItems.forEach(item => {
+      if (item.dropdown && item.items) {
+        // Add dropdown items as separate links
+        item.items.forEach(subItem => items.push(subItem));
+      } else if (!item.dropdown) {
+        // Add regular items
+        items.push(item);
+      }
+    });
+    
+    return items;
+  };
+
   const isHomepage = router.pathname === '/';
   const isServicesPage = router.pathname.startsWith('/services/');
-  const navItems = isServicesPage ? servicesPageNavigation : navigationItems;
+  const desktopNavItems = getDesktopNavItems();
+  const mobileNavItems = getMobileNavItems();
 
   return (
     <header className={styles.header} data-mode={isHomepage ? 'homepage' : isServicesPage ? 'services' : 'standard'}>
@@ -124,7 +157,7 @@ export default function Header() {
         <div className={styles.navWrapper}>
           <nav className={styles.nav} aria-label="Основная навигация">
             <ul className={styles.navList}>
-              {navItems.map((item, index) => (
+              {desktopNavItems.map((item, index) => (
                 <li key={index} className={styles.navItem}>
                   {item.dropdown ? (
                     <div className={styles.dropdown} ref={dropdownRef}>
@@ -216,76 +249,18 @@ export default function Header() {
       >
         <nav aria-label="Мобильная навигация">
           <ul className={styles.mobileNavList}>
-            <li className={styles.mobileNavItem}>
-              <Link
-                href="/"
-                className={`${styles.mobileNavLink} ${
-                  isActive('/') ? styles.active : ''
-                }`}
-              >
-                О нас
-              </Link>
-            </li>
-            <li className={styles.mobileNavItem}>
-              <Link
-                href="/services/ceilings"
-                className={`${styles.mobileNavLink} ${
-                  isActive('/services/ceilings') ? styles.active : ''
-                }`}
-              >
-                Потолки
-              </Link>
-            </li>
-            <li className={styles.mobileNavItem}>
-              <Link
-                href="/services/walls"
-                className={`${styles.mobileNavLink} ${
-                  isActive('/services/walls') ? styles.active : ''
-                }`}
-              >
-                Стены
-              </Link>
-            </li>
-            <li className={styles.mobileNavItem}>
-              <Link
-                href="/portfolio"
-                className={`${styles.mobileNavLink} ${
-                  isActive('/portfolio') ? styles.active : ''
-                }`}
-              >
-                Наши работы
-              </Link>
-            </li>
-            <li className={styles.mobileNavItem}>
-              <Link
-                href="/faq"
-                className={`${styles.mobileNavLink} ${
-                  isActive('/faq') ? styles.active : ''
-                }`}
-              >
-                FAQ
-              </Link>
-            </li>
-            <li className={styles.mobileNavItem}>
-              <Link
-                href="/reviews"
-                className={`${styles.mobileNavLink} ${
-                  isActive('/reviews') ? styles.active : ''
-                }`}
-              >
-                Отзывы
-              </Link>
-            </li>
-            <li className={styles.mobileNavItem}>
-              <Link
-                href="/contacts"
-                className={`${styles.mobileNavLink} ${
-                  isActive('/contacts') ? styles.active : ''
-                }`}
-              >
-                Контакты
-              </Link>
-            </li>
+            {mobileNavItems.map((item, index) => (
+              <li key={index} className={styles.mobileNavItem}>
+                <Link
+                  href={item.href}
+                  className={`${styles.mobileNavLink} ${
+                    isActive(item.href) ? styles.active : ''
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
           </ul>
         </nav>
 

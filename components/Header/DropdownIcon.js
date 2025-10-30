@@ -3,7 +3,7 @@
  * Chevron icon for dropdown menus
  */
 
-export default function DropdownIcon({ className, isOpen }) {
+export default function DropdownIcon({ className }) {
   return (
     <svg 
       className={className}
