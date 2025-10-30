@@ -14,6 +14,10 @@ if (isGitHubPages) {
   basePath = customBasePath;
 }
 
+// Export BASE_PATH as a named constant for use in utility functions
+// This allows the bundler to inline the value at build time, making it available in both server and client code
+export const BASE_PATH = basePath;
+
 const nextConfig = {
   output: 'export',
   reactStrictMode: true,
