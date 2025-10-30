@@ -3,17 +3,6 @@
   position: relative;
 }
 
-.heroBackground {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 750px;
-  background-size: cover;
-  background-position: center;
-  z-index: -1;
-}
-
 .hero::before {
   content: '';
   position: absolute;
@@ -24,6 +13,17 @@
   background-position: center;
   z-index: -1;
   display: none;
+}
+
+.heroBackground {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 750px;
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
 }
 
 .heroInner {
