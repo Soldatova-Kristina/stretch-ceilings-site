@@ -22,7 +22,7 @@ const nextConfig = {
   output: 'export',
   reactStrictMode: true,
   basePath: basePath,
-  assetPrefix: basePath ? `${basePath}/` : '',
+  assetPrefix: basePath,
   trailingSlash: true, // Better compatibility with static hosting
   
   // Make basePath available to components

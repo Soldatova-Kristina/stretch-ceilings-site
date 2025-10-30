@@ -5,17 +5,20 @@
   "scripts": {
     "dev": "next dev",
     "dev:clean": "rm -rf .next .swc node_modules/.cache && next dev",
+
     "build": "next build",
     "build:gh": "DEPLOY_TARGET=gh next build",
     "build:timeweb": "next build",
-    "build:timeweb-subpath": "BASE_PATH=/your-subpath next build",
+    "build:timeweb-subpath": "BASE_PATH=/stretch-ceilings-site next build",
+
     "postbuild": "node scripts/fix-css-paths.mjs",
-    "export": "next build",
+
     "start": "next start",
     "lint": "eslint",
-    "deploy": "npm run build && touch out/.nojekyll && echo 'Build complete! Ready for GitHub Pages.'",
-    "deploy:gh": "npm run build:gh && touch out/.nojekyll && echo 'Build complete for GitHub Pages!'",
+
+    "deploy:gh": "npm run build:gh && touch out/.nojekyll && gh-pages -d out",
     "deploy:timeweb": "npm run build:timeweb && echo 'Build complete for Timeweb (root)!'",
+
     "img:convert": "node scripts/convert-images.mjs",
     "img:validate": "node scripts/validate-webp.mjs"
   },
@@ -29,6 +32,7 @@
     "@eslint/eslintrc": "^3",
     "eslint": "^9",
     "eslint-config-next": "15.5.5",
+    "gh-pages": "^6.3.0",
     "sharp": "^0.33.0"
   }
 }
