@@ -21,7 +21,6 @@ export default function About({
     ? { width: textWidth, maxWidth: '100%' } 
     : {};
 
-  // Function to render title with CountUp animation for number 1000
   const renderTitle = () => {
     const parts = title.split('1000');
     if (parts.length === 2) {
