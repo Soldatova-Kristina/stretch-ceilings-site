@@ -8,7 +8,7 @@ const __dirname = dirname(__filename);
 const basePath = '/stretch-ceilings-site';
 const outDir = join(__dirname, '../out');
 
-function processFile(filePath) {
+function processCSSFile(filePath) {
   let content = readFileSync(filePath, 'utf-8');
   let modified = false;
 
@@ -41,7 +41,47 @@ function processFile(filePath) {
 
   if (modified) {
     writeFileSync(filePath, content, 'utf-8');
-    console.log(`✓ Fixed paths in: ${filePath.replace(outDir, '')}`);
+    console.log(`✓ Fixed CSS paths in: ${filePath.replace(outDir, '')}`);
+  }
+}
+
+function processHTMLFile(filePath) {
+  let content = readFileSync(filePath, 'utf-8');
+  let modified = false;
+
+  // Fix img src: src="/images/..." -> src="/stretch-ceilings-site/images/..."
+  const imgSrcRegex = /src="(\/(?:images|icons|fonts)\/[^"]+)"/g;
+  if (imgSrcRegex.test(content)) {
+    content = content.replace(imgSrcRegex, (match, path) => {
+      modified = true;
+      return `src="${basePath}${path}"`;
+    });
+  }
+
+  // Fix srcset: srcset="/images/..." -> srcset="/stretch-ceilings-site/images/..."
+  const srcsetRegex = /srcset="([^"]*\/(?:images|icons)\/[^"]*)"/g;
+  if (srcsetRegex.test(content)) {
+    content = content.replace(srcsetRegex, (match, srcsetValue) => {
+      modified = true;
+      const fixedSrcset = srcsetValue.replace(/(\/(?:images|icons)\/[^\s,]+)/g, (m, path) => {
+        return `${basePath}${path}`;
+      });
+      return `srcset="${fixedSrcset}"`;
+    });
+  }
+
+  // Fix href for icons/logos: href="/icons/..." -> href="/stretch-ceilings-site/icons/..."
+  const hrefIconRegex = /href="(\/icons\/[^"]+)"/g;
+  if (hrefIconRegex.test(content)) {
+    content = content.replace(hrefIconRegex, (match, path) => {
+      modified = true;
+      return `href="${basePath}${path}"`;
+    });
+  }
+
+  if (modified) {
+    writeFileSync(filePath, content, 'utf-8');
+    console.log(`✓ Fixed HTML paths in: ${filePath.replace(outDir, '')}`);
   }
 }
 
@@ -55,11 +95,13 @@ function walkDir(dir) {
     if (stat.isDirectory()) {
       walkDir(filePath);
     } else if (file.endsWith('.css')) {
-      processFile(filePath);
+      processCSSFile(filePath);
+    } else if (file.endsWith('.html')) {
+      processHTMLFile(filePath);
     }
   });
 }
 
-console.log('🔧 Fixing CSS paths for GitHub Pages...');
+console.log('🔧 Fixing paths for GitHub Pages...');
 walkDir(outDir);
 console.log('✅ Done!');
