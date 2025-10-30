@@ -1,13 +1,19 @@
 /** @type {import('next').NextConfig} */
 
-// Only use basePath in production (GitHub Pages)
+// GitHub Pages requires basePath for project repos
 const isProduction = process.env.NODE_ENV === 'production';
+const basePath = isProduction ? '/stretch-ceilings-site' : '';
 
 const nextConfig = {
   output: 'export',
   reactStrictMode: true,
-  basePath: isProduction ? '/stretch-ceilings-site' : '',
-  assetPrefix: isProduction ? '/stretch-ceilings-site' : '',
+  basePath: basePath,
+  assetPrefix: basePath,
+  
+  // Make basePath available to components
+  env: {
+    NEXT_PUBLIC_BASE_PATH: basePath,
+  },
   
   // Оптимизация изображений для лучшей производительности и SEO
   images: {

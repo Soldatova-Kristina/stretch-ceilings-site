@@ -6,6 +6,7 @@
     "dev": "next dev",
     "dev:clean": "rm -rf .next .swc node_modules/.cache && next dev",
     "build": "next build",
+    "postbuild": "node scripts/fix-css-paths.mjs",
     "export": "next build",
     "start": "next start",
     "lint": "eslint",
