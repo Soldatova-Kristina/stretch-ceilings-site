@@ -22,13 +22,6 @@ export const navigationItems = [
   { href: '/contacts', label: 'Контакты' },
 ];
 
-// Services page simplified navigation (no dropdown)
-export const servicesPageNavigation = [
-  { href: '/', label: 'Главная' },
-  { href: '/services/ceilings', label: 'Потолки' },
-  { href: '/services/walls', label: 'Стены' },
-];
-
 // Social links configuration
 export const socialLinks = [
   {
