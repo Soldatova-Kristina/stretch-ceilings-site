@@ -1,14 +1,24 @@
 /** @type {import('next').NextConfig} */
 
-// GitHub Pages requires basePath for project repos
-const isProduction = process.env.NODE_ENV === 'production';
-const basePath = isProduction ? '/stretch-ceilings-site' : '';
+// Conditional basePath for different deployment environments
+// - GitHub Pages: Set DEPLOY_TARGET=gh (uses /stretch-ceilings-site)
+// - Timeweb with custom subpath: Set BASE_PATH=/custom-path
+// - Timeweb root deployment: No environment variables (empty basePath)
+const isGitHubPages = process.env.DEPLOY_TARGET === 'gh';
+const customBasePath = process.env.BASE_PATH || '';
+
+let basePath = '';
+if (isGitHubPages) {
+  basePath = '/stretch-ceilings-site';
+} else if (customBasePath) {
+  basePath = customBasePath;
+}
 
 const nextConfig = {
   output: 'export',
   reactStrictMode: true,
   basePath: basePath,
-  assetPrefix: basePath,
+  assetPrefix: basePath ? `${basePath}/` : '',
   trailingSlash: true, // Better compatibility with static hosting
   
   // Make basePath available to components

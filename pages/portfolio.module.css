@@ -8,11 +8,10 @@
   background: #ffffff;
 }
 
-.pageWrapper::before {
+.pageBackground {
   position: absolute;
   z-index: -1;
   inset: 0;
-  background-image: url('/images/texture/white_texture.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

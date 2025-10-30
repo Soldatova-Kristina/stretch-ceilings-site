@@ -3,6 +3,7 @@ import styles from './contacts.module.css';
 import Image from 'next/image';
 import Submit from '@/components/Submit/Submit';
 import { contactsSeoData } from '@/data/seo/contactsSeo';
+import { assetPath } from '@/utils/assetPath';
 
 export async function getStaticProps() {
   return {
@@ -13,10 +14,14 @@ export async function getStaticProps() {
 }
 
 export default function Contacts({ seoData }) {
+  const pageBackground = {
+    backgroundImage: `url(${assetPath('images/texture/black_djins.png')})`,
+  };
+
   return (
     <>
       <Seo {...seoData} />
-      <div className={styles.pageWrapper} itemScope itemType="https://schema.org/ContactPage">
+      <div className={styles.pageWrapper} style={pageBackground} itemScope itemType="https://schema.org/ContactPage">
         {/* Contact Form Section */}
         <section className={styles.section} aria-label="Форма обратной связи">
         <div className={styles.leftColumn}>

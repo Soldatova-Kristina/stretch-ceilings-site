@@ -5,7 +5,17 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const basePath = '/stretch-ceilings-site';
+// Determine basePath based on environment variables (same logic as next.config.mjs)
+const isGitHubPages = process.env.DEPLOY_TARGET === 'gh';
+const customBasePath = process.env.BASE_PATH || '';
+
+let basePath = '';
+if (isGitHubPages) {
+  basePath = '/stretch-ceilings-site';
+} else if (customBasePath) {
+  basePath = customBasePath;
+}
+
 const outDir = join(__dirname, '../out');
 
 function processCSSFile(filePath) {
@@ -112,6 +122,11 @@ function walkDir(dir) {
   });
 }
 
-console.log('🔧 Fixing paths for GitHub Pages...');
+console.log('🔧 Fixing paths for static export...');
+if (!basePath) {
+  console.log(' No basePath configured - skipping path fixing (root deployment)');
+  process.exit(0);
+}
+console.log(`Using basePath: ${basePath}`);
 walkDir(outDir);
 console.log('Done!');

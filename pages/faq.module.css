@@ -6,7 +6,6 @@
   align-items: center;
   overflow: hidden;
   background-color: var(--color-text-secondary);
-  background-image: url('/images/texture/faq_background.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

@@ -5,6 +5,7 @@ import ImageSlider from '@/components/ImageSlider/ImageSlider';
 import styles from './portfolio.module.css';
 import { createPortfolioStructuredData, portfolioSeoBase } from '@/data/seo/portfolioSeo';
 import { portfolioItems } from '@/data/portfolioData';
+import { assetPath } from '@/utils/assetPath';
 
 export async function getStaticProps() {
  
@@ -22,11 +23,16 @@ export async function getStaticProps() {
 }
 
 export default function Portfolio({ seoData, portfolioItems }) {
+  const pageBeforeBackground = {
+    backgroundImage: `url(${assetPath('images/texture/white_texture.jpg')})`,
+  };
+
   return (
     <>
       <Seo {...seoData} />
       {/* Portfolio Section */}
       <section className={styles.pageWrapper} itemScope itemType="https://schema.org/CollectionPage" aria-label="Портфолио">
+          <div className={styles.pageBackground} style={pageBeforeBackground}></div>
           <div className={styles.gallery}>
         <div className={styles.container}>
           <div className={styles.header}>

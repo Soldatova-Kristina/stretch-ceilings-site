@@ -2,6 +2,7 @@ import Image from "next/image";
 import CtaButton from "@/components/CtaButton/CtaButton";
 import ShinyText from "@/components/ShinyText/ShinyText";
 import { WHATSAPP_URL } from "@/data/contactsData";
+import { assetPath } from "@/utils/assetPath";
 import styles from "./HeroSection.module.css";
 
 export default function HeroSection({
@@ -18,12 +19,19 @@ export default function HeroSection({
   titleClassName = '',
   showLeftSecondButton = false,
 }) {
-  const heroStyle = mobileBackgroundImage 
-    ? { '--mobile-bg-image': `url('${mobileBackgroundImage}')` }
-    : {};
+  const heroStyle = {
+    '--mobile-bg-image': mobileBackgroundImage 
+      ? `url('${mobileBackgroundImage}')`
+      : `url(${assetPath('images/index/mobile_main.png')})`,
+  };
+
+  const heroBeforeStyle = {
+    backgroundImage: `url(${assetPath('images/texture/white_texture.jpg')})`,
+  };
 
   return (
     <div className={styles.hero} style={heroStyle}>
+      <div className={styles.heroBackground} style={heroBeforeStyle}></div>
       <div className={styles.heroInner}>
         <p className={styles.brandText}>
           ВДОХНОВЛЯЕМ<br />ПРОСТРАНСТВО <br />КРАСОТОЙ И УЮТОМ

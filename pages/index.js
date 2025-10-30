@@ -38,6 +38,7 @@ export default function Home({ seoData }) {
                  location="САНКТ-ПЕТЕРБУРГ И ЛО"
                  imageSrc="/images/index/hero_main.png"
                  imageAlt="Натяжные потолки в Санкт-Петербурге - современные решения для вашего интерьера"
+                 mobileBackgroundImage="/images/index/mobile_main.png"
                  showSecondButton={true}
                  secondButtonText="ПОДРОБНЕЕ ОБ УСЛУГАХ"
                  onSecondButtonClick={scrollToServices}

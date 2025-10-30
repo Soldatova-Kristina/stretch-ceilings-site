@@ -6,6 +6,7 @@ import ShinyText from '@/components/ShinyText/ShinyText';
 import { navigationItems, socialLinks } from '@/data/navigationData';
 import { COMPANY_PHONE, WHATSAPP_URL } from '@/data/contactsData';
 import { useScrollLock } from './useScrollLock';
+import { assetPath } from '@/utils/assetPath';
 import ArrowIcon from './ArrowIcon';
 import DropdownIcon from './DropdownIcon';
 import styles from './Header.module.css';
@@ -136,8 +137,16 @@ export default function Header() {
   const desktopNavItems = getDesktopNavItems();
   const mobileNavItems = getMobileNavItems();
 
+  // Background styles for different sections
+  const whiteTextureBackground = {
+    backgroundImage: `url(${assetPath('images/texture/white_texture.jpg')})`,
+  };
+  const blackTextureBackground = {
+    backgroundImage: `url(${assetPath('images/texture/black_djins.png')})`,
+  };
+
   return (
-    <header className={styles.header} data-mode={isHomepage ? 'homepage' : isServicesPage ? 'services' : 'standard'}>
+    <header className={styles.header} data-mode={isHomepage ? 'homepage' : isServicesPage ? 'services' : 'standard'} style={whiteTextureBackground}>
       <div className={styles.container}>
         {/* Logo Section */}
         <div className={styles.logoWrapper}>
@@ -176,7 +185,7 @@ export default function Header() {
                         />
                       </button>
                       {isServicesOpen && (
-                        <ul className={styles.dropdownMenu}>
+                        <ul className={styles.dropdownMenu} style={whiteTextureBackground}>
                           {item.items.map((subItem, subIndex) => (
                             <li key={subIndex}>
                               <Link
@@ -245,6 +254,7 @@ export default function Header() {
       {/* Mobile Navigation */}
       <div 
         className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.open : ''}`}
+        style={blackTextureBackground}
         aria-hidden={!isMobileMenuOpen}
       >
         <nav aria-label="Мобильная навигация">
