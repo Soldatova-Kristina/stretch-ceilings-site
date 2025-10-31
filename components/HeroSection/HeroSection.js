@@ -19,9 +19,11 @@ export default function HeroSection({
   titleClassName = '',
   showLeftSecondButton = false,
 }) {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+  
   const heroStyle = {
     '--mobile-bg-image': mobileBackgroundImage 
-      ? `url('${mobileBackgroundImage}')`
+      ? `url('${basePath}${mobileBackgroundImage}')`
       : `url(${assetPath('/images/index/mobile_main.png')})`,
   };
 
@@ -70,7 +72,7 @@ export default function HeroSection({
         <div className={styles.rightSection}>
        
           <Image 
-            src={imageSrc} 
+            src={`${basePath}${imageSrc}`}
             alt={imageAlt} 
             fill
             priority 

@@ -12,6 +12,7 @@ export default function ImageSlider({
   rotate = false 
 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
   const goToPrevious = () => {
     setCurrentIndex((prevIndex) => 
@@ -41,7 +42,7 @@ export default function ImageSlider({
     <div className={containerClass}>
       <div className={wrapperClass}>
         <Image 
-          src={images[currentIndex]} 
+          src={`${basePath}${images[currentIndex]}`}
           alt={`${address} - фото ${currentIndex + 1}`}
           fill
           className={styles.image}

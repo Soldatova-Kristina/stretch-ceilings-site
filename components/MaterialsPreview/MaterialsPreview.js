@@ -3,6 +3,8 @@ import styles from "./MaterialsPreview.module.css";
 import { materialsData } from "@/data/materialsData";
 
 function MaterialBlock({ title, items, imageSrc, imageAlt }) {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+  
   return (
     <div className={styles.block}>
       <h3 className={styles.blockTitle}>{title}</h3>
@@ -15,7 +17,7 @@ function MaterialBlock({ title, items, imageSrc, imageAlt }) {
       </ul>
       <div className={styles.imageWrapper}>
         <Image
-          src={imageSrc}
+          src={`${basePath}${imageSrc}`}
           alt={imageAlt}
           width={565}
           height={376}

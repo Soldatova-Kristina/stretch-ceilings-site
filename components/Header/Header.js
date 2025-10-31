@@ -145,6 +145,8 @@ export default function Header() {
     backgroundImage: `url(${assetPath('images/texture/black_djins.png')})`,
   };
 
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
   return (
     <header className={styles.header} data-mode={isHomepage ? 'homepage' : isServicesPage ? 'services' : 'standard'} style={whiteTextureBackground}>
       <div className={styles.container}>
@@ -152,7 +154,7 @@ export default function Header() {
         <div className={styles.logoWrapper}>
           <Link href="/" className={styles.logo} aria-label="Перейти на главную страницу">
             <Image
-              src="/icons/logotype.svg"
+              src={`${basePath}/icons/logotype.svg`}
               alt="Логотип Питер Потолок"
               width={112}
               height={90}
@@ -307,7 +309,7 @@ export default function Header() {
                 aria-label={`Связаться через ${link.label}`}
               >
                 <Image
-                  src={link.icon}
+                  src={`${basePath}${link.icon}`}
                   alt={link.label}
                   width={35}
                   height={35}

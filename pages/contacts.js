@@ -14,6 +14,8 @@ export async function getStaticProps() {
 }
 
 export default function Contacts({ seoData }) {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+  
   const pageBackground = {
     backgroundImage: `url(${assetPath('images/texture/black_djins.png')})`,
   };
@@ -34,7 +36,7 @@ export default function Contacts({ seoData }) {
 
         <div className={styles.rightColumn}>
           <Image
-            src="/images/contacts/contacts_photo_one.png"
+            src={`${basePath}/images/contacts/contacts_photo_one.png`}
             alt="Интерьер с ёлкой"
             width={740}
             height={836}
@@ -47,7 +49,7 @@ export default function Contacts({ seoData }) {
         <section className={styles.sectionTwo} aria-label="Контактная информация">
         <div className={styles.leftColumn}>
           <Image
-            src="/images/contacts/contacts_photo_two.png"
+            src={`${basePath}/images/contacts/contacts_photo_two.png`}
             alt="Потолок и перегородка"
             width={740}
             height={836}
@@ -91,19 +93,19 @@ export default function Contacts({ seoData }) {
 
             <div className={styles.socialIcons}>
                <a href="https://t.me/piterpotolok" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
-                <Image src="/icons/social/icon-telegram-white.svg" alt="Telegram" width={50} height={50} />
+                <Image src={`${basePath}/icons/social/icon-telegram-white.svg`} alt="Telegram" width={50} height={50} />
               </a>
               <a href="https://vk.com/piterpoto1ok" target="_blank" rel="noopener noreferrer" aria-label="VK">
-                <Image src="/icons/social/icon-vk-white.svg" alt="VK" width={50} height={50} />
+                <Image src={`${basePath}/icons/social/icon-vk-white.svg`} alt="VK" width={50} height={50} />
               </a>
               <a href="https://instagram.com/piterpotolok" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                <Image src="/icons/social/icon-instagram-white.svg" alt="Instagram" width={50} height={50} />
+                <Image src={`${basePath}/icons/social/icon-instagram-white.svg`} alt="Instagram" width={50} height={50} />
               </a>
                <a href="tel:+79320076085" target="_blank" rel="noopener noreferrer" aria-label="Phone">
-                <Image src="/icons/social/icon-phone-white.svg" alt="Phone" width={50} height={50} />
+                <Image src={`${basePath}/icons/social/icon-phone-white.svg`} alt="Phone" width={50} height={50} />
               </a>
                <a href="https://wa.me/+79679786000" target="_blank" rel="noopener noreferrer" aria-label="Whatsapp">
-                <Image src="/icons/social/icon-whatsapp-white.svg" alt="Whatsapp" width={50} height={50} />
+                <Image src={`${basePath}/icons/social/icon-whatsapp-white.svg`} alt="Whatsapp" width={50} height={50} />
               </a>
             </div>
           </div>
