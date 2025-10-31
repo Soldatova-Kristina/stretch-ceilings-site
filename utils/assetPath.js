@@ -1,8 +1,7 @@
 // utils/assetPath.js
-import { BASE_PATH } from '@/next.config.mjs';
 
 export function assetPath(path) {
-  const basePath = BASE_PATH || '';
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
   if (!path) return '';
 
   if (path.startsWith('http://') || path.startsWith('https://')) {

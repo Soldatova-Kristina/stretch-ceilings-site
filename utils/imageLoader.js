@@ -1,8 +1,7 @@
 // utils/imageLoader.js
-import { BASE_PATH } from '@/next.config.mjs';
 
 export default function imageLoader({ src }) {
-  const basePath = BASE_PATH || '';
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
   if (!src) return '';
 
