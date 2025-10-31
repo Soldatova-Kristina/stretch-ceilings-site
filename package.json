@@ -11,7 +11,7 @@
     "build:timeweb": "cp .env.timeweb .env.production && next build",
     "build:timeweb-subfolder": "cp .env.timeweb-subfolder .env.production && next build",
     
-    "deploy:gh": "npm run build:gh && touch out/.nojekyll && gh-pages -d out",
+    "deploy:gh": "npm run build:gh && touch out/.nojekyll && gh-pages -d out --dotfiles",
     
     "postbuild": "node scripts/fix-css-paths.mjs",
     
