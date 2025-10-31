@@ -301,7 +301,12 @@
 
 @media (max-width: 455px) {
   .hero {
+    height: 650px;
     padding-left: 10px;
+  }
+
+  .brandName {
+    bottom: 240px;
   }
 
   .title, .subtitle {
@@ -325,3 +330,4 @@
     height: 40px !important;
   }
 }
+
