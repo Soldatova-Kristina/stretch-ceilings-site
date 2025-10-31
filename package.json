@@ -11,7 +11,7 @@
     "build:timeweb": "cp .env.timeweb .env.production && next build",
     "build:timeweb-subfolder": "cp .env.timeweb-subfolder .env.production && next build",
     
-    "deploy:gh": "npm run build:gh && touch out/.nojekyll && gh-pages -d out --dotfiles",
+    "deploy:gh": "npm run build:gh && touch out/.nojekyll && rm -rf /tmp/gh-pages-deploy && cp -R out /tmp/gh-pages-deploy && npx gh-pages --dist /tmp/gh-pages-deploy --dotfiles --repo https://github.com/Soldatova-Kristina/stretch-ceilings-site.git",
     
     "postbuild": "node scripts/fix-css-paths.mjs",
     
