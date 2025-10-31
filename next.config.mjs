@@ -15,27 +15,24 @@ if (isGitHubPages) {
 }
 
 // Export BASE_PATH as a named constant for use in utility functions
-// This allows the bundler to inline the value at build time, making it available in both server and client code
 export const BASE_PATH = basePath;
 
 const nextConfig = {
   output: 'export',
   reactStrictMode: true,
   basePath: basePath,
-  assetPrefix: basePath,
-  trailingSlash: true, // Better compatibility with static hosting
+  assetPrefix: basePath ? `${basePath}/` : '',
+  trailingSlash: true,
   
-  // Make basePath available to components
   env: {
     NEXT_PUBLIC_BASE_PATH: basePath,
   },
   
-  // Оптимизация изображений для лучшей производительности и SEO
   images: {
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    unoptimized: true, // Required for static export
+    unoptimized: true,
     loader: 'custom',
     loaderFile: './utils/imageLoader.js',
   },
