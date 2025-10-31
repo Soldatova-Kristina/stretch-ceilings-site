@@ -42,7 +42,6 @@
   line-height: 1.4;
 }
 
-/* Responsive breakpoints */
 @media (max-width: 1480px) {
   .row {
     gap: 40px;

@@ -23,33 +23,38 @@ export async function getStaticProps() {
 
 export default function Reviews({ seoData, reviewImages }) {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+  
+  const pageWrapperStyle = {
+    backgroundImage: `url(${basePath}/images/texture/black_djins.png)`
+  };
+  
   // Slider 1: Александра, Евгения, Антон (indexes: 2, 0, 1)
   const slider1Images = [
-    reviewImages[2].src, // Александра
-    reviewImages[0].src, // Евгения
-    reviewImages[1].src, // Антон
+    `${basePath}${reviewImages[2].src}`, // Александра
+    `${basePath}${reviewImages[0].src}`, // Евгения
+    `${basePath}${reviewImages[1].src}`, // Антон
   ];
 
-  // Slider 2: Иван и Телеграм (index: 3 + telegram)
+  // Slider 2: Иван и Телеграм (indexes: 3, 4)
   const slider2Images = [
-    reviewImages[3].src, // Иван
-    `${basePath}/images/reviews/telegram.png`, // Телеграм
+    `${basePath}${reviewImages[3].src}`, // Иван
+    `${basePath}${reviewImages[4].src}`, // Телеграм
   ];
 
   // All images for single slider on mobile
   const allImages = [
-    reviewImages[2].src, // Александра
-    reviewImages[0].src, // Евгения
-    reviewImages[1].src, // Антон
-    reviewImages[3].src, // Иван
-    `${basePath}/images/reviews/telegram.png`, // Телеграм
+    `${basePath}${reviewImages[2].src}`, // Александра
+    `${basePath}${reviewImages[0].src}`, // Евгения
+    `${basePath}${reviewImages[1].src}`, // Антон
+    `${basePath}${reviewImages[3].src}`, // Иван
+    `${basePath}${reviewImages[4].src}`, // Телеграм
   ];
 
   return (
     <>
       <Seo {...seoData} />
   
-      <section className={styles.pageWrapper} aria-label="Отзывы клиентов" itemScope itemType="https://schema.org/LocalBusiness">
+      <section className={styles.pageWrapper} style={pageWrapperStyle} aria-label="Отзывы клиентов" itemScope itemType="https://schema.org/LocalBusiness">
         <meta itemProp="name" content="Питер Потолок" />
           <div className={styles.main}>
     
@@ -75,8 +80,8 @@ export default function Reviews({ seoData, reviewImages }) {
               ))}
                     <div className={styles.cardWide}>
                 <Image
-                  src={`${basePath}/images/reviews/telegram.png`}
-                  alt="Telegram review"
+                  src={`${basePath}${reviewImages[4].src}`}
+                  alt={reviewImages[4].alt}
                   width={600}
                   height={600}
                   className={styles.image}

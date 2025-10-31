@@ -1,39 +1,4 @@
-/* GILROY FONT FAMILY DECLARATIONS */
-@font-face {
-  font-family: 'Gilroy-Light';
-  src: url('/fonts/Gilroy-Light.woff2') format('woff2'),
-  url('/fonts/Gilroy-Light.woff') format('woff');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Gilroy-Regular';
-  src: url('/fonts/Gilroy-Regular.woff2') format('woff2'),
-  url('/fonts/Gilroy-Regular.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Gilroy-Medium';
-  src: url('/fonts/Gilroy-Medium.woff2') format('woff2'),
-  url('/fonts/Gilroy-Medium.woff') format('woff');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Gilda-Display';
-  src: url('/fonts/GildaDisplay-Regular.woff2') format('woff2'),
-  url('/fonts/GildaDisplay-Regular.woff') format('woff');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
+/* GILROY FONT FAMILY DECLARATIONS - Moved to _document.js for basePath support */
 
 /* CSS CUSTOM PROPERTIES (VARIABLES)*/
 

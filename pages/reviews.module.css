@@ -5,7 +5,6 @@
   flex-direction: column;
   align-items: center;
   overflow: hidden;
-  background-image: url(/images/texture/black_djins.png);
   background-size: cover;
   background-position: center;
 }

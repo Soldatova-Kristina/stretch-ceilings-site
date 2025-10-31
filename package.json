@@ -3,26 +3,22 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-  "dev": "next dev",
-  "dev:clean": "rm -rf .next .swc node_modules/.cache && next dev",
-
-  "build": "next build",
-  "build:gh": "DEPLOY_TARGET=gh next build",
-  "build:timeweb": "next build",
-  "build:timeweb-subpath": "BASE_PATH=/stretch-ceilings-site next build",
-
-  "postbuild": "node scripts/fix-css-paths.mjs",
-
-  "start": "next start",
-  "lint": "eslint",
-
-  "deploy:gh": "npm run build:gh && mkdir -p out/stretch-ceilings-site && cp -R out/* out/stretch-ceilings-site/ && cp -R public/* out/stretch-ceilings-site/ || true && touch out/stretch-ceilings-site/.nojekyll && npx gh-pages -d out/stretch-ceilings-site",
-
-  "deploy:timeweb": "npm run build:timeweb && echo 'Build complete for Timeweb (root)!'",
-
-  "img:convert": "node scripts/convert-images.mjs",
-  "img:validate": "node scripts/validate-webp.mjs"
-},
+    "dev": "next dev",
+    "dev:clean": "rm -rf .next .swc node_modules/.cache && next dev",
+    
+    "build": "next build",
+    "build:gh": "next build",
+    "build:timeweb": "cp .env.timeweb .env.production && next build",
+  
+    
+    "postbuild": "node scripts/fix-css-paths.mjs",
+    
+    "start": "next start",
+    "lint": "eslint",
+    
+    "img:convert": "node scripts/convert-images.mjs",
+    "img:validate": "node scripts/validate-webp.mjs"
+  },
   "dependencies": {
     "next": "15.5.5",
     "ogl": "^1.0.11",

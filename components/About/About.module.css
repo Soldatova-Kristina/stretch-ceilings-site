@@ -1,4 +1,3 @@
-/* Desktop styles (≥1300px) - Absolute positioning */
 .section {
   position: relative;
   min-height: 800px;
@@ -115,7 +114,6 @@ right: -74px;
   white-space: pre-line;
 }
 
-/* Adaptive styles for <1300px */
 @media (max-width: 1299px) {
   .section {
     position: static;

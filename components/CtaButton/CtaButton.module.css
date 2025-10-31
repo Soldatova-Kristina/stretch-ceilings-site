@@ -4,7 +4,7 @@
   justify-content: center;
   width: 286px;
   height: 44px;
-  font-family: var(--font-family-medium, 'Gilroy-Medium', sans-serif);
+  font-family: var(--font-family-medium);
   font-size: 18px;
   font-weight: 500;
   color: #000000;

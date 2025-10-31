@@ -153,7 +153,6 @@
   text-decoration: underline;
 }
 
-/* Tablet - below 1440px */
 @media (max-width: 1440px) {
   .footer__main {
     gap: 80px;
@@ -170,7 +169,6 @@
   }
 }
 
-/* Tablet - 1024px and below */
 @media (max-width: 1024px) {
   .footer {
     height: auto;
@@ -239,7 +237,6 @@
   }
 }
 
-/* Mobile - 768px and below */
 @media (max-width: 768px) {
   .footer {
     padding: 19px 0;
@@ -334,7 +331,6 @@
   }
 }
 
-/* Mobile - 518px and below */
 @media (max-width: 518px) {
   .footer__content {
     gap: 2.2px;
@@ -367,7 +363,6 @@
   }
 }
 
-/* Mobile - 410px and below */
 @media (max-width: 410px) {
   .footer__contacts-phone,
   .footer__contacts-hours,
@@ -380,7 +375,6 @@
   }
 }
 
-/* Small Mobile - 320px and below */
 @media (max-width: 350px) {
   .footer {
     padding: 15px 0;

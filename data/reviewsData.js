@@ -18,7 +18,13 @@ export const reviewsData = [
     author: "Иван",
     rating: 5,
     text: "Отличный сервис от консультации до установки. Результат превзошёл ожидания!"
-  }
+  },
+   {
+    author: "Иван",
+    rating: 5,
+    text: "Потолки выглядят просто шикарно, видно что вы проффесионал своего дела, все ровно, четко. в общем прям в восторге!"
+  },
+
 ];
 
 export const reviewImages = [
@@ -26,4 +32,5 @@ export const reviewImages = [
   { src: '/images/reviews/anton.png', alt: 'Review by Anton' },
   { src: '/images/reviews/alexandra.png', alt: 'Review by Alexandra' },
   { src: '/images/reviews/ivan.png', alt: 'Review by Ivan' },
+  { src: '/images/reviews/telegram.png', alt: 'Review in Telegram' },
 ];
