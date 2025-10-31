@@ -7,7 +7,7 @@
     "dev:clean": "rm -rf .next .swc node_modules/.cache && next dev",
     
     "build": "next build",
-    "build:gh": "cp .env.gh-pages .env.production && next build",
+    "build:gh": "next build",
     "build:timeweb": "cp .env.timeweb .env.production && next build",
     "build:timeweb-subfolder": "cp .env.timeweb-subfolder .env.production && next build",
     
