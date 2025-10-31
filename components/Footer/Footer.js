@@ -8,7 +8,7 @@ export default function Footer() {
   const currentYear = useMemo(() => new Date().getFullYear(), []);
 
   const textureBackground = {
-    backgroundImage: `url(${assetPath('images/texture/white_texture.jpg')})`,
+    backgroundImage: `url(${assetPath('/images/texture/white_texture.jpg')})`,
   };
 
   const navItems = useMemo(() => [

@@ -22,11 +22,11 @@ export default function HeroSection({
   const heroStyle = {
     '--mobile-bg-image': mobileBackgroundImage 
       ? `url('${mobileBackgroundImage}')`
-      : `url(${assetPath('images/index/mobile_main.png')})`,
+      : `url(${assetPath('/images/index/mobile_main.png')})`,
   };
 
   const heroBeforeStyle = {
-    backgroundImage: `url(${assetPath('images/texture/white_texture.jpg')})`,
+    backgroundImage: `url(${assetPath('/images/texture/white_texture.jpg')})`,
   };
 
   return (

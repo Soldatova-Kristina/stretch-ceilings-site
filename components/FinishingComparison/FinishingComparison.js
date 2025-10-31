@@ -4,7 +4,7 @@ import { assetPath } from '@/utils/assetPath';
 
 export default function FinishingComparison() {
   const cardBackground = {
-    backgroundImage: `url(${assetPath('images/texture/white_texture.jpg')})`,
+    backgroundImage: `url(${assetPath('/images/texture/white_texture.jpg')})`,
   };
 
   return (

@@ -8,7 +8,7 @@ export default function StepsAccordion() {
   const [openIndex, setOpenIndex] = useState(null);
 
   const cardBackground = {
-    backgroundImage: `url(${assetPath('images/texture/white_texture.jpg')})`,
+    backgroundImage: `url(${assetPath('/images/texture/white_texture.jpg')})`,
   };
 
   const toggleCard = (index) => {

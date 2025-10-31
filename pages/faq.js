@@ -23,7 +23,7 @@ export default function FAQ({ seoData }) {
   const [openIndex, setOpenIndex] = useState(null);
 
   const pageBackground = {
-    backgroundImage: `url(${assetPath('images/texture/faq_background.jpg')})`,
+    backgroundImage: `url(${assetPath('/images/texture/faq_background.jpg')})`,
   };
 
   const toggle = (index) => {

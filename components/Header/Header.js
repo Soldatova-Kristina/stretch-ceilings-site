@@ -139,10 +139,10 @@ export default function Header() {
 
   // Background styles for different sections
   const whiteTextureBackground = {
-    backgroundImage: `url(${assetPath('images/texture/white_texture.jpg')})`,
+    backgroundImage: `url(${assetPath('/images/texture/white_texture.jpg')})`,
   };
   const blackTextureBackground = {
-    backgroundImage: `url(${assetPath('images/texture/black_djins.png')})`,
+    backgroundImage: `url(${assetPath('/images/texture/black_djins.png')})`,
   };
 
   return (

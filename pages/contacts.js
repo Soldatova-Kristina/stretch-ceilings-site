@@ -15,7 +15,7 @@ export async function getStaticProps() {
 
 export default function Contacts({ seoData }) {
   const pageBackground = {
-    backgroundImage: `url(${assetPath('images/texture/black_djins.png')})`,
+    backgroundImage: `url(${assetPath('/images/texture/black_djins.png')})`,
   };
 
   return (

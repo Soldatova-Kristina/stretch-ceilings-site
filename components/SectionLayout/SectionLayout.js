@@ -1,4 +1,5 @@
 import styles from './SectionLayout.module.css';
+import { assetPath } from '@/utils/assetPath';
 
 export default function SectionLayout({ 
   id,
@@ -14,7 +15,7 @@ export default function SectionLayout({
 }) {
   if (backgroundImage) {
     const bgStyle = {
-      backgroundImage: `url(${backgroundImage})`
+      backgroundImage: `url(${assetPath(backgroundImage)})`
     };
     
     if (backgroundOpacity !== undefined && backgroundOpacity !== null) {
