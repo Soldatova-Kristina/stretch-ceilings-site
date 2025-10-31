@@ -1,3 +1,4 @@
+import ShinyText from '@/components/ShinyText/ShinyText';
 import styles from './CtaButton.module.css';
 
 /**
@@ -24,7 +25,9 @@ export default function CtaButton({
 
   const content = (
     <>
-      <span className={styles.ctaText}>{text}</span>
+      <span className={styles.ctaText}>
+        <ShinyText text={text} />
+      </span>
       <svg 
         className={styles.ctaArrow} 
         width="38" 

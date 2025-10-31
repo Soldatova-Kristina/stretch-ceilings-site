@@ -28,9 +28,9 @@ export const reviewsData = [
 ];
 
 export const reviewImages = [
-  { src: '/images/reviews/evgenia.png', alt: 'Review by Evgenia' },
-  { src: '/images/reviews/anton.png', alt: 'Review by Anton' },
-  { src: '/images/reviews/alexandra.png', alt: 'Review by Alexandra' },
-  { src: '/images/reviews/ivan.png', alt: 'Review by Ivan' },
-  { src: '/images/reviews/telegram.png', alt: 'Review in Telegram' },
+  { src: '/images/reviews/ev.png', alt: 'Review by Evgenia' },
+  { src: '/images/reviews/an.png', alt: 'Review by Anton' },
+  { src: '/images/reviews/sasha.png', alt: 'Review by Alexandra' },
+  { src: '/images/reviews/iv.png', alt: 'Review by Ivan' },
+  { src: '/images/reviews/ant.png', alt: 'Review in Telegram' },
 ];
