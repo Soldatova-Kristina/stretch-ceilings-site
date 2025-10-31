@@ -15,14 +15,15 @@ export default function AdvantagesBlock() {
       </div>
 
       <div className={styles.imageWrapper}>
-        <Image
-          src="/images/index/advantages.jpg"
-          alt="Интерьер с подсветкой"
-          width={1480}
-          height={562}
-          className={styles.image}
-          loading="lazy"
-        />
+      <Image
+  unoptimized
+  src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/index/advantages.jpg`}
+  alt="Интерьер с подсветкой"
+  width={1480}
+  height={562}
+  className={styles.image}
+  loading="lazy"
+/>
       </div>
     </div>
   );
