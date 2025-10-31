@@ -1,0 +1,41 @@
+# robots.txt для piterpotolok.ru
+# Оптимизировано для индексации российскими поисковыми системами
+
+# Правила для всех роботов
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+Disallow: /private/
+
+# Разрешаем индексацию основных разделов
+Allow: /services/
+Allow: /portfolio/
+Allow: /reviews/
+Allow: /contacts/
+Allow: /faq/
+
+# Yandex-специфичные правила
+User-agent: Yandex
+Allow: /
+Clean-param: utm_source&utm_medium&utm_campaign&utm_content&utm_term
+Host: piterpotolok.ru
+
+# Google
+User-agent: Googlebot
+Allow: /
+Disallow: /api/
+
+# Google изображения
+User-agent: Googlebot-Image
+Allow: /images/
+Allow: /icons/
+
+# Mail.ru
+User-agent: Mail.RU_Bot
+Allow: /
+Crawl-delay: 1
+
+# Sitemap
+Sitemap: https://piterpotolok.ru/sitemap.xml
