@@ -45,7 +45,12 @@ const socialLinks = [
 ];
 
 export default function Footer() {
+  const currentYear = useMemo(() => new Date().getFullYear(), []);
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+  
+  const textureBackground = {
+    backgroundImage: `url(${assetPath('images/texture/white_texture.jpg')})`,
+  };
 
   return (
 <footer className={styles.footer} style={textureBackground}>
