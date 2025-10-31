@@ -1,18 +1,11 @@
 /** @type {import('next').NextConfig} */
 
-// Conditional basePath for different deployment environments
-// - GitHub Pages: Set DEPLOY_TARGET=gh (uses /stretch-ceilings-site)
-// - Timeweb with custom subpath: Set BASE_PATH=/custom-path
-// - Timeweb root deployment: No environment variables (empty basePath)
-const isGitHubPages = process.env.DEPLOY_TARGET === 'gh';
-const customBasePath = process.env.BASE_PATH || '';
-
-let basePath = '';
-if (isGitHubPages) {
-  basePath = '/stretch-ceilings-site';
-} else if (customBasePath) {
-  basePath = customBasePath;
-}
+// Get basePath from environment variable
+// This supports different deployment targets:
+// - GitHub Pages: NEXT_PUBLIC_BASE_PATH=/stretch-ceilings-site (from .env.production)
+// - TimeWeb root: NEXT_PUBLIC_BASE_PATH not set (from .env.timeweb)
+// - TimeWeb subfolder: NEXT_PUBLIC_BASE_PATH=/custom-path (from .env.timeweb-subfolder)
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
 // Export BASE_PATH as a named constant for use in utility functions
 export const BASE_PATH = basePath;
@@ -23,10 +16,6 @@ const nextConfig = {
   basePath: basePath,
   assetPrefix: basePath || undefined,
   trailingSlash: true,
-  
-  env: {
-    NEXT_PUBLIC_BASE_PATH: basePath,
-  },
   
   images: {
     formats: ['image/avif', 'image/webp'],
