@@ -8,6 +8,7 @@ export default function BeforeAfter({ beforeSrc, afterSrc, title /* text */ }) {
   const containerRef = useRef(null);
   const lastClickTimeRef = useRef(0);
   const DOUBLE_CLICK_DELAY = 300; // ms
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
   const clamp = (v) => Math.max(0, Math.min(100, v));
 
@@ -92,7 +93,7 @@ export default function BeforeAfter({ beforeSrc, afterSrc, title /* text */ }) {
       {/* After */}
       <div className={styles.afterImg}>
         <Image
-          src={afterSrc}
+          src={`${basePath}${afterSrc}`}
           alt="После ремонта"
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1480px) 50vw, 600px"
@@ -107,7 +108,7 @@ export default function BeforeAfter({ beforeSrc, afterSrc, title /* text */ }) {
       <div className={styles.beforeWrapper} style={{ width: `${position}%` }}>
         <div className={styles.beforeImg}>
           <Image
-            src={beforeSrc}
+            src={`${basePath}${beforeSrc}`}
             alt="До ремонта"
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1480px) 50vw, 600px"

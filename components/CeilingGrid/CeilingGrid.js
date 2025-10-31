@@ -3,10 +3,12 @@ import { TELEGRAM_URL } from "@/data/contactsData";
 import styles from "./CeilingGrid.module.css";
 
 function CeilingCard({ image, imageAlt, title, subtitle, description, buttonText = "ПОДРОБНЕЕ" }) {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+  
   return (
     <article className={styles.card}>
       <Image
-        src={image}
+        src={`${basePath}${image}`}
         alt={imageAlt}
         width={283}
         height={388}

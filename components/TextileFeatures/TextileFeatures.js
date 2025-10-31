@@ -3,6 +3,8 @@ import styles from './TextileFeatures.module.css';
 import { textileFeaturesData } from '@/data/textileFeaturesData';
 
 export default function TextileFeatures() {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+  
   // Split features into two rows of 3 items each
   const firstRow = textileFeaturesData.slice(0, 3);
   const secondRow = textileFeaturesData.slice(3, 6);
@@ -14,7 +16,7 @@ export default function TextileFeatures() {
           <div key={feature.id} className={styles.card}>
             <div className={styles.icon}>
               <Image 
-                src={feature.icon} 
+                src={`${basePath}${feature.icon}`}
                 alt={feature.iconAlt} 
                 width={78} 
                 height={78} 
@@ -31,7 +33,7 @@ export default function TextileFeatures() {
           <div key={feature.id} className={styles.card}>
             <div className={styles.icon}>
               <Image 
-                src={feature.icon} 
+                src={`${basePath}${feature.icon}`}
                 alt={feature.iconAlt} 
                 width={78} 
                 height={78} 

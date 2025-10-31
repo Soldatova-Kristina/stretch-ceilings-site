@@ -22,6 +22,7 @@ export async function getStaticProps() {
 }
 
 export default function Reviews({ seoData, reviewImages }) {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
   // Slider 1: Александра, Евгения, Антон (indexes: 2, 0, 1)
   const slider1Images = [
     reviewImages[2].src, // Александра
@@ -32,7 +33,7 @@ export default function Reviews({ seoData, reviewImages }) {
   // Slider 2: Иван и Телеграм (index: 3 + telegram)
   const slider2Images = [
     reviewImages[3].src, // Иван
-    '/images/reviews/telegram.png', // Телеграм
+    `${basePath}/images/reviews/telegram.png`, // Телеграм
   ];
 
   // All images for single slider on mobile
@@ -41,7 +42,7 @@ export default function Reviews({ seoData, reviewImages }) {
     reviewImages[0].src, // Евгения
     reviewImages[1].src, // Антон
     reviewImages[3].src, // Иван
-    '/images/reviews/telegram.png', // Телеграм
+    `${basePath}/images/reviews/telegram.png`, // Телеграм
   ];
 
   return (
@@ -74,7 +75,7 @@ export default function Reviews({ seoData, reviewImages }) {
               ))}
                     <div className={styles.cardWide}>
                 <Image
-                  src="/images/reviews/telegram.png"
+                  src={`${basePath}/images/reviews/telegram.png`}
                   alt="Telegram review"
                   width={600}
                   height={600}

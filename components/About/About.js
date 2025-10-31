@@ -17,16 +17,8 @@ export default function About({
   verticalImageWidth,
   verticalImageHeight
 }) {
-  // Function to log image path
-  const logImagePath = (imagePath, imageType) => {
-    const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
-    const fullPath = `${basePath}${imagePath}`;
-    console.log(`[About Component] ${imageType} image path:`, fullPath);
-    console.log(`[About Component] ${imageType} - basePath:`, basePath);
-    console.log(`[About Component] ${imageType} - imagePath prop:`, imagePath);
-    return fullPath;
-  };
-
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+  
   const textStyle = textWidth 
     ? { width: textWidth, maxWidth: '100%' } 
     : {};
@@ -58,8 +50,7 @@ export default function About({
 
         <div className={styles.horizontalWrapper}>
           <Image
-            unoptimized
-            src={logImagePath(horizontalImage, 'Horizontal')}
+            src={`${basePath}${horizontalImage}`}
             alt={horizontalImageAlt}
             width={horizontalImageWidth}
             height={horizontalImageHeight}
@@ -70,8 +61,7 @@ export default function About({
 
       <div className={styles.verticalWrapper}>
         <Image
-          unoptimized
-          src={logImagePath(verticalImage, 'Vertical')}
+          src={`${basePath}${verticalImage}`}
           alt={verticalImageAlt}
           width={verticalImageWidth}
           height={verticalImageHeight}
