@@ -21,7 +21,7 @@ const nextConfig = {
   output: 'export',
   reactStrictMode: true,
   basePath: basePath,
-  assetPrefix: basePath ? `${basePath}/` : '',
+  assetPrefix: basePath || undefined,
   trailingSlash: true,
   
   env: {
