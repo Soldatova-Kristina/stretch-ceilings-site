@@ -10,13 +10,14 @@ export default function ServiceBlocks() {
         {servicesData.map((service) => (
           <div key={service.id} className={styles.block}>
             <Image
-              src={service.image}
-              alt={service.title}
-              width={563}
-              height={330}
-              className={styles.image}
-              loading="lazy"
-            />
+  unoptimized
+  src={`${process.env.NEXT_PUBLIC_BASE_PATH}${service.image}`}
+  alt={service.title}
+  width={563}
+  height={330}
+  className={styles.image}
+  loading="lazy"
+/>
 
             <div className={styles.content}>
               <h2 className={styles.title}>{service.title}</h2>
