@@ -44,7 +44,7 @@
 
 .title {
   color: #fff;
-  font-family: 'Gilroy-Regular', sans-serif;
+  font-family: var(--font-family-regular);
   font-size: 25px;
   margin-top: 0;
   margin-bottom: 35px;
@@ -53,7 +53,7 @@
 
 .text {
   color: #fff;
-  font-family: 'Gilroy', sans-serif;
+  font-family: var(--font-family-light);
   font-size: 16px;
   margin-right: 262px;
   margin-left: 57px;
@@ -70,7 +70,7 @@
   border: 1px solid #878787;
   background: none;
   color: #fff;
-  font-family: 'Gilroy-Regular', sans-serif;
+  font-family: var(--font-family-regular);
   font-size: 14px;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -85,7 +85,6 @@
   color: #fff;
 }
 
-/* Responsive breakpoints */
 @media (max-width: 1280px) {
   .container {
     width: 100%;

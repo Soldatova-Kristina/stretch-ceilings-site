@@ -10,7 +10,6 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Screen reader only content */
 .srOnly {
   position: absolute;
   width: 1px;
@@ -55,7 +54,6 @@
    transition: none;
  }
 
-/* Enhanced focus visibility for keyboard navigation */
 .handle:focus-visible {
    outline: 3px solid #fff;
    outline-offset: 4px;
@@ -99,7 +97,6 @@
   pointer-events: none;
 }
 
-/* Active state visual feedback */
 .handle:active .handleButton {
   transform: translate(-50%, -50%) scale(1.05);
 }
@@ -108,7 +105,6 @@
  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
 }
 
-/* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
   .handleButton,
   .handle,

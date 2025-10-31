@@ -28,6 +28,10 @@ yarn-error.log*
 .env*.local
 .env
 
+# Keep production environment files for different hosting providers
+!.env.production
+!.env.timeweb
+
 # vercel
 .vercel
 

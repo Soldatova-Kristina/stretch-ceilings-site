@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 
 /**
@@ -32,6 +33,7 @@ export default function Seo({
 }) {
   const router = useRouter();
   const siteName = 'Питер Потолок';
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
   
   const fullTitle = title ? `${title} — ${siteName}` : siteName;
   
@@ -73,7 +75,7 @@ export default function Seo({
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={fullOgImage} />
       
-      <link rel="icon" href="/icons/logo.svg" />
+      <link rel="icon" href={`${basePath}/icons/logo.svg`} />
       
       <meta name="format-detection" content="telephone=yes" />
       <meta name="theme-color" content="#3498db" />

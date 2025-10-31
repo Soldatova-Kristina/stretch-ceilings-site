@@ -1,12 +1,10 @@
 import HeroSection from "@/components/HeroSection/HeroSection";
 import SectionLayout from "@/components/SectionLayout/SectionLayout";
-import About from "@/components/About/About";
 import TechnologySection from "@/components/TechnologySection/TechnologySection";
 import ImageSlider from "@/components/ImageSlider/ImageSlider";
 import TextileFeatures from "@/components/TextileFeatures/TextileFeatures";
 import FinishingComparison from "@/components/FinishingComparison/FinishingComparison";
 import Seo from "@/components/Seo";
-import { aboutWallsData } from "@/data/aboutWalls";
 import { wallsPortfolioData } from "@/data/wallsPortfolioData";
 import { wallsSeoData } from "@/data/seo/wallsSeo";
 import { beforeAfterData } from "@/data/beforeAfterData";

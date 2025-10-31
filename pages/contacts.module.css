@@ -176,7 +176,6 @@
   object-fit: cover;
 }
 
-/* Tablet breakpoint - до 1024px изображения сдвигаются */
 @media (max-width: 1480px) {
   .section {
     max-width: 100%;
@@ -220,7 +219,6 @@
   }
 }
 
-/* Mobile breakpoint - 768px и ниже */
 @media (max-width: 768px) {
   .pageWrapper {
     padding: 0 20px;

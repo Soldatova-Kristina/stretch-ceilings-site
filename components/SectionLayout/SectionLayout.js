@@ -12,9 +12,11 @@ export default function SectionLayout({
   as: Component = 'div',
   'aria-label': ariaLabel
 }) {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+  
   if (backgroundImage) {
     const bgStyle = {
-      backgroundImage: `url(${backgroundImage})`
+      backgroundImage: `url(${basePath}${backgroundImage})`
     };
     
     if (backgroundOpacity !== undefined && backgroundOpacity !== null) {
