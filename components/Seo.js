@@ -74,7 +74,7 @@ export default function Seo({
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={fullOgImage} />
       
-      <link rel="icon" href={`${basePath}/icons/logo.svg`} />
+      <link rel="icon" href={`${basePath}/icons/logotypeNew.svg`} />
       
       <meta name="format-detection" content="telephone=yes" />
       <meta name="theme-color" content="#3498db" />

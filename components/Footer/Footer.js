@@ -58,7 +58,7 @@ export default function Footer() {
 
         <div className={styles.footer__logo}>
           <Image
-            src={`${basePath}/icons/logotype.svg`}
+            src={`${basePath}/icons/logotypeNew.svg`}
             alt="Логотип Питер Потолок"
             width={112}
             height={90}

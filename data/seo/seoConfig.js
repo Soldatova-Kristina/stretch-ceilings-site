@@ -19,7 +19,7 @@ export const organizationData = {
   "url": "https://piterpotolok.ru",
   "logo": {
     "@type": "ImageObject",
-    "url": "https://piterpotolok.ru/icons/logo.svg",
+    "url": "https://piterpotolok.ru/icons/logotypeNew.svg",
     "width": "112",
     "height": "90"
   },
