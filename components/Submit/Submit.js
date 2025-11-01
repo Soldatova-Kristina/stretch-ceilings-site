@@ -8,8 +8,6 @@ export default function Submit() {
   const [errors, setErrors] = useState({ name: '', phone: '' });
   const [lastSubmitTime, setLastSubmitTime] = useState(0);
 
-
-  // Валидация имени (только русские или английские буквы, пробелы, дефисы)
   const validateName = (name) => {
     const trimmedName = name.trim();
     
@@ -25,13 +23,11 @@ export default function Submit() {
       return 'Имя слишком длинное (максимум 50 символов)';
     }
     
-    // Проверка на русские или английские буквы, пробелы и дефисы
     const nameRegex = /^[А-ЯЁа-яёA-Za-z\s-]+$/;
     if (!nameRegex.test(trimmedName)) {
       return 'Имя может содержать только буквы, пробелы и дефисы';
     }
     
-    // Проверка на спам (повторяющиеся символы)
     const repeatingChars = /([А-ЯЁа-яёA-Za-z])\1{4,}/;
     if (repeatingChars.test(trimmedName)) {
       return 'Некорректное имя';
@@ -40,7 +36,6 @@ export default function Submit() {
     return '';
   };
 
-  // Валидация телефона
   const validatePhone = (phone) => {
     const trimmedPhone = phone.trim();
     
@@ -48,36 +43,30 @@ export default function Submit() {
       return 'Пожалуйста, введите номер телефона';
     }
     
-    // Проверка формата (только +, цифры, пробелы, дефисы, скобки)
     const phoneRegex = /^[+\d\s\-()]+$/;
     if (!phoneRegex.test(trimmedPhone)) {
       return 'Номер может содержать только цифры, +, пробелы, дефисы и скобки';
     }
     
-    // Удаляем все символы кроме цифр для проверки длины
     const digitsOnly = trimmedPhone.replace(/\D/g, '');
     
     if (!digitsOnly) {
       return 'Пожалуйста, введите номер телефона';
     }
-    
-    // Проверка минимальной длины (11 цифр для российских номеров)
+
     if (digitsOnly.length < 11) {
       return 'Номер телефона должен содержать минимум 11 цифр';
     }
     
-    // Проверка максимальной длины (11 цифр для российских номеров)
     if (digitsOnly.length > 11) {
       return 'Номер телефона должен содержать максимум 11 цифр';
     }
     
-    // Проверка на повторяющиеся цифры (спам)
     const repeatingDigits = /(\d)\1{9,}/;
     if (repeatingDigits.test(digitsOnly)) {
       return 'Некорректный номер телефона';
     }
     
-    // Проверка на подозрительные паттерны (например, 00000000000)
     if (/^0+$/.test(digitsOnly) || /^1+$/.test(digitsOnly)) {
       return 'Некорректный номер телефона';
     }
@@ -89,7 +78,6 @@ export default function Submit() {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
     
-    // Очистка ошибки при изменении поля
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: '' }));
     }
@@ -98,14 +86,12 @@ export default function Submit() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    // Защита от частых отправок (не чаще 1 раза в 10 секунд)
     const now = Date.now();
     if (now - lastSubmitTime < 10000) {
       setStatus('⏱️ Пожалуйста, подождите перед повторной отправкой');
       return;
     }
     
-    // Валидация полей
     const nameError = validateName(formData.name);
     const phoneError = validatePhone(formData.phone);
     
@@ -119,9 +105,8 @@ export default function Submit() {
     setErrors({ name: '', phone: '' });
 
     try {
-      // Encrypted credentials (Base64)
       const encryptedToken = "ODMwNDc0MDg2MjpBQUd6OXhxVXhhdnlKb1dEcWFSU2lFVEdtWUNUaGItYmZzaw==";
-      const encryptedChatId = "MTA1OTgwNzk1MQ==";
+      const encryptedChatId = "NDk0Mzc3OTc5";
       
       const botToken = atob(encryptedToken);
       const chatId = atob(encryptedChatId);

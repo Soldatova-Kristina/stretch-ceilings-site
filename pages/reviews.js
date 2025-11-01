@@ -28,26 +28,27 @@ export default function Reviews({ seoData, reviewImages }) {
     backgroundImage: `url(${basePath}/images/texture/black_djins.png)`
   };
   
-  // Slider 1: Александра, Евгения, Антон (indexes: 2, 0, 1)
+  // Slider 1: Иван, Антон, Евгения (indexes: 0, 1, 4)
+  // Paths WITHOUT basePath - ImageSlider adds it internally
   const slider1Images = [
-    `${basePath}${reviewImages[2].src}`, // Александра
-    `${basePath}${reviewImages[0].src}`, // Евгения
-    `${basePath}${reviewImages[1].src}`, // Антон
+    reviewImages[0].src, // Иван
+    reviewImages[1].src, // Антон
+    reviewImages[4].src, // Евгения
   ];
 
-  // Slider 2: Иван и Телеграм (indexes: 3, 4)
+  // Slider 2: Александра и Телеграм (indexes: 2, 3)
   const slider2Images = [
-    `${basePath}${reviewImages[3].src}`, // Иван
-    `${basePath}${reviewImages[4].src}`, // Телеграм
+    reviewImages[2].src, // Александра
+    reviewImages[3].src, // Телеграм
   ];
 
   // All images for single slider on mobile
   const allImages = [
-    `${basePath}${reviewImages[2].src}`, // Александра
-    `${basePath}${reviewImages[0].src}`, // Евгения
-    `${basePath}${reviewImages[1].src}`, // Антон
-    `${basePath}${reviewImages[3].src}`, // Иван
-    `${basePath}${reviewImages[4].src}`, // Телеграм
+    reviewImages[0].src, // Иван
+    reviewImages[1].src, // Антон
+    reviewImages[2].src, // Александра
+    reviewImages[3].src, // Телеграм
+    reviewImages[4].src, // Евгения
   ];
 
   return (
@@ -70,18 +71,20 @@ export default function Reviews({ seoData, reviewImages }) {
               <div className={styles.headerSection}>
                 <p className={styles.subtitle}>Что о нас говорят клиенты</p>
               </div>
-                    {reviewImages.slice(2).map((review, index) => (
-                <ReviewCard
-                  key={index + 2}
-                  src={review.src}
-                  alt={review.alt}
-                  className={styles.card}
-                />
-              ))}
+              <ReviewCard
+                src={reviewImages[2].src}
+                alt={reviewImages[2].alt}
+                className={styles.card}
+              />
+              <ReviewCard
+                src={reviewImages[4].src}
+                alt={reviewImages[4].alt}
+                className={styles.cardEv}
+              />
                     <div className={styles.cardWide}>
                 <Image
-                  src={`${basePath}${reviewImages[4].src}`}
-                  alt={reviewImages[4].alt}
+                  src={reviewImages[3].src}
+                  alt={reviewImages[3].alt}
                   width={600}
                   height={600}
                   className={styles.image}

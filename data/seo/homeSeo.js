@@ -1,199 +1,135 @@
-import { createServiceSchema, organizationData, geoData } from './seoConfig';
+import { createOrganizationSchema } from './seoConfig';
 
-// Organization Schema - информация о компании
-const organizationSchema = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "@id": "https://piterpotolok.ru/#organization",
-  "name": "Питер Потолок",
-  "alternateName": "PiterPotolok",
-  "description": "Профессиональная установка натяжных потолков и тихих стен в Санкт-Петербурге и Ленинградской области. Опытные мастера, премиальные материалы.",
-  "url": "https://piterpotolok.ru",
-  "logo": {
-    "@type": "ImageObject",
-    "url": "https://piterpotolok.ru/images/logo.png",
-    "width": "200",
-    "height": "60"
-  },
-  "image": [
-    "https://piterpotolok.ru/images/main/hero_main.png",
-    "https://piterpotolok.ru/og-home.jpg"
-  ],
-  "telephone": "+7 (812) XXX-XX-XX",
-  "priceRange": "₽₽",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Санкт-Петербург",
-    "addressRegion": "Ленинградская область",
-    "addressCountry": "RU",
-    "postalCode": "190000"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": "59.9311",
-    "longitude": "30.3609"
-  },
-  "areaServed": [
+const organizationSchema = createOrganizationSchema({
+  "@type": "OfferCatalog",
+  "name": "Услуги по установке натяжных потолков и стен",
+  "itemListElement": [
     {
-      "@type": "City",
-      "name": "Санкт-Петербург",
-      "sameAs": "https://ru.wikipedia.org/wiki/Санкт-Петербург"
-    },
-    {
-      "@type": "AdministrativeArea",
-      "name": "Ленинградская область",
-      "sameAs": "https://ru.wikipedia.org/wiki/Ленинградская_область"
-    }
-  ],
-  "openingHoursSpecification": [
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-        "Sunday"
-      ],
-      "opens": "09:00",
-      "closes": "21:00"
-    }
-  ],
-  "paymentAccepted": "Наличные, Безналичный расчет, Карты",
-  "currenciesAccepted": "RUB",
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "Услуги по установке натяжных потолков и стен",
-    "itemListElement": [
-      {
-        "@type": "OfferCatalog",
-        "name": "Натяжные потолки",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Матовые натяжные потолки",
-              "description": "Классические матовые потолки - идеально ровная поверхность"
-            },
+      "@type": "OfferCatalog",
+      "name": "Натяжные потолки",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Матовые натяжные потолки",
+            "description": "Классические матовые потолки - идеально ровная поверхность"
+          },
+          "price": "1100",
+          "priceCurrency": "RUB",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
             "price": "1100",
             "priceCurrency": "RUB",
-            "priceSpecification": {
-              "@type": "UnitPriceSpecification",
-              "price": "1100",
-              "priceCurrency": "RUB",
-              "unitText": "м²"
-            }
+            "unitText": "м²"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Глянцевые натяжные потолки",
+            "description": "Глянцевые потолки для визуального увеличения пространства"
           },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Глянцевые натяжные потолки",
-              "description": "Глянцевые потолки для визуального увеличения пространства"
-            },
+          "price": "1200",
+          "priceCurrency": "RUB",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
             "price": "1200",
             "priceCurrency": "RUB",
-            "priceSpecification": {
-              "@type": "UnitPriceSpecification",
-              "price": "1200",
-              "priceCurrency": "RUB",
-              "unitText": "м²"
-            }
+            "unitText": "м²"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Сатиновые натяжные потолки",
+            "description": "Сатиновые потолки с мягким отражением света"
           },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Сатиновые натяжные потолки",
-              "description": "Сатиновые потолки с мягким отражением света"
-            },
+          "price": "1150",
+          "priceCurrency": "RUB",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
             "price": "1150",
             "priceCurrency": "RUB",
-            "priceSpecification": {
-              "@type": "UnitPriceSpecification",
-              "price": "1150",
-              "priceCurrency": "RUB",
-              "unitText": "м²"
-            }
+            "unitText": "м²"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Тканевые натяжные потолки",
+            "description": "Премиальные тканевые потолки премиального качества"
           },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Тканевые натяжные потолки",
-              "description": "Премиальные тканевые потолки премиального качества"
-            },
+          "price": "1800",
+          "priceCurrency": "RUB",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
             "price": "1800",
             "priceCurrency": "RUB",
-            "priceSpecification": {
-              "@type": "UnitPriceSpecification",
-              "price": "1800",
-              "priceCurrency": "RUB",
-              "unitText": "м²"
-            }
+            "unitText": "м²"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Двухуровневые натяжные потолки",
+            "description": "Многоуровневые конструкции для зонирования и дизайна"
           },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Двухуровневые натяжные потолки",
-              "description": "Многоуровневые конструкции для зонирования и дизайна"
-            },
+          "price": "1500",
+          "priceCurrency": "RUB",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
             "price": "1500",
             "priceCurrency": "RUB",
-            "priceSpecification": {
-              "@type": "UnitPriceSpecification",
-              "price": "1500",
-              "priceCurrency": "RUB",
-              "unitText": "м²"
-            }
+            "unitText": "м²"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Парящие потолки со светодиодной подсветкой",
+            "description": "Потолки с эффектом парения и LED-подсветкой"
           },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Парящие потолки со светодиодной подсветкой",
-              "description": "Потолки с эффектом парения и LED-подсветкой"
-            },
+          "price": "1600",
+          "priceCurrency": "RUB",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
             "price": "1600",
             "priceCurrency": "RUB",
-            "priceSpecification": {
-              "@type": "UnitPriceSpecification",
-              "price": "1600",
-              "priceCurrency": "RUB",
-              "unitText": "м²"
-            }
+            "unitText": "м²"
           }
-        ]
-      },
-      {
-        "@type": "OfferCatalog",
-        "name": "Тихие стены",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Установка тихих стен",
-              "description": "Текстильные стены для звукоизоляции и дизайна интерьера"
-            },
+        }
+      ]
+    },
+    {
+      "@type": "OfferCatalog",
+      "name": "Тихие стены",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Установка тихих стен",
+            "description": "Текстильные стены для звукоизоляции и дизайна интерьера"
+          },
+          "price": "1400",
+          "priceCurrency": "RUB",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
             "price": "1400",
             "priceCurrency": "RUB",
-            "priceSpecification": {
-              "@type": "UnitPriceSpecification",
-              "price": "1400",
-              "priceCurrency": "RUB",
-              "unitText": "м²"
-            }
+            "unitText": "м²"
           }
-        ]
-      }
-    ]
-  }
-};
+        }
+      ]
+    }
+  ]
+});
 
 // WebSite Schema - для поисковой строки Google
 const websiteSchema = {
@@ -254,7 +190,6 @@ const webPageSchema = {
   }
 };
 
-// FAQ Schema - часто задаваемые вопросы (базовые для главной)
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -295,7 +230,6 @@ const faqSchema = {
   ]
 };
 
-// Экспорт SEO-данных для главной страницы
 export const homeSeoData = {
   title: "Натяжные потолки и тихие стены в СПб от 1100 ₽/м²",
   description: "Профессиональная установка натяжных потолков и тихих стен в Санкт-Петербурге и ЛО. Цены от 1100 ₽/м². Бесплатный замер. Монтаж за 1 день. Премиальные материалы. Опытные мастера. Звоните!",
@@ -312,19 +246,16 @@ export const homeSeoData = {
     JSON.stringify(faqSchema)
   ],
   additionalMeta: [
-    // Дополнительные мета-теги для локального SEO
+  
     { name: "geo.position", content: "59.9311;30.3609" },
     { name: "ICBM", content: "59.9311, 30.3609" },
     { name: "DC.title", content: "Натяжные потолки СПб - Питер Потолок" },
     
-    // Яндекс мета-теги
     { name: "yandex-verification", content: "your-yandex-verification-code" },
     
-    // Google мета-теги
     { name: "google-site-verification", content: "your-google-verification-code" },
-    
-    // Дополнительные Open Graph теги для социальных сетей
-    { property: "og:phone_number", content: "+7 (812) XXX-XX-XX" },
+
+    { property: "og:phone_number", content: "+79320076085" },
     { property: "og:locality", content: "Санкт-Петербург" },
     { property: "og:region", content: "SPE" },
     { property: "og:country-name", content: "Russia" },

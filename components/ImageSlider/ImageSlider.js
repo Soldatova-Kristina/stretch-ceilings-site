@@ -12,18 +12,31 @@ export default function ImageSlider({
   rotate = false 
 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
+  const changeImage = (newIndex) => {
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setCurrentIndex(newIndex);
+      setIsTransitioning(false);
+    }, 150);
+  };
+
   const goToPrevious = () => {
-    setCurrentIndex((prevIndex) => 
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
-    );
+    const newIndex = currentIndex === 0 ? images.length - 1 : currentIndex - 1;
+    changeImage(newIndex);
   };
 
   const goToNext = () => {
-    setCurrentIndex((prevIndex) => 
-      prevIndex === images.length - 1 ? 0 : prevIndex + 1
-    );
+    const newIndex = currentIndex === images.length - 1 ? 0 : currentIndex + 1;
+    changeImage(newIndex);
+  };
+
+  const goToImage = (index) => {
+    if (index !== currentIndex) {
+      changeImage(index);
+    }
   };
 
   const containerClass = variant === "portfolio" 
@@ -35,8 +48,17 @@ export default function ImageSlider({
     : styles.imageWrapper;
 
   const imageStyle = variant === "portfolio"
-    ? { objectFit: 'cover', transform: rotate ? 'rotate(90deg)' : 'none' }
-    : { objectFit: 'contain' };
+    ? { 
+        objectFit: 'cover', 
+        transform: rotate ? 'rotate(90deg)' : 'none',
+        opacity: isTransitioning ? 0 : 1,
+        transition: 'opacity 0.3s ease-in-out'
+      }
+    : { 
+        objectFit: 'contain',
+        opacity: isTransitioning ? 0 : 1,
+        transition: 'opacity 0.3s ease-in-out'
+      };
 
   return (
     <div className={containerClass}>
@@ -78,7 +100,7 @@ export default function ImageSlider({
             {images.map((_, index) => (
               <button
                 key={index}
-                onClick={() => setCurrentIndex(index)}
+                onClick={() => goToImage(index)}
                 className={`${styles.dot} ${index === currentIndex ? styles.dotActive : ''}`}
                 aria-label={`Перейти к фото ${index + 1}`}
               />

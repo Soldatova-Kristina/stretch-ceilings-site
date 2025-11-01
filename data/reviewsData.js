@@ -28,9 +28,9 @@ export const reviewsData = [
 ];
 
 export const reviewImages = [
-  { src: '/images/reviews/ev.png', alt: 'Review by Evgenia' },
-  { src: '/images/reviews/an.png', alt: 'Review by Anton' },
-  { src: '/images/reviews/sasha.png', alt: 'Review by Alexandra' },
-  { src: '/images/reviews/iv.png', alt: 'Review by Ivan' },
-  { src: '/images/reviews/ant.png', alt: 'Review in Telegram' },
+  { src: '/images/reviews/iv.png', alt: 'Review by Ivan' },      // [0] левая колонка верх
+  { src: '/images/reviews/an.png', alt: 'Review by Anton' },     // [1] средняя колонка верх
+  { src: '/images/reviews/sasha.png', alt: 'Review by Alexandra' }, // [2] левая колонка низ
+  { src: '/images/reviews/ant.png', alt: 'Review in Telegram' }, // [3] правая колонка (cardWide)
+  { src: '/images/reviews/ev.png', alt: 'Review by Evgenia' },   // [4] средняя колонка низ (для слайдеров)
 ];

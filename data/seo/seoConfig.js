@@ -10,16 +10,67 @@ export const siteConfig = {
 };
 
 export const organizationData = {
-  "@type": "Organization",
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://piterpotolok.ru/#organization",
   "name": "Питер Потолок",
+  "alternateName": "PiterPotolok",
+  "description": "Профессиональная установка натяжных потолков и тихих стен в Санкт-Петербурге и Ленинградской области. Опытные мастера, премиальные материалы.",
   "url": "https://piterpotolok.ru",
-  "logo": "https://piterpotolok.ru/images/logo.png",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://piterpotolok.ru/icons/logo.svg",
+    "width": "112",
+    "height": "90"
+  },
+  "image": [
+    "https://piterpotolok.ru/images/main/hero_main.png",
+    "https://piterpotolok.ru/og-home.jpg"
+  ],
+  "telephone": "+79320076085",
+  "priceRange": "₽₽",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Санкт-Петербург",
     "addressRegion": "Ленинградская область",
-    "addressCountry": "RU"
+    "addressCountry": "RU",
+    "postalCode": "190000"
   },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "59.9311",
+    "longitude": "30.3609"
+  },
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Санкт-Петербург",
+      "sameAs": "https://ru.wikipedia.org/wiki/Санкт-Петербург"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Ленинградская область",
+      "sameAs": "https://ru.wikipedia.org/wiki/Ленинградская_область"
+    }
+  ],
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      "opens": "09:00",
+      "closes": "21:00"
+    }
+  ],
+  "paymentAccepted": "Наличные, Безналичный расчет, Карты",
+  "currenciesAccepted": "RUB",
   "contactPoint": {
     "@type": "ContactPoint",
     "contactType": "customer service",
@@ -70,6 +121,18 @@ export function createServiceSchema({
         "unitText": priceUnit
       }
     },
+    ...(offerCatalog && { "hasOfferCatalog": offerCatalog })
+  };
+}
+
+/**
+ * Создает полную организационную схему с каталогом услуг
+ * @param {Object} offerCatalog - каталог услуг
+ * @returns {Object} - Organization schema with offer catalog
+ */
+export function createOrganizationSchema(offerCatalog) {
+  return {
+    ...organizationData,
     ...(offerCatalog && { "hasOfferCatalog": offerCatalog })
   };
 }
