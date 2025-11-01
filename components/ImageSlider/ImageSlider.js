@@ -19,8 +19,10 @@ export default function ImageSlider({
     setIsTransitioning(true);
     setTimeout(() => {
       setCurrentIndex(newIndex);
-      setIsTransitioning(false);
-    }, 150);
+      setTimeout(() => {
+        setIsTransitioning(false);
+      }, 50);
+    }, 300);
   };
 
   const goToPrevious = () => {
@@ -52,12 +54,12 @@ export default function ImageSlider({
         objectFit: 'cover', 
         transform: rotate ? 'rotate(90deg)' : 'none',
         opacity: isTransitioning ? 0 : 1,
-        transition: 'opacity 0.3s ease-in-out'
+        transition: 'opacity 0.5s ease-in-out'
       }
     : { 
         objectFit: 'contain',
         opacity: isTransitioning ? 0 : 1,
-        transition: 'opacity 0.3s ease-in-out'
+        transition: 'opacity 0.5s ease-in-out'
       };
 
   return (

@@ -48,11 +48,14 @@ export default function FAQ({ seoData }) {
                   <span className={styles.text} itemProp="name">{item.question}</span>
                   <span className={styles.icon}>{openIndex === i ? '–' : '+'}</span>
                 </button>
-                {openIndex === i && (
-                  <div className={styles.answer} itemScope itemType="https://schema.org/Answer" itemProp="acceptedAnswer">
-                    <div itemProp="text">{item.answer}</div>
-                  </div>
-                )}
+                <div 
+                  className={`${styles.answer} ${openIndex === i ? styles.open : ''}`}
+                  itemScope 
+                  itemType="https://schema.org/Answer" 
+                  itemProp="acceptedAnswer"
+                >
+                  <div itemProp="text">{item.answer}</div>
+                </div>
               </li>
             ))}
           </ul>
