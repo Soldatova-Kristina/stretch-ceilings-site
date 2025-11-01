@@ -6,6 +6,8 @@
   z-index: 1100;
   height: 90px;
   border: 1px solid #969696;
+  background-size: cover;
+  background-position: center;
 }
 
 .container {
