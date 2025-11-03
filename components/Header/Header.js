@@ -154,7 +154,7 @@ export default function Header() {
         <div className={styles.logoWrapper}>
           <Link href="/" className={styles.logo} aria-label="Перейти на главную страницу">
             <Image
-              src={`${basePath}/icons/logotypeNew.svg`}
+              src={`${basePath}/icons/logogo.png`}
               alt="Логотип Питер Потолок"
               width={112}
               height={90}
