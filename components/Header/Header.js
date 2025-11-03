@@ -268,6 +268,7 @@ export default function Header() {
                   className={`${styles.mobileNavLink} ${
                     isActive(item.href) ? styles.active : ''
                   }`}
+                  tabIndex={isMobileMenuOpen ? 0 : -1}
                 >
                   {item.label}
                 </Link>
@@ -285,6 +286,7 @@ export default function Header() {
             rel="noopener noreferrer"
             className={styles.mobileCtaButton}
             aria-label="Записаться на замер в WhatsApp"
+            tabIndex={isMobileMenuOpen ? 0 : -1}
           >
             <span className={styles.ctaText}>
               <ShinyText text="ЗАПИСАТЬСЯ НА ЗАМЕР" />
@@ -292,7 +294,7 @@ export default function Header() {
             <ArrowIcon className={styles.ctaArrow} />
           </a>
 
-          <a href={`tel:${COMPANY_PHONE}`} className={styles.mobilePhone}>
+          <a href={`tel:${COMPANY_PHONE}`} className={styles.mobilePhone} tabIndex={isMobileMenuOpen ? 0 : -1}>
             {COMPANY_PHONE}
           </a>
 
@@ -307,6 +309,7 @@ export default function Header() {
                 })}
                 className={styles.mobileSocialLink}
                 aria-label={`Связаться через ${link.label}`}
+                tabIndex={isMobileMenuOpen ? 0 : -1}
               >
                 <Image
                   src={`${basePath}${link.icon}`}
