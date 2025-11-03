@@ -1,11 +1,10 @@
 // pages/portfolio.js
 import Seo from '@/components/Seo';
-import CtaButton from '@/components/CtaButton/CtaButton';
 import ImageSlider from '@/components/ImageSlider/ImageSlider';
 import styles from './portfolio.module.css';
 import { createPortfolioStructuredData, portfolioSeoBase } from '@/data/seo/portfolioSeo';
 import { portfolioItems } from '@/data/portfolioData';
-import { assetPath } from '@/utils/assetPath';
+import { TELEGRAM_URL } from '@/data/contactsData';
 
 export async function getStaticProps() {
  
@@ -23,16 +22,11 @@ export async function getStaticProps() {
 }
 
 export default function Portfolio({ seoData, portfolioItems }) {
-  const pageBeforeBackground = {
-    backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(${assetPath('images/texture/white_texture.jpg')})`,
-  };
-
   return (
     <>
       <Seo {...seoData} />
       {/* Portfolio Section */}
       <section className={styles.pageWrapper} itemScope itemType="https://schema.org/CollectionPage" aria-label="Портфолио">
-          <div className={styles.pageBackground} style={pageBeforeBackground}></div>
           <div className={styles.gallery}>
         <div className={styles.container}>
           <div className={styles.header}>
@@ -69,7 +63,15 @@ export default function Portfolio({ seoData, portfolioItems }) {
                   </div>
                   
                   <div className={styles.actionBlock}>
-                    <CtaButton text="УЗНАТЬ ПОДРОБНЕЕ" ariaLabel="Узнать подробнее в Telegram" className={styles.portfolioCtaButton} />
+                    <a 
+                      href={TELEGRAM_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.portfolioCtaButton}
+                      aria-label="Узнать подробнее в Telegram"
+                    >
+                      УЗНАТЬ ПОДРОБНЕЕ
+                    </a>
                   </div>
                   
                 </div>

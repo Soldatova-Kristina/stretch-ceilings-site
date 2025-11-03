@@ -4,7 +4,7 @@ export default function Document() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
   
   return (
-    <Html lang="ru" data-scroll-behavior="smooth">
+    <Html lang="ru">
       <Head>
         <style dangerouslySetInnerHTML={{
           __html: `

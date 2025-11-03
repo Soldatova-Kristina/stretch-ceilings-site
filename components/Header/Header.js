@@ -187,7 +187,7 @@ export default function Header() {
                         />
                       </button>
                       {isServicesOpen && (
-                        <ul className={styles.dropdownMenu} style={whiteTextureBackground}>
+                        <ul className={styles.dropdownMenu}>
                           {item.items.map((subItem, subIndex) => (
                             <li key={subIndex}>
                               <Link

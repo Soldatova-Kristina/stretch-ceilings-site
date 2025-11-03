@@ -17,7 +17,7 @@ export default function AdvantagesBlock() {
       <div className={styles.imageWrapper}>
       <Image
   unoptimized
-  src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/index/advantages.jpg`}
+  src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/index/adv.png`}
   alt="Интерьер с подсветкой"
   width={1480}
   height={562}

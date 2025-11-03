@@ -5,7 +5,7 @@
   flex-direction: column;
   align-items: center;
   overflow: hidden;
-  background: #ffffff;
+  background: var(--color-background-tecnology-and-material);
 }
 
 .pageBackground {
@@ -44,7 +44,7 @@
   width: 386px;
   margin-top: 30px;
   font-size: 30px;
-  color: var(--color-text-primary);
+  color: #ffffff;
 }
 
 .grid {
@@ -83,14 +83,14 @@
 
 .complexName {
   margin: 0 0 10px 0;
-  color: #000;
+  color: #ffffff;
   font-family: var(--font-family-regular);
   font-size: 30px;
   font-weight: 400;
 }
 
 .address {
-  color: #000;
+  color: #ffffff;
   font-family: var(--font-family-regular);
   font-size: 20px;
   font-weight: 400;
@@ -99,14 +99,10 @@
 .description {
   flex: 1;
   margin: 0 0 24px 0;
-  color: #000;
+  color: #ffffff;
   font-family: var(--font-family-regular);
   font-size: 16px;
   line-height: 1.6;
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 20px;
-  -webkit-backdrop-filter: blur(4px);
-  backdrop-filter: blur(4px);
   padding: 10px;
 }
 
@@ -123,10 +119,32 @@
 }
 
 .portfolioCtaButton {
-  margin-top: 0 !important;
-  font-size: 16px !important;
-  width: auto !important;
-  padding: 0 20px !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: 44px;
+  padding: 0 30px;
+  margin-top: 0;
+  font-family: var(--font-family-medium);
+  font-size: 16px;
+  font-weight: 500;
+  color: #ffffff;
+  background: transparent;
+  border: 1px solid #ffffff;
+  border-radius: 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.portfolioCtaButton:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border-color: #ffffff;
 }
 
 .imageBlock {
@@ -249,7 +267,7 @@
     height: clamp(300px, 31.5vw, 361px);
   }
   .portfolioCtaButton {
-    font-size: 16px !important;
+    font-size: 16px;
   }
 }
 
@@ -267,7 +285,6 @@
   }
 
   .actionBlock {
-    padding-left: 40px;
     padding-right: 40px;
   }
 }
@@ -352,10 +369,9 @@
   .sliderButtonNext {
     right: 8px;
   }
-   .portfolioCtaButton{
-    margin-top: 30px !important;
-    display: inline-flex !important;
-    font-size: 14px !important;
+   .portfolioCtaButton {
+    margin-top: 30px;
+    font-size: 14px;
   }
 }
 
@@ -363,8 +379,8 @@
   .title {
     font-size: 25px;
   }
-  .portfolioCtaButton{
-    font-size: 13px !important;
+  .portfolioCtaButton {
+    font-size: 13px;
   }
 }
 
