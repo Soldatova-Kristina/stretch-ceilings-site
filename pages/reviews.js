@@ -5,6 +5,7 @@ import ReviewCard from '@/components/ReviewCard/ReviewCard';
 import ImageSlider from '@/components/ImageSlider/ImageSlider';
 import { reviewsData, reviewImages } from '@/data/reviewsData';
 import { createReviewsStructuredData, reviewsSeoBase } from '@/data/seo/reviewsSeo';
+import { assetPath } from '@/utils/assetPath';
 
 export async function getStaticProps() {
   // Generate structured data using reviews data
@@ -83,7 +84,7 @@ export default function Reviews({ seoData, reviewImages }) {
               />
                     <div className={styles.cardWide}>
                 <Image
-                  src={reviewImages[3].src}
+                  src={assetPath(reviewImages[3].src)}
                   alt={reviewImages[3].alt}
                   width={600}
                   height={600}
