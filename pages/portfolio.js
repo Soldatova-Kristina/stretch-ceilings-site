@@ -24,7 +24,7 @@ export async function getStaticProps() {
 
 export default function Portfolio({ seoData, portfolioItems }) {
   const pageBeforeBackground = {
-    backgroundImage: `url(${assetPath('images/texture/white_texture.jpg')})`,
+    backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(${assetPath('images/texture/white_texture.jpg')})`,
   };
 
   return (

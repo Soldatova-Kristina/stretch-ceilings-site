@@ -1,0 +1,36 @@
+.moreWorksButton {
+  /* margin-top: 35px; */
+  width: 598px;
+  height: 47px;
+  border-radius: 20px;
+  border: 1px solid #878787;
+  background: none;
+  color: #fff;
+  font-family: var(--font-family-regular);
+  font-size: 16px;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  margin-bottom: 30px;
+}
+
+.moreWorksButton:hover {
+  border-color: #fff;
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .moreWorksButton {
+    max-width: 280px;
+  }
+} 
+
+@media (max-width: 520px) {
+  .moreWorksButton {
+    font-size: 13px;
+    height: 40px;
+  }
+}

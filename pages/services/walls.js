@@ -8,6 +8,8 @@ import Seo from "@/components/Seo";
 import { wallsPortfolioData } from "@/data/wallsPortfolioData";
 import { wallsSeoData } from "@/data/seo/wallsSeo";
 import { beforeAfterData } from "@/data/beforeAfterData";
+import { TELEGRAM_URL } from "@/data/contactsData";
+import styles from './walls.module.css';
 
 export async function getStaticProps() {
   return {
@@ -76,6 +78,14 @@ export default function Walls({ seoData }) {
                 width={1480}
                 height={654}
               />
+              <a 
+                href={TELEGRAM_URL} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className={styles.moreWorksButton}
+              >
+                БОЛЬШЕ РАБОТ
+              </a>
           </SectionLayout>
         </section>
       </>

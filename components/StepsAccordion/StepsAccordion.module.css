@@ -168,7 +168,8 @@
   }
 
   .cta {
-    max-width: 100%;
     width: calc(100% - 40px);
+    font-size: 13px;
+    height: 40px;
   }
 }

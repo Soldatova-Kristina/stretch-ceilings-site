@@ -67,10 +67,11 @@
 
   .ctaText {
     font-size: 12px;
-    margin-right: 0;
+    margin-right: 14px;
   }
 
   .ctaArrow {
+    margin-right: 16px;
     width: 22px;
   }
 }
