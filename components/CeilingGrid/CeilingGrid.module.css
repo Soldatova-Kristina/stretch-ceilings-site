@@ -17,7 +17,11 @@
   flex-shrink: 0;
   object-fit: cover;
   transition: transform 0.3s ease;
-  box-shadow: 0 0 24px 0 #1A1A1A;;
+  box-shadow: 0 0 24px 0 #1A1A1A;
+}
+
+.imageWrapper {
+  display: inline-block;
 }
 
 .image:hover {
@@ -118,19 +122,33 @@
 
 @media (max-width: 1024px) {
   .grid {
-    gap: 30px 15px;
+    gap: 15px;
     padding: 15px;
   }
 
   .card {
     flex-direction: column;
+    align-items: center;
+    overflow: visible;
+  }
+
+  .imageWrapper {
+    width: 283px;
+    height: 388px;
+    flex-shrink: 0;
+    transform: rotate(var(--mobile-rotate, 0deg));
+    transform-origin: center;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .image {
     width: 100%;
-    height: auto;
-    max-height: 300px;
+    height: 100%;
     object-fit: cover;
+    box-shadow: none;
   }
 
   .content {
@@ -160,16 +178,19 @@
 @media (max-width: 768px) {
   .grid {
     grid-template-columns: 1fr;
-    gap: 30px;
+    gap: 20px;
     padding: 10px;
   }
 
   .card {
     max-width: 100%;
+    overflow: visible;
   }
 
-  .image {
-    max-height: 250px;
+  .imageWrapper {
+    width: 250px;
+    height: 340px;
+    margin: 0;
   }
 
   .content {
@@ -186,7 +207,7 @@
   }
 
   .description {
-    max-width: 67%;
+    max-width: 100%;
     font-size: 14px;
   }
 }
@@ -194,11 +215,13 @@
 @media (max-width: 520px) {
   .grid {
     padding: 5px;
-    gap: 25px;
+    gap: 15px;
   }
 
-  .image {
-    max-height: 200px;
+  .imageWrapper {
+    width: 220px;
+    height: 300px;
+    margin: 0;
   }
 
   .content {
