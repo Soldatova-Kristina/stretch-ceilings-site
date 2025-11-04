@@ -10,7 +10,7 @@ export const servicesData = [
     id: 2,
     title: 'ТИХИЕ СТЕНЫ',
     text: 'Архитектурный текстиль для финишной отделки стен и потолков. Безупречная акустика и звукопоглощение. Монтаж в 5 раз быстрее стандартной отделки. Срок службы более 30-ти лет.',
-    image: '/images/walls/serv2.jpg',
+    image: '/images/index/serv22.jpg',
     link: '/services/walls',
   },
 ];
