@@ -76,7 +76,8 @@ export default function HeroSection({
             alt={imageAlt} 
             fill
             priority 
-            quality={90}
+            quality={85}
+            fetchPriority="high"
             className={styles.image}
             sizes="(max-width: 540px) 100vw, (max-width: 1024px) 50vw, 587px"
           />

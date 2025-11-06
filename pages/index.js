@@ -1,13 +1,22 @@
+import dynamic from 'next/dynamic';
 import HeroSection from "@/components/HeroSection/HeroSection";
 import SectionLayout from "@/components/SectionLayout/SectionLayout";
 import About from "@/components/About/About";
-import AdvantagesBlock from "@/components/AdvantagesBlock/AdvantagesBlock";
-import ServiceBlock from "@/components/ServiceBlock/ServiceBlock";
 import { aboutIndexData } from "@/data/aboutIndex";
-import StepsAccordion from "@/components/StepsAccordion/StepsAccordion";
 import Seo from "@/components/Seo";
 import { homeSeoData } from "@/data/seo/homeSeo";
 import styles from '@/styles/Home.module.css';
+
+// Lazy load below-the-fold components
+const AdvantagesBlock = dynamic(() => import("@/components/AdvantagesBlock/AdvantagesBlock"), {
+  loading: () => <div style={{ minHeight: '400px' }} />,
+});
+const ServiceBlock = dynamic(() => import("@/components/ServiceBlock/ServiceBlock"), {
+  loading: () => <div style={{ minHeight: '600px' }} />,
+});
+const StepsAccordion = dynamic(() => import("@/components/StepsAccordion/StepsAccordion"), {
+  loading: () => <div style={{ minHeight: '500px' }} />,
+});
 
 export async function getStaticProps() {
   return {
@@ -49,7 +58,7 @@ export default function Home({ seoData }) {
              <SectionLayout 
                title="О НАС"
                backgroundColor={"--color-background-tecnology-and-material"}>
-                <About {...aboutIndexData} />
+                <About {...aboutIndexData} priority={true} />
              </SectionLayout>
            </section>
              

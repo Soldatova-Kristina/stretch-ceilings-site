@@ -15,7 +15,9 @@ export default function About({
   verticalImage,
   verticalImageAlt,
   verticalImageWidth,
-  verticalImageHeight
+  verticalImageHeight,
+  priority = false,
+  loading = 'lazy'
 }) {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
   
@@ -66,6 +68,9 @@ export default function About({
           width={verticalImageWidth}
           height={verticalImageHeight}
           className={styles.verticalImage}
+          priority={priority}
+          loading={priority ? undefined : loading}
+          fetchPriority={priority ? 'high' : 'auto'}
         />
       </div>
 

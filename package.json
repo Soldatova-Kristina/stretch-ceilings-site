@@ -2,6 +2,12 @@
   "name": "stretch-ceilings-site",
   "version": "0.1.0",
   "private": true,
+  "browserslist": [
+    ">0.3%",
+    "not dead",
+    "not op_mini all",
+    "last 2 versions"
+  ],
   "scripts": {
     "dev": "next dev",
     "dev:clean": "rm -rf .next .swc node_modules/.cache && next dev",
