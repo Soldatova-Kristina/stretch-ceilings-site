@@ -1,20 +1,22 @@
 import { readFileSync, writeFileSync, readdirSync, statSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
+import { config } from 'dotenv';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-// Determine basePath based on environment variables (same logic as next.config.mjs)
-const isGitHubPages = process.env.DEPLOY_TARGET === 'gh';
-const customBasePath = process.env.BASE_PATH || '';
-
-let basePath = '';
-if (isGitHubPages) {
-  basePath = '/stretch-ceilings-site';
-} else if (customBasePath) {
-  basePath = customBasePath;
+// Load .env.production file to get NEXT_PUBLIC_BASE_PATH
+const envPath = join(__dirname, '../.env.production');
+try {
+  config({ path: envPath });
+  console.log('📄 Loaded .env.production');
+} catch (error) {
+  console.log('⚠️  No .env.production file found, basePath will be empty');
 }
+
+// Get basePath from environment variable
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
 const outDir = join(__dirname, '../out');
 
