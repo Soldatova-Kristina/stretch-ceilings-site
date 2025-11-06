@@ -1,22 +1,20 @@
-/** @type {import('next').NextConfig} */
+import bundleAnalyzer from '@next/bundle-analyzer';
 
-// Get basePath from environment variable
-// This supports different deployment targets:
-// - GitHub Pages: NEXT_PUBLIC_BASE_PATH=/stretch-ceilings-site (from .env.production)
-// - TimeWeb root: NEXT_PUBLIC_BASE_PATH not set (from .env.timeweb)
-// - TimeWeb subfolder: NEXT_PUBLIC_BASE_PATH=/custom-path (from .env.timeweb-subfolder)
+const withBundleAnalyzer = bundleAnalyzer({
+  enabled: process.env.ANALYZE === 'true',
+});
+
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
-
-// Export BASE_PATH as a named constant for use in utility functions
 export const BASE_PATH = basePath;
 
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
   reactStrictMode: true,
-  basePath: basePath,
+  basePath,
   assetPrefix: basePath || undefined,
   trailingSlash: true,
-  
+
   images: {
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
@@ -27,4 +25,4 @@ const nextConfig = {
   },
 };
 
-export default nextConfig;
+export default withBundleAnalyzer(nextConfig);

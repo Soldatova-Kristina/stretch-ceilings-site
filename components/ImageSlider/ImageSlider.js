@@ -1,47 +1,51 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import styles from './ImageSlider.module.css';
 
-export default function ImageSlider({ 
-  images, 
-  address, 
-  width = 481, 
-  height = 361,
-  loading = "lazy",
-  variant = "default", 
-  rotate = false 
-}) {
+export default function ImageSlider(props) {
+  const {
+    images,
+    address,
+    width = 481,
+    height = 361,
+    loading = "lazy",
+    variant = "default",
+    rotate = false
+  } = props;
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [hydrated, setHydrated] = useState(false);
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
+  useEffect(() => {
+    setHydrated(true);
+  }, []);
 
   const changeImage = (newIndex) => {
     setIsTransitioning(true);
     setTimeout(() => {
       setCurrentIndex(newIndex);
-      setTimeout(() => {
-        setIsTransitioning(false);
-      }, 50);
+      setTimeout(() => setIsTransitioning(false), 50);
     }, 300);
   };
 
   const goToPrevious = () => {
-    const newIndex = currentIndex === 0 ? images.length - 1 : currentIndex - 1;
-    changeImage(newIndex);
+    if (!hydrated) return; 
+    changeImage(currentIndex === 0 ? images.length - 1 : currentIndex - 1);
   };
 
   const goToNext = () => {
-    const newIndex = currentIndex === images.length - 1 ? 0 : currentIndex + 1;
-    changeImage(newIndex);
+    if (!hydrated) return;
+    changeImage(currentIndex === images.length - 1 ? 0 : currentIndex + 1);
   };
 
   const goToImage = (index) => {
-    if (index !== currentIndex) {
-      changeImage(index);
-    }
+    if (!hydrated || index === currentIndex) return;
+    changeImage(index);
   };
 
-  const containerClass = variant === "portfolio" 
+  const containerClass = variant === "portfolio"
     ? `${styles.sliderContainer} ${styles.portfolioContainer}`
     : styles.sliderContainer;
 
@@ -49,50 +53,37 @@ export default function ImageSlider({
     ? `${styles.imageWrapper} ${styles.portfolioWrapper}`
     : styles.imageWrapper;
 
-  const imageStyle = variant === "portfolio"
-    ? { 
-        objectFit: 'cover', 
-        transform: rotate ? 'rotate(90deg)' : 'none',
-        opacity: isTransitioning ? 0 : 1,
-        transition: 'opacity 0.5s ease-in-out'
-      }
-    : { 
-        objectFit: 'contain',
-        opacity: isTransitioning ? 0 : 1,
-        transition: 'opacity 0.5s ease-in-out'
-      };
+  const imageStyle = {
+    objectFit: variant === "portfolio" ? 'cover' : 'contain',
+    transform: rotate ? 'rotate(90deg)' : 'none',
+    opacity: isTransitioning ? 0 : 1,
+    transition: 'opacity 0.5s ease-in-out'
+  };
 
   return (
     <div className={containerClass}>
       <div className={wrapperClass}>
-        <Image 
+        <Image
           src={`${basePath}${images[currentIndex]}`}
           alt={`${address} - фото ${currentIndex + 1}`}
           fill
           className={styles.image}
           loading={loading}
+          decoding="async"
           sizes="(max-width: 768px) 100vw, (max-width: 1480px) 90vw, 1480px"
           style={imageStyle}
         />
       </div>
 
-      {images.length > 1 && (
+      {hydrated && images.length > 1 && (
         <>
-          <button 
-            onClick={goToPrevious}
-            className={`${styles.sliderButton} ${styles.sliderButtonPrev}`}
-            aria-label="Предыдущее фото"
-          >
+          <button onClick={goToPrevious} className={`${styles.sliderButton} ${styles.sliderButtonPrev}`} aria-label="Предыдущее фото">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
               <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </button>
 
-          <button 
-            onClick={goToNext}
-            className={`${styles.sliderButton} ${styles.sliderButtonNext}`}
-            aria-label="Следующее фото"
-          >
+          <button onClick={goToNext} className={`${styles.sliderButton} ${styles.sliderButtonNext}`} aria-label="Следующее фото">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
               <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>

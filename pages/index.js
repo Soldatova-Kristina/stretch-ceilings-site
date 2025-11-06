@@ -7,9 +7,7 @@ import { aboutIndexData } from "@/data/aboutIndex";
 import StepsAccordion from "@/components/StepsAccordion/StepsAccordion";
 import Seo from "@/components/Seo";
 import { homeSeoData } from "@/data/seo/homeSeo";
-import dynamic from 'next/dynamic'
 import styles from '@/styles/Home.module.css';
-const LightRays = dynamic(() => import('@/components/LightRays/LightRays'), { ssr: false })
 
 export async function getStaticProps() {
   return {
@@ -83,16 +81,3 @@ export default function Home({ seoData }) {
 }
 
 
-  {/* <div style={{ width: '100%', height: '600px', position: 'absolute', top: 0, left: 0, zIndex: 0 }}>
-      <LightRays
-        raysOrigin="top-center"
-        raysColor="#ffffff"
-        raysSpeed={1.5}
-        lightSpread={0.8}
-        rayLength={1.2}
-        followMouse={true}
-        mouseInfluence={0.1}
-        noiseAmount={0.1}
-        distortion={0.05}
-      />
-    </div> */}
