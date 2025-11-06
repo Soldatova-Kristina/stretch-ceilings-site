@@ -23,12 +23,8 @@ const nextConfig = {
   },
 
   experimental: {
-    optimizeCss: true,
     optimizePackageImports: ['react-icons'],
   },
-
-  // Modern browser target for smaller bundles
-  swcMinify: true,
 
   images: {
     formats: ['image/webp', 'image/avif'],
@@ -38,25 +34,6 @@ const nextConfig = {
     unoptimized: true,
     loader: 'custom',
     loaderFile: './utils/imageLoader.js',
-  },
-  
-  // HTTP headers for performance
-  async headers() {
-    return [
-      {
-        source: '/:path*',
-        headers: [
-          {
-            key: 'X-DNS-Prefetch-Control',
-            value: 'on'
-          },
-          {
-            key: 'X-Frame-Options',
-            value: 'SAMEORIGIN'
-          },
-        ],
-      },
-    ];
   },
 };
 
