@@ -69,8 +69,9 @@ export default function ImageSlider(props) {
           fill
           className={styles.image}
           loading={loading}
+          quality={85}
           decoding="async"
-          sizes="(max-width: 768px) 100vw, (max-width: 1480px) 90vw, 1480px"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 900px"
           style={imageStyle}
         />
       </div>

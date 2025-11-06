@@ -76,8 +76,9 @@ export default function HeroSection({
             alt={imageAlt} 
             fill
             priority 
+            quality={90}
             className={styles.image}
-            sizes="(max-width: 540px) 100vw, (max-width: 1024px) 80vw, 587px"
+            sizes="(max-width: 540px) 100vw, (max-width: 1024px) 50vw, 587px"
           />
           {showSecondButton && (
             <div className={styles.secondButtonContainer}>

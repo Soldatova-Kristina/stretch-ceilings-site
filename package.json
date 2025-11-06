@@ -14,7 +14,8 @@
     "start": "npx serve out",
     "lint": "eslint",
     "img:convert": "node scripts/convert-images.mjs",
-    "img:validate": "node scripts/validate-webp.mjs"
+    "img:validate": "node scripts/validate-webp.mjs",
+    "img:optimize": "node scripts/optimize-images.mjs"
   },
   "dependencies": {
     "next": "15.5.5",

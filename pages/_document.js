@@ -6,6 +6,25 @@ export default function Document() {
   return (
     <Html lang="ru">
       <Head>
+        {/* Preconnect для ускорения загрузки */}
+        <link rel="preconnect" href="https://piterpotolok.ru" />
+        <link rel="dns-prefetch" href="https://piterpotolok.ru" />
+        
+        {/* Preload критичных шрифтов */}
+        <link
+          rel="preload"
+          href={`${basePath}/fonts/Gilroy-Regular.woff2`}
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href={`${basePath}/fonts/Gilroy-Medium.woff2`}
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
         <style dangerouslySetInnerHTML={{
           __html: `
             @font-face {
