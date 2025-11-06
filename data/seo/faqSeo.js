@@ -28,6 +28,6 @@ export const faqSeoBase = {
   description: "FAQ по натяжным потолкам в СПб: когда вызвать замерщика, порядок работ с обоями и мебелью, безопасность материалов, потеря высоты. Ответы от Питер Потолок.",
   keywords: "вопросы натяжные потолки, FAQ установка СПб, замер потолка, порядок монтажа, безопасность ПВХ, потеря высоты потолок, Санкт-Петербург",
   canonicalUrl: "https://piterpotolok.ru/faq",
-  ogImage: "/og-default.jpg",
+  ogImage: "/og-default.webp",
   ogType: "website"
 };

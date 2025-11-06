@@ -27,9 +27,9 @@ export default function Ceilings({ seoData }) {
             subtitle="ОСВЕЩЕНИЕ"
             location="САНКТ-ПЕТЕРБУРГ И ЛО"
             priceText="СТОИМОСТЬ НАТЯЖНОГО ПОТОЛКА ОТ 1100 РУБЛЕЙ/м²"
-            imageSrc="/images/ceilings/hero_ceilings.png"
+            imageSrc="/images/ceilings/hero_ceilings.webp"
             imageAlt="Натяжные потолки - примеры работ в Санкт-Петербурге"
-            mobileBackgroundImage="/images/ceilings/hero_ceilings.png"
+            mobileBackgroundImage="/images/ceilings/hero_ceilings.webp"
           />
       </section>
 

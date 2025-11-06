@@ -9,7 +9,7 @@ export const materialsData = [
       "Монтаж выполняется без нагрева, что делает процесс безопаснее",
       "Можно окрашивать акриловыми красками в любой оттенок по RAL"
     ],
-    imageSrc: "/images/ceilings/fabric2.jpg",
+    imageSrc: "/images/ceilings/fabric2.webp",
     imageAlt: "Тканевые полотна для натяжных потолков"
   },
   {
@@ -21,7 +21,7 @@ export const materialsData = [
       "Подходят для любых помещений, включая ванные комнаты и кухни",
       "Устанавливаются быстро, возможна бесшовная поверхность до 6 метров."
     ],
-    imageSrc: "/images/ceilings/2pvh.jpg",
+    imageSrc: "/images/ceilings/2pvh.webp",
     imageAlt: "ПВХ-полотна для натяжных потолков"
   }
 ];

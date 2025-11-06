@@ -17,7 +17,7 @@ export default function Contacts({ seoData }) {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
   
   const pageBackground = {
-    backgroundImage: `url(${assetPath('images/texture/black_djins.png')})`,
+    backgroundImage: `url(${assetPath('images/texture/black_djins.webp')})`,
   };
 
   return (
@@ -36,7 +36,7 @@ export default function Contacts({ seoData }) {
 
         <div className={styles.rightColumn}>
           <Image
-            src={`${basePath}/images/contacts/contacts_photo_one.png`}
+            src={`${basePath}/images/contacts/contacts_photo_one.webp`}
             alt="Интерьер с ёлкой"
             width={740}
             height={836}
@@ -49,7 +49,7 @@ export default function Contacts({ seoData }) {
         <section className={styles.sectionTwo} aria-label="Контактная информация">
         <div className={styles.leftColumn}>
           <Image
-            src={`${basePath}/images/contacts/contacts_photo_two.png`}
+            src={`${basePath}/images/contacts/contacts_photo_two.webp`}
             alt="Потолок и перегородка"
             width={740}
             height={836}

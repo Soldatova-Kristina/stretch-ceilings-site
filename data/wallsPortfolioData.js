@@ -1,16 +1,16 @@
 export const wallsPortfolioData = {
   images: [
-    '/images/walls/our3.jpg',
-    '/images/walls/our4.jpg',
-    '/images/walls/our1.jpg',
-    '/images/walls/1.jpg',
-    '/images/walls/2.jpg',
-    '/images/walls/3.jpg',
-    '/images/walls/4.jpg',
-    '/images/walls/5.jpg',
-    '/images/walls/6.jpg',
-    '/images/walls/7.jpg',
-    '/images/walls/8.jpg',
+    '/images/walls/our3.webp',
+    '/images/walls/our4.webp',
+    '/images/walls/our1.webp',
+    '/images/walls/1.webp',
+    '/images/walls/2.webp',
+    '/images/walls/3.webp',
+    '/images/walls/4.webp',
+    '/images/walls/5.webp',
+    '/images/walls/6.webp',
+    '/images/walls/7.webp',
+    '/images/walls/8.webp',
 
   ],
   address: 'Примеры работ - Тихие стены'

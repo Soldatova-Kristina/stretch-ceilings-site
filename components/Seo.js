@@ -10,7 +10,7 @@ import { useRouter } from 'next/router';
  * @param {string} [props.keywords] - Comma-separated SEO keywords (optional)
  * @param {string} [props.ogTitle] - Open Graph title (if different from title)
  * @param {string} [props.ogDescription] - Open Graph description (if different from description)
- * @param {string} [props.ogImage='/og-default.jpg'] - Open Graph image URL (1200×630px recommended)
+ * @param {string} [props.ogImage='/og-default.webp'] - Open Graph image URL (1200×630px recommended)
  * @param {string} [props.ogType='website'] - Open Graph type (website/article)
  * @param {string} [props.canonicalUrl] - Canonical URL for duplicate content handling
  * @param {boolean} [props.noIndex=false] - If true, prevents search engine indexing
@@ -23,7 +23,7 @@ export default function Seo({
   keywords,
   ogTitle,
   ogDescription,
-  ogImage = '/og-default.jpg',
+  ogImage = '/og-default.webp',
   ogType = 'website',
   canonicalUrl,
   noIndex = false,

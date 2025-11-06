@@ -1,7 +1,7 @@
 export const ceilingTypes = [
   {
     id: 1,
-    image: "/images/ceilings/fabric_type.jpg",
+    image: "/images/ceilings/fabric_type.webp",
     imageAlt: "Тканевый натяжной потолок",
     title: "ТКАНЕВЫЙ",
     subtitle: "НАТЯЖНОЙ ПОТОЛОК",
@@ -10,7 +10,7 @@ export const ceilingTypes = [
   },
   {
     id: 2,
-    image: "/images/ceilings/mat.jpg",
+    image: "/images/ceilings/mat.webp",
     imageAlt: "Матовый натяжной потолок",
     title: "МАТОВЫЙ",
     subtitle: "НАТЯЖНОЙ ПОТОЛОК",
@@ -19,7 +19,7 @@ export const ceilingTypes = [
   },
   {
     id: 3,
-    image: "/images/ceilings/satin.jpg",
+    image: "/images/ceilings/satin.webp",
     imageAlt: "Сатиновый натяжной потолок",
     title: "САТИНОВЫЙ",
     subtitle: "НАТЯЖНОЙ ПОТОЛОК",
@@ -28,7 +28,7 @@ export const ceilingTypes = [
   },
   {
     id: 4,
-    image: "/images/ceilings/glass.jpg",
+    image: "/images/ceilings/glass.webp",
     imageAlt: "Глянцевый натяжной потолок",
     title: "ГЛЯНЦЕВЫЙ",
     subtitle: "НАТЯЖНОЙ ПОТОЛОК",

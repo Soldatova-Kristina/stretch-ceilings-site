@@ -13,11 +13,11 @@ export const aboutIndexData = {
       description: "реализиуем проекты\nлюбой сложности"
     }
   ],
-  horizontalImage: "/images/index/about2.jpeg",
+  horizontalImage: "/images/index/about2.webp",
   horizontalImageAlt: "Интерьер с натяжными потолками",
   horizontalImageWidth: 721,
   horizontalImageHeight: 397,
-  verticalImage: "/images/index/about1.jpg",
+  verticalImage: "/images/index/about1.webp",
   verticalImageAlt: "Интерьер с тихими стенами",
   verticalImageWidth: 453,
   verticalImageHeight: 736

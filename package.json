@@ -15,7 +15,8 @@
     "lint": "eslint",
     "img:convert": "node scripts/convert-images.mjs",
     "img:validate": "node scripts/validate-webp.mjs",
-    "img:optimize": "node scripts/optimize-images.mjs"
+    "img:optimize": "node scripts/optimize-images.mjs",
+    "img:update-paths": "node scripts/update-image-paths.mjs"
   },
   "dependencies": {
     "next": "15.5.5",

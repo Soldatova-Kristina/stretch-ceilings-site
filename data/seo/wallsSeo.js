@@ -171,7 +171,7 @@ export const wallsSeoData = {
   keywords: "тихие стены, тихие стены спб, архитектурный текстиль, натяжные стены, текстильные стены, звукоизоляция стен, акустические стены, отделка стен текстилем, установка тихих стен, тканевые стены, стеновые панели, звукопоглощающие стены, акустический текстиль, декоративный текстиль для стен, быстрая отделка стен, монтаж стен за 1 день, стены без пыли, архитектурный текстиль санкт-петербург, тихие стены цена, современная отделка стен",
   ogTitle: "Тихие стены из архитектурного текстиля — монтаж за 1 день",
   ogDescription: "Установка тихих стен в СПб и ЛО. Звукоизоляция, улучшение акустики, быстрый монтаж. Цены от 4500 ₽/м². Гарантия качества.",
-  ogImage: "/images/walls/og-walls.jpg",
+  ogImage: "/images/walls/og-walls.webp",
   ogType: "website",
   canonicalUrl: "https://piterpotolok.ru/services/walls",
   structuredData: wallsStructuredData.map(schema => JSON.stringify(schema)),
@@ -186,6 +186,6 @@ export const wallsSeoData = {
     { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:title", content: "Тихие стены из архитектурного текстиля — монтаж за 1 день" },
     { name: "twitter:description", content: "Установка тихих стен в СПб и ЛО. Звукоизоляция, улучшение акустики, быстрый монтаж. Цены от 4500 ₽/м²." },
-    { name: "twitter:image", content: "/images/walls/og-walls.jpg" },
+    { name: "twitter:image", content: "/images/walls/og-walls.webp" },
   ]
 };

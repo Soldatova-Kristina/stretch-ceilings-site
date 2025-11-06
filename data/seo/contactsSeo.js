@@ -5,7 +5,7 @@ const structuredData = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": organizationData.name,
-  "image": "https://piterpotolok.ru/og-default.jpg",
+  "image": "https://piterpotolok.ru/og-default.webp",
   "@id": "https://piterpotolok.ru",
   "url": organizationData.url,
   "telephone": "+7-932-007-60-85",
@@ -39,7 +39,7 @@ export const contactsSeoData = {
   title: "Контакты — Питер Потолок | Телефон, адрес в СПб",
   description: "Свяжитесь с нами для бесплатной консультации по натяжным потолкам в Санкт-Петербурге и ЛО. Телефон +7-932-007-60-85, выезд замерщика бесплатно, работаем ежедневно.",
   keywords: "контакты натяжные потолки, телефон Питер Потолок, адрес СПб, связаться консультация, бесплатный замер, Санкт-Петербург ЛО",
-  ogImage: "/og-default.jpg",
+  ogImage: "/og-default.webp",
   canonicalUrl: "https://piterpotolok.ru/contacts",
   structuredData: JSON.stringify(structuredData),
 };

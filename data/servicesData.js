@@ -3,14 +3,14 @@ export const servicesData = [
     id: 1,
     title: 'НАТЯЖНЫЕ ПОТОЛКИ',
     text: 'Лучшее решение в отделке потолков, сочетающее в себе высокое эксплуатационное качество и доступную стоимость. Подходят как для жилых, так и для коммерческих помещений',
-    image: '/images/index/service1.png',
+    image: '/images/index/service1.webp',
     link: '/services/ceilings',
   },
   {
     id: 2,
     title: 'ТИХИЕ СТЕНЫ',
     text: 'Архитектурный текстиль для финишной отделки стен и потолков. Безупречная акустика и звукопоглощение. Монтаж в 5 раз быстрее стандартной отделки. Срок службы более 30-ти лет.',
-    image: '/images/index/serv22.jpg',
+    image: '/images/index/serv22.webp',
     link: '/services/walls',
   },
 ];

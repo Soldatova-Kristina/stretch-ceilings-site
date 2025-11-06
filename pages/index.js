@@ -34,9 +34,9 @@ export default function Home({ seoData }) {
                  mainTitle="НАТЯЖНЫЕ ПОТОЛКИ"
                  subtitle="ТИХИЕ СТЕНЫ"
                  location="САНКТ-ПЕТЕРБУРГ И ЛО"
-                 imageSrc="/images/index/hero_main.png"
+                 imageSrc="/images/index/hero_main.webp"
                  imageAlt="Натяжные потолки в Санкт-Петербурге - современные решения для вашего интерьера"
-                 mobileBackgroundImage="/images/index/mobile_main.png"
+                 mobileBackgroundImage="/images/index/mobile_main.webp"
                  showSecondButton={true}
                  secondButtonText="ПОДРОБНЕЕ ОБ УСЛУГАХ"
                  onSecondButtonClick={scrollToServices}
@@ -72,7 +72,7 @@ export default function Home({ seoData }) {
            <section aria-label="Этапы работы">
              <SectionLayout 
                title="ЭТАПЫ РАБОТЫ"
-               backgroundImage="/images/texture/black_djins.png">
+               backgroundImage="/images/texture/black_djins.webp">
                 <StepsAccordion />
              </SectionLayout>
            </section>

@@ -10,7 +10,7 @@ export function createReviewsStructuredData(reviewsData) {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": organizationData.name,
-    "image": "https://piterpotolok.ru/og-default.jpg",
+    "image": "https://piterpotolok.ru/og-default.webp",
     "@id": organizationData.url,
     "url": `${organizationData.url}/reviews`,
     "telephone": "+7-932-007-60-85",
@@ -43,7 +43,7 @@ export const reviewsSeoBase = {
   title: "Отзывы клиентов",
   description: "Отзывы о натяжных потолках в Санкт-Петербурге: реальные мнения клиентов Питер Потолок о качестве работ, сроках монтажа и сервисе. Читайте отзывы с фото результатов.",
   keywords: "отзывы натяжные потолки СПб, мнения клиентов Санкт-Петербург, рекомендации Питер Потолок, качество работ отзывы, реальные отзывы установка потолков",
-  ogImage: "/images/reviews/evgenia.png",
+  ogImage: "/images/reviews/evgenia.webp",
   canonicalUrl: "https://piterpotolok.ru/reviews",
   ogType: "website"
 };

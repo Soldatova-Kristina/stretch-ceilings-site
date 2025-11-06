@@ -26,7 +26,7 @@ export default function Reviews({ seoData, reviewImages }) {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
   
   const pageWrapperStyle = {
-    backgroundImage: `url(${basePath}/images/texture/black_djins.png)`
+    backgroundImage: `url(${basePath}/images/texture/black_djins.webp)`
   };
   
   // Slider 1: Иван, Антон, Евгения (indexes: 0, 1, 4)

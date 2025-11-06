@@ -185,7 +185,7 @@
     display: block;
     background-image: 
       linear-gradient(rgb(255, 255, 255, 0.7), rgb(255, 255, 255, 0.7)),
-      var(--mobile-bg-image, url('/images/index/mobile_main.png'));
+      var(--mobile-bg-image, url('/images/index/mobile_main.webp'));
   }
 
   .heroInner {

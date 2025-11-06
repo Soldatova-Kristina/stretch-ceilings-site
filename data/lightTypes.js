@@ -1,7 +1,7 @@
 export const lightTypes = [
   {
     id: 1,
-    image: "/images/ceilings/linii.jpg",
+    image: "/images/ceilings/linii.webp",
     imageAlt: "Световые линии",
     title: "СВЕТОВЫЕ ЛИНИИ",
     description: "Минималистичное решение: в потолок встраиваются тонкие световые полосы. Они могут идти по периметру или пересекать потолок, создавая геометрические рисунки. Отличный вариант для зонирования и современного интерьера",
@@ -9,7 +9,7 @@ export const lightTypes = [
   },
   {
     id: 2,
-    image: "/images/ceilings/trkk.jpg",
+    image: "/images/ceilings/trkk.webp",
     imageAlt: "Трековое освещение",
     title: "ТРЕКОВОЕ ОСВЕЩЕНИЕ",
     description: "Функциональная система, в которой светильники крепятся на направляющую-шину. Легко менять расположение и угол света, добавлять или убирать светильники. Подходит для кухонь, гостиных и рабочих зон, где важна гибкость освещения",
@@ -17,7 +17,7 @@ export const lightTypes = [
   },
   {
     id: 3,
-    image: "/images/ceilings/spot.jpg",
+    image: "/images/ceilings/spot.webp",
     imageAlt: "Споты на натяжном потолке",
     title: "СПОТЫ",
     subtitle: "НА НАТЯЖНОМ ПОТОЛКЕ",
@@ -26,7 +26,7 @@ export const lightTypes = [
   },
   {
     id: 4,
-    image: "/images/ceilings/zvezda.jpeg",
+    image: "/images/ceilings/zvezda.webp",
     imageAlt: "Звездное небо",
     title: "ЗВЕЗДНОЕ НЕБО",
     description: "Потолок «звёздное небо» создаёт иллюзию ночного космоса с мерцающими огнями. Оптоволоконные нити имитируют звёзды, возможны сценарии с метеорами и сменой цветов. Такой вариант подходит для квартир, кинотеатров и lounge-пространств, где важны уют и эффектный визуальный акцент",

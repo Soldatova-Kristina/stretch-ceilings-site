@@ -6,7 +6,7 @@
 export const siteConfig = {
   siteName: "Питер Потолок",
   baseUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://piterpotolok.ru",
-  defaultOgImage: "/og-default.jpg",
+  defaultOgImage: "/og-default.webp",
 };
 
 export const organizationData = {
@@ -19,13 +19,13 @@ export const organizationData = {
   "url": "https://piterpotolok.ru",
   "logo": {
     "@type": "ImageObject",
-    "url": "https://piterpotolok.ru/icons/logogo.png",
+    "url": "https://piterpotolok.ru/icons/logogo.webp",
     "width": "112",
     "height": "90"
   },
   "image": [
-    "https://piterpotolok.ru/images/main/hero_main.png",
-    "https://piterpotolok.ru/og-home.jpg"
+    "https://piterpotolok.ru/images/main/hero_main.webp",
+    "https://piterpotolok.ru/og-home.webp"
   ],
   "telephone": "+79320076085",
   "priceRange": "₽₽",

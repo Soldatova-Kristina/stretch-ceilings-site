@@ -183,7 +183,7 @@ const webPageSchema = {
   "inLanguage": "ru-RU",
   "primaryImageOfPage": {
     "@type": "ImageObject",
-    "url": "https://piterpotolok.ru/images/main/hero_main.png"
+    "url": "https://piterpotolok.ru/images/main/hero_main.webp"
   },
   "breadcrumb": {
     "@id": "https://piterpotolok.ru/#breadcrumb"
@@ -236,7 +236,7 @@ export const homeSeoData = {
   keywords: "натяжные потолки спб, натяжные потолки санкт-петербург, установка натяжных потолков, тихие стены, натяжные потолки цена, монтаж потолков, глянцевые потолки, матовые потолки, сатиновые потолки, тканевые потолки, двухуровневые потолки, парящие потолки, потолки с подсветкой, натяжные потолки в квартиру, потолки в спальню, потолки на кухню, потолки в гостиную, звукоизоляция стен, текстильные стены, натяжные потолки недорого, натяжные потолки петербург, потолки ло, ремонт квартир спб, дизайн потолков",
   ogTitle: "Натяжные потолки и тихие стены в СПб | Питер Потолок",
   ogDescription: "Профессиональная установка натяжных потолков и тихих стен в Санкт-Петербурге. Цены от 1100 ₽/м². Монтаж за 1 день. Бесплатный замер!",
-  ogImage: "/og-home.jpg",
+  ogImage: "/og-home.webp",
   canonicalUrl: "https://piterpotolok.ru",
   structuredData: [
     JSON.stringify(organizationSchema),

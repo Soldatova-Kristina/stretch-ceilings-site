@@ -30,9 +30,9 @@ export default function Walls({ seoData }) {
               subtitle="ТИХИЕ СТЕНЫ"
               location="САНКТ-ПЕТЕРБУРГ И ЛО"
               priceText="СТОИМОСТЬ ТИХИХ СТЕН ОТ 4500 РУБЛЕЙ/м²"
-              imageSrc="/images/walls/hero_walls.png"
+              imageSrc="/images/walls/hero_walls.webp"
               imageAlt="Архитектурный текстиль и тихие стены в Санкт-Петербурге"
-              mobileBackgroundImage="/images/walls/hero_walls.png"
+              mobileBackgroundImage="/images/walls/hero_walls.webp"
             />
         </section>
 
@@ -54,7 +54,7 @@ export default function Walls({ seoData }) {
         <section aria-label="Преимущества технологии">
           <SectionLayout 
             title="ПРЕИМУЩЕСТВА ТЕХНОЛОГИИ"
-            backgroundImage="/images/walls/features_background.jpg"
+            backgroundImage="/images/walls/features_background.webp"
             backgroundOpacity={0.35}>
               <TextileFeatures />
           </SectionLayout>
@@ -71,7 +71,7 @@ export default function Walls({ seoData }) {
         <section aria-label="Примеры наших работ">
           <SectionLayout 
             title="ПРИМЕРЫ РАБОТ"
-            backgroundImage="/images/texture/black_djins.png">
+            backgroundImage="/images/texture/black_djins.webp">
               <ImageSlider 
                 images={wallsPortfolioData.images}
                 address={wallsPortfolioData.address}
