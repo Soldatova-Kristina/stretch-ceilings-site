@@ -12,11 +12,7 @@
     "deploy:gh": "npm run build:gh && touch out/.nojekyll && rm -rf /tmp/gh-pages-deploy && cp -R out /tmp/gh-pages-deploy && npx gh-pages --dist /tmp/gh-pages-deploy --dotfiles --repo https://github.com/Soldatova-Kristina/stretch-ceilings-site.git",
     "postbuild": "node scripts/fix-css-paths.mjs",
     "start": "npx serve out",
-    "lint": "eslint",
-    "img:convert": "node scripts/convert-images.mjs",
-    "img:validate": "node scripts/validate-webp.mjs",
-    "img:optimize": "node scripts/optimize-images.mjs",
-    "img:update-paths": "node scripts/update-image-paths.mjs"
+    "lint": "eslint"
   },
   "dependencies": {
     "next": "15.5.5",
